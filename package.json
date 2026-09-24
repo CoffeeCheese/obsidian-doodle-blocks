@@ -1,0 +1,10 @@
+{
+  "name": "obsidian-doodle-blocks",
+  "private": true,
+  "scripts": {
+    "prototype:video-style": "bash prototypes/video-style/run",
+    "prototype:video-cards": "bash prototypes/video-style/run-cards",
+    "prototype:video-effects": "bash prototypes/video-style/run-effects",
+    "prototype:video-settings": "bash prototypes/video-style/run-settings"
+  }
+}

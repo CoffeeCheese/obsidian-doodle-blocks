@@ -1,0 +1,66 @@
+// CodeMirror 6 is shared by source mode and live preview. Keep its line layout,
+// syntax visibility, wrapping, and widgets under Obsidian's control.
+.markdown-source-view.mod-cm6 {
+  // Obsidian uses these variables for both its drawn selection and ::selection.
+  // The accent remains the user's chosen Obsidian accent in either palette.
+  --text-selection: color-mix(in srgb, var(--q-accent, var(--interactive-accent)) 36%, var(--q-paper, var(--background-primary)));
+
+  .cm-content {
+    color: var(--text-normal, var(--q-ink));
+    font-family: var(--q-font-prose, var(--font-text, system-ui, sans-serif));
+  }
+
+  .cm-editor.cm-focused .cm-line.cm-active {
+    background-color: color-mix(in srgb, var(--q-accent, var(--interactive-accent)) 14%, var(--q-paper, var(--background-primary)));
+    box-shadow: inset 2px 0 var(--q-accent-strong, var(--interactive-accent));
+  }
+
+  .cm-cursor {
+    border-left-color: var(--caret-color, var(--q-accent-strong, var(--interactive-accent)));
+    border-left-width: 2px;
+  }
+
+  // Source mode keeps every Markdown marker visible and distinct from prose.
+  &:not(.is-live-preview) .cm-formatting {
+    color: var(--text-muted, var(--q-muted));
+  }
+
+  &.is-live-preview {
+    .cm-line.HyperMD-header-1 {
+      font-size: 2em;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .cm-line.HyperMD-header-2 {
+      padding-inline-start: 0.55em;
+      border-inline-start: 0.22em solid var(--q-sun, #ffd464);
+      font-size: 1.5em;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .cm-line.HyperMD-header-3 {
+      font-size: 1.25em;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .cm-line.HyperMD-quote {
+      background-color: color-mix(in srgb, var(--q-cyan, #55bac1) 6%, var(--q-paper, var(--background-primary)));
+      color: var(--text-normal, var(--q-ink));
+    }
+
+    .callout {
+      border-inline-start: 3px solid rgb(var(--callout-color, 85, 186, 193));
+      background: color-mix(in srgb, rgb(var(--callout-color, 85, 186, 193)) 9%, var(--q-paper, #fffaf0));
+      color: var(--text-normal, var(--q-ink));
+    }
+
+    .cm-table-widget .table-wrapper {
+      max-inline-size: 100%;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+    }
+  }
+}

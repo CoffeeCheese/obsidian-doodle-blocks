@@ -438,6 +438,56 @@ body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-co
   margin-block-end: 0;
 }
 
+.markdown-source-view.mod-cm6 {
+  --text-selection: color-mix(in srgb, var(--q-accent, var(--interactive-accent)) 36%, var(--q-paper, var(--background-primary)));
+}
+.markdown-source-view.mod-cm6 .cm-content {
+  color: var(--text-normal, var(--q-ink));
+  font-family: var(--q-font-prose, var(--font-text, system-ui, sans-serif));
+}
+.markdown-source-view.mod-cm6 .cm-editor.cm-focused .cm-line.cm-active {
+  background-color: color-mix(in srgb, var(--q-accent, var(--interactive-accent)) 14%, var(--q-paper, var(--background-primary)));
+  box-shadow: inset 2px 0 var(--q-accent-strong, var(--interactive-accent));
+}
+.markdown-source-view.mod-cm6 .cm-cursor {
+  border-left-color: var(--caret-color, var(--q-accent-strong, var(--interactive-accent)));
+  border-left-width: 2px;
+}
+.markdown-source-view.mod-cm6:not(.is-live-preview) .cm-formatting {
+  color: var(--text-muted, var(--q-muted));
+}
+.markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-1 {
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-2 {
+  padding-inline-start: 0.55em;
+  border-inline-start: 0.22em solid var(--q-sun, #ffd464);
+  font-size: 1.5em;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-3 {
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-quote {
+  background-color: color-mix(in srgb, var(--q-cyan, #55bac1) 6%, var(--q-paper, var(--background-primary)));
+  color: var(--text-normal, var(--q-ink));
+}
+.markdown-source-view.mod-cm6.is-live-preview .callout {
+  border-inline-start: 3px solid rgb(var(--callout-color, 85, 186, 193));
+  background: color-mix(in srgb, rgb(var(--callout-color, 85, 186, 193)) 9%, var(--q-paper, #fffaf0));
+  color: var(--text-normal, var(--q-ink));
+}
+.markdown-source-view.mod-cm6.is-live-preview .cm-table-widget .table-wrapper {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
 body:not(.is-mobile).theme-light {
   --q-control-shadow: #b9a796;
   --q-danger: #a84d40;

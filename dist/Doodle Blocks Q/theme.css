@@ -619,7 +619,7 @@ body:not(.is-mobile) :is(.modal, .prompt, .mod-settings, .workspace-leaf-content
 input[type=password], input[type=number], textarea, select,
 .dropdown, .combobox-button),
 body:not(.is-mobile) .metadata-property input[type=text] {
-  border: 2px solid var(--q-line);
+  border: 2px solid var(--q-ink);
   border-radius: 5px;
   background-color: var(--q-paper);
   color: var(--text-normal);
@@ -629,7 +629,14 @@ body:not(.is-mobile) :is(.modal, .prompt, .mod-settings, .workspace-leaf-content
 input[type=password], input[type=number], textarea, select,
 .dropdown, .combobox-button):focus-visible,
 body:not(.is-mobile) .metadata-property input[type=text]:focus-visible {
-  border-color: var(--interactive-accent);
+  outline: 3px solid var(--q-accent-strong, var(--interactive-accent));
+  outline-offset: 2px;
+}
+body:not(.is-mobile) :is(.modal, .prompt, .mod-settings, .workspace-leaf-content[data-type=search]) :is(input[type=text], input[type=search], input[type=email],
+input[type=password], input[type=number], select:not(.is-measuring),
+.combobox-button),
+body:not(.is-mobile) .metadata-property input[type=text] {
+  min-block-size: 44px;
 }
 body:not(.is-mobile) :is(.modal, .prompt, .mod-settings, .workspace-leaf-content[data-type=search]) :is(input, textarea)::placeholder {
   color: var(--text-muted);
@@ -642,10 +649,14 @@ body:not(.is-mobile) .markdown-rendered .task-list-item-checkbox {
 body:not(.is-mobile) :is(.modal, .mod-settings, .setting-item-control) .checkbox-container {
   border: 2px solid var(--q-ink);
   border-radius: 6px;
-  box-shadow: 2px 2px 0 var(--q-control-shadow);
+  box-shadow: 3px 3px 0 var(--q-control-shadow);
 }
 body:not(.is-mobile) :is(.modal, .mod-settings, .setting-item-control) .checkbox-container.is-enabled {
   background-color: var(--interactive-accent);
+}
+body:not(.is-mobile) :is(.modal, .mod-settings, .setting-item-control) .checkbox-container:focus-within {
+  outline: 3px solid var(--q-accent-strong, var(--interactive-accent));
+  outline-offset: 3px;
 }
 body:not(.is-mobile) :is(.workspace-ribbon, .workspace-tab-header-container, .view-header,
 .modal, .prompt, .mod-settings) .clickable-icon {

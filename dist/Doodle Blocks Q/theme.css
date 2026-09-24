@@ -178,6 +178,134 @@
   box-shadow: inset 0 0 0 1px var(--q-workspace-seam), inset 0 3px var(--q-cyan, var(--interactive-accent));
 }
 
+body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-file-title,
+body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-folder-title {
+  border-radius: 3px;
+  color: var(--text-normal);
+}
+body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-file-title.is-active {
+  background-color: var(--q-accent-wash, var(--background-modifier-active-hover));
+  box-shadow: inset 3px 0 var(--q-accent, var(--interactive-accent)), inset 0 0 0 1px var(--q-line, var(--background-modifier-border));
+  font-weight: 600;
+}
+body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-file-title:focus-visible,
+body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:focus-visible {
+  outline: 2px solid var(--q-accent, var(--interactive-accent));
+  outline-offset: -2px;
+}
+body:not(.is-mobile) .workspace .workspace-ribbon .side-dock-ribbon-action,
+body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-header .nav-action-button,
+body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=markdown] > .view-header .clickable-icon,
+body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type=search],
+[data-type=backlink],
+[data-type=outgoing-link],
+[data-type=outline],
+[data-type=file-properties],
+[data-type=all-properties]) .nav-header .nav-action-button {
+  color: var(--text-normal);
+}
+body:not(.is-mobile) .workspace .workspace-ribbon .side-dock-ribbon-action.is-active {
+  background-color: var(--q-accent-wash, var(--background-modifier-active-hover));
+  box-shadow: inset 3px 0 var(--q-accent, var(--interactive-accent));
+}
+body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type=search],
+[data-type=backlink],
+[data-type=outgoing-link],
+[data-type=outline],
+[data-type=file-properties],
+[data-type=all-properties]) .view-content,
+body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type=search],
+[data-type=backlink],
+[data-type=outgoing-link],
+[data-type=outline],
+[data-type=file-properties],
+[data-type=all-properties]) .search-result-container,
+body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type=search],
+[data-type=backlink],
+[data-type=outgoing-link],
+[data-type=outline],
+[data-type=file-properties],
+[data-type=all-properties]) .tree-item,
+body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type=search],
+[data-type=backlink],
+[data-type=outgoing-link],
+[data-type=outline],
+[data-type=file-properties],
+[data-type=all-properties]) .metadata-content {
+  min-inline-size: 0;
+  min-block-size: 0;
+}
+body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type=search],
+[data-type=backlink],
+[data-type=outgoing-link],
+[data-type=outline],
+[data-type=file-properties],
+[data-type=all-properties]) .view-content {
+  color: var(--text-normal);
+}
+body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type=search],
+[data-type=backlink],
+[data-type=outgoing-link],
+[data-type=outline],
+[data-type=file-properties],
+[data-type=all-properties]) .search-result-file-title,
+body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type=search],
+[data-type=backlink],
+[data-type=outgoing-link],
+[data-type=outline],
+[data-type=file-properties],
+[data-type=all-properties]) .tree-item-inner {
+  color: var(--text-normal);
+}
+body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type=search],
+[data-type=backlink],
+[data-type=outgoing-link],
+[data-type=outline],
+[data-type=file-properties],
+[data-type=all-properties]) .tree-item-self.is-active {
+  background-color: var(--q-accent-wash, var(--background-modifier-active-hover));
+  box-shadow: inset 3px 0 var(--q-accent, var(--interactive-accent));
+  color: var(--text-normal);
+  font-weight: 600;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-file-title:not(.is-active):hover,
+  body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover {
+    background-color: var(--q-hover, var(--background-modifier-hover));
+    color: var(--text-normal);
+  }
+  body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type=search],
+  [data-type=backlink],
+  [data-type=outgoing-link],
+  [data-type=outline],
+  [data-type=file-properties],
+  [data-type=all-properties]) .tree-item-self:not(.is-active):hover {
+    background-color: var(--q-hover, var(--background-modifier-hover));
+  }
+}
+@media (max-width: 1000px) {
+  body:not(.is-mobile) .workspace .workspace-split.mod-root,
+  body:not(.is-mobile) .workspace .workspace-split.mod-root .workspace-tabs,
+  body:not(.is-mobile) .workspace .workspace-split.mod-root .workspace-tab-container,
+  body:not(.is-mobile) .workspace .workspace-split.mod-root .workspace-leaf,
+  body:not(.is-mobile) .workspace .workspace-split.mod-root .workspace-leaf-content,
+  body:not(.is-mobile) .workspace .workspace-split.mod-root .view-content,
+  body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-tabs,
+  body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-tab-container,
+  body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-content {
+    min-inline-size: 0;
+  }
+  body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-header {
+    padding-inline: 4px;
+  }
+  body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-files-container {
+    padding-inline: 6px;
+  }
+  body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-tab-header-container {
+    padding-inline: 2px;
+  }
+}
 .markdown-reading-view .markdown-preview-view {
   color: var(--text-normal, var(--q-ink));
   font-family: var(--q-font-prose, var(--font-text, "PingFang SC", "Hiragino Sans GB", system-ui, sans-serif));

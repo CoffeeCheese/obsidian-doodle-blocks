@@ -57,6 +57,12 @@ test('rebuilding is deterministic and check rejects stale package output', () =>
   const stale = run('check', out);
   assert.notEqual(stale.status, 0);
   assert.match(stale.stderr, /out of date|stale/i);
+
+  const unrelated = mkdtempSync(join(tmpdir(), 'unrelated-output-'));
+  mkdirSync(join(unrelated, 'keep'));
+  const refused = run('build', unrelated);
+  assert.notEqual(refused.status, 0);
+  assert.equal(existsSync(join(unrelated, 'keep')), true);
 });
 
 test('preview installs only the named theme package in a dev-test Vault', () => {

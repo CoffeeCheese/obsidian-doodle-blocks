@@ -88,8 +88,7 @@ function writePackage(out, files) {
   const outputStat = lstatSync(out, { throwIfNoEntry: false });
   if (outputStat) {
     if (!outputStat.isDirectory() || outputStat.isSymbolicLink()) throw new Error(`Theme output must be a directory: ${out}`);
-    const existing = listFiles(out);
-    if (existing.length) {
+    if (readdirSync(out).length) {
       const manifestPath = join(out, 'manifest.json');
       if (!existsSync(manifestPath) || lstatSync(manifestPath).isSymbolicLink()) {
         throw new Error(`Refusing to replace an unrelated output directory: ${out}`);

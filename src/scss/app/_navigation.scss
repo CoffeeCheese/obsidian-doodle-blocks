@@ -105,13 +105,6 @@ body:not(.is-mobile) .workspace {
 
 @media (max-width: 1000px) {
   body:not(.is-mobile) .workspace {
-    // Obsidian preserves a wide inline dock width when the window shrinks.
-    // Cap both docks so the note remains usable while resize handles stay active.
-    .workspace-split.mod-sidedock {
-      max-inline-size: clamp(150px, 25vw, 220px);
-    }
-
-    .workspace-split.mod-root,
     .workspace-split.mod-root .workspace-tabs,
     .workspace-split.mod-root .workspace-tab-container,
     .workspace-split.mod-root .workspace-leaf,
@@ -121,6 +114,21 @@ body:not(.is-mobile) .workspace {
     .workspace-split.mod-sidedock .workspace-tab-container,
     .workspace-split.mod-sidedock .workspace-leaf-content {
       min-inline-size: 0;
+    }
+
+    // Share the remaining width with both native docks. Their inline widths
+    // remain resizable; the editor retains enough space as the window shrinks.
+    .workspace-split.mod-root {
+      min-inline-size: clamp(240px, 40vw, 320px);
+      flex: 1 1 320px;
+    }
+
+    .workspace-split.mod-sidedock {
+      flex-shrink: 1;
+    }
+
+    .workspace-split.mod-sidedock:not(.is-sidedock-collapsed) {
+      min-inline-size: 150px;
     }
 
     .workspace-leaf-content[data-type="file-explorer"] {

@@ -175,7 +175,7 @@
   border-bottom: 2px solid var(--q-ink, var(--text-normal));
 }
 .workspace .workspace-tabs.mod-active .workspace-tab-header.is-active {
-  box-shadow: inset 0 0 0 1px var(--q-workspace-seam), inset 0 3px var(--q-cyan, var(--interactive-accent));
+  box-shadow: inset 0 0 0 1px var(--q-workspace-seam), inset 0 3px var(--q-accent, var(--interactive-accent));
 }
 
 body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-file-title,
@@ -285,10 +285,6 @@ body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-co
   }
 }
 @media (max-width: 1000px) {
-  body:not(.is-mobile) .workspace .workspace-split.mod-sidedock {
-    max-inline-size: clamp(150px, 25vw, 220px);
-  }
-  body:not(.is-mobile) .workspace .workspace-split.mod-root,
   body:not(.is-mobile) .workspace .workspace-split.mod-root .workspace-tabs,
   body:not(.is-mobile) .workspace .workspace-split.mod-root .workspace-tab-container,
   body:not(.is-mobile) .workspace .workspace-split.mod-root .workspace-leaf,
@@ -298,6 +294,16 @@ body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-co
   body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-tab-container,
   body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-content {
     min-inline-size: 0;
+  }
+  body:not(.is-mobile) .workspace .workspace-split.mod-root {
+    min-inline-size: clamp(240px, 40vw, 320px);
+    flex: 1 1 320px;
+  }
+  body:not(.is-mobile) .workspace .workspace-split.mod-sidedock {
+    flex-shrink: 1;
+  }
+  body:not(.is-mobile) .workspace .workspace-split.mod-sidedock:not(.is-sidedock-collapsed) {
+    min-inline-size: 150px;
   }
   body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-header {
     padding-inline: 4px;

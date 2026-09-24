@@ -24,7 +24,7 @@ test('build produces a complete offline Obsidian theme package', () => {
   assert.deepEqual(manifest, {
     name: 'Doodle Blocks Q',
     version: '0.1.0',
-    minAppVersion: '1.12.7',
+    minAppVersion: '1.13.7',
     author: 'CoffeeCheese',
   });
 

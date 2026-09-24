@@ -285,6 +285,9 @@ body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-co
   }
 }
 @media (max-width: 1000px) {
+  body:not(.is-mobile) .workspace .workspace-split.mod-sidedock {
+    max-inline-size: clamp(150px, 25vw, 220px);
+  }
   body:not(.is-mobile) .workspace .workspace-split.mod-root,
   body:not(.is-mobile) .workspace .workspace-split.mod-root .workspace-tabs,
   body:not(.is-mobile) .workspace .workspace-split.mod-root .workspace-tab-container,

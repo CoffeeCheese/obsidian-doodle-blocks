@@ -117,7 +117,7 @@ function writePackage(out, files) {
     const target = join(out, name);
     mkdirSync(dirname(target), { recursive: true });
     const temporary = `${target}.tmp-${process.pid}`;
-    writeFileSync(temporary, contents);
+    writeFileSync(temporary, contents, { flag: 'wx' });
     renameSync(temporary, target);
   }
   // A successful build is an exact package, including when an older build

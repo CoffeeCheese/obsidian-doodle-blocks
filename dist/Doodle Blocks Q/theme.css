@@ -221,6 +221,7 @@ body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-co
 }
 body:not(.is-mobile) .workspace .workspace-ribbon .side-dock-ribbon-action.is-active {
   background-color: var(--q-accent-wash, var(--background-modifier-active-hover));
+  border: 1px solid var(--q-ink);
   border-inline-start: 3px solid var(--q-accent-strong, var(--interactive-accent));
   box-shadow: 2px 2px 0 var(--q-shadow);
 }

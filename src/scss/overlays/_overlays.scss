@@ -16,7 +16,11 @@ body:not(.is-mobile) {
   }
 
   .modal-container > .modal:not(.mod-settings) {
-    box-shadow: 6px 6px 0 var(--q-shadow, var(--background-modifier-border));
+    box-shadow: 7px 7px 0 var(--q-shadow, var(--background-modifier-border));
+  }
+
+  .modal-container .modal-bg {
+    background-color: rgb(35 29 25 / 53%);
   }
 
   .menu {
@@ -73,18 +77,39 @@ body:not(.is-mobile) {
   }
 
   .notice {
+    align-items: center;
+    gap: 10px;
+
+    &::before {
+      display: block;
+      inline-size: 26px;
+      block-size: 26px;
+      flex: none;
+      border: 1px solid var(--q-ink);
+      border-radius: 4px;
+      background: var(--q-mint);
+      content: "";
+    }
+
     .notice-message {
       color: var(--text-normal);
     }
 
     &.mod-error {
       border-color: var(--q-danger, var(--q-brick));
+
+      &::before {
+        background: var(--q-danger, var(--q-brick));
+      }
     }
   }
 
   .modal-container > .modal:not(.mod-settings) .modal-title {
     color: var(--text-normal);
-    font-weight: 700;
+    font-family: var(--q-font-display);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.3;
   }
 
   :is(.menu .menu-item, .prompt .suggestion-item,

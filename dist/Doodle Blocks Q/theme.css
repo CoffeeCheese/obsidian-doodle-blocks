@@ -177,3 +177,135 @@
 .workspace .workspace-tabs.mod-active .workspace-tab-header.is-active {
   box-shadow: inset 0 0 0 1px var(--q-workspace-seam), inset 0 3px var(--q-cyan, var(--interactive-accent));
 }
+
+.markdown-reading-view .markdown-preview-view {
+  color: var(--text-normal, var(--q-ink));
+  font-family: var(--q-font-prose, var(--font-text, "PingFang SC", "Hiragino Sans GB", system-ui, sans-serif));
+}
+.markdown-reading-view .markdown-preview-sizer {
+  min-inline-size: 0;
+  line-height: 1.75;
+  overflow-wrap: break-word;
+}
+.markdown-reading-view .markdown-rendered h1, .markdown-reading-view .markdown-rendered h2, .markdown-reading-view .markdown-rendered h3, .markdown-reading-view .markdown-rendered h4, .markdown-reading-view .markdown-rendered h5, .markdown-reading-view .markdown-rendered h6 {
+  color: var(--text-normal, var(--q-ink));
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.markdown-reading-view .markdown-rendered h1 {
+  margin-block: 0.6em 0.7em;
+  font-size: 2em;
+  letter-spacing: 0.01em;
+}
+.markdown-reading-view .markdown-rendered h2 {
+  margin-block: 1.65em 0.65em;
+  padding-inline-start: 0.55em;
+  border-inline-start: 0.22em solid var(--q-sun, #ffd464);
+  font-size: 1.5em;
+}
+.markdown-reading-view .markdown-rendered h3 {
+  margin-block: 1.45em 0.55em;
+  font-size: 1.25em;
+}
+.markdown-reading-view .markdown-rendered h4, .markdown-reading-view .markdown-rendered h5, .markdown-reading-view .markdown-rendered h6 {
+  margin-block: 1.25em 0.5em;
+  font-size: 1.05em;
+}
+.markdown-reading-view .markdown-rendered p {
+  margin-block: 0 1.05em;
+}
+.markdown-reading-view .markdown-rendered :is(ul, ol) {
+  margin-block: 0.8em 1.1em;
+}
+.markdown-reading-view .markdown-rendered li {
+  margin-block: 0.2em;
+}
+.markdown-reading-view .markdown-rendered li::marker {
+  color: var(--text-muted, var(--q-muted));
+}
+.markdown-reading-view .markdown-rendered a {
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.16em;
+  overflow-wrap: anywhere;
+}
+.markdown-reading-view .markdown-rendered a:focus-visible {
+  outline: 2px solid var(--interactive-accent, var(--q-cyan));
+  outline-offset: 2px;
+}
+.markdown-reading-view .markdown-rendered blockquote {
+  margin-block: 1.35em;
+  padding: 0.15em 1.1em;
+  border-inline-start: 3px solid var(--q-cyan, #55bac1);
+  background: color-mix(in srgb, var(--q-cyan, #55bac1) 6%, var(--q-paper, #fffaf0));
+  color: var(--text-normal, var(--q-ink));
+}
+.markdown-reading-view .markdown-rendered blockquote > :last-child {
+  margin-block-end: 0;
+}
+.markdown-reading-view .markdown-rendered :not(pre) > code {
+  padding: 0.12em 0.3em;
+  border-radius: 3px;
+  background: var(--background-secondary-alt, var(--q-canvas));
+  color: var(--text-normal, var(--q-ink));
+  font-family: var(--q-font-mono, var(--font-monospace, "JetBrains Mono", monospace));
+  overflow-wrap: anywhere;
+}
+.markdown-reading-view .markdown-rendered pre {
+  max-inline-size: 100%;
+  margin-block: 1.3em;
+  border: 1px solid var(--q-line, var(--background-modifier-border));
+  border-radius: 4px;
+  background: var(--background-secondary-alt, var(--q-canvas));
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+.markdown-reading-view .markdown-rendered pre code {
+  font-family: var(--q-font-mono, var(--font-monospace, "JetBrains Mono", monospace));
+  white-space: pre;
+  overflow-wrap: normal;
+}
+.markdown-reading-view .markdown-rendered .el-table, .markdown-reading-view .markdown-rendered .table-wrapper {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+.markdown-reading-view .markdown-rendered table {
+  border-collapse: collapse;
+  inline-size: max-content;
+  min-inline-size: 100%;
+}
+.markdown-reading-view .markdown-rendered th, .markdown-reading-view .markdown-rendered td {
+  padding: 0.55em 0.85em;
+  border: 1px solid var(--q-line, var(--background-modifier-border));
+  overflow-wrap: break-word;
+}
+.markdown-reading-view .markdown-rendered th {
+  background: var(--background-secondary-alt, var(--q-canvas));
+  font-weight: 700;
+}
+.markdown-reading-view .markdown-rendered img, .markdown-reading-view .markdown-rendered .image-embed, .markdown-reading-view .markdown-rendered video {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+.markdown-reading-view .markdown-rendered figcaption {
+  margin-block-start: 0.5em;
+  color: var(--text-muted, var(--q-muted));
+  font-size: 0.85em;
+  text-align: center;
+}
+.markdown-reading-view .markdown-rendered hr {
+  margin-block: 2em;
+  border: 0;
+  border-block-start: 1px solid var(--q-line, var(--background-modifier-border));
+}
+.markdown-reading-view .markdown-rendered .callout {
+  margin-block: 1.4em;
+  border-inline-start: 3px solid rgb(var(--callout-color, 85, 186, 193));
+  background: color-mix(in srgb, rgb(var(--callout-color, 85, 186, 193)) 9%, var(--q-paper, #fffaf0));
+  color: var(--text-normal, var(--q-ink));
+}
+.markdown-reading-view .markdown-rendered .callout-content > :last-child {
+  margin-block-end: 0;
+}

@@ -1,6 +1,7 @@
 {
   "name": "obsidian-doodle-blocks",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "prototype:q": "bash prototypes/q/run",
     "prototype:settings": "bash prototypes/q/run-settings"

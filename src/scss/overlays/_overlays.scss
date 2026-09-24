@@ -21,14 +21,16 @@ body:not(.is-mobile) {
 
   .menu {
     .menu-item {
+      min-block-size: 40px;
       border-radius: 3px;
       color: var(--text-normal);
     }
 
     .menu-item.is-selected {
-      background-color: var(--q-active, var(--background-modifier-active-hover));
-      box-shadow: inset 3px 0 var(--q-accent, var(--interactive-accent));
-      font-weight: 600;
+      border-inline-start: 4px solid var(--q-accent-strong);
+      background-color: var(--q-accent-wash);
+      box-shadow: 2px 2px 0 var(--q-shadow);
+      font-weight: 700;
     }
 
     .menu-item:is(.mod-warning, .is-warning, .is-dangerous):not(.is-disabled) {
@@ -54,14 +56,16 @@ body:not(.is-mobile) {
   // Command palette results and native autocomplete suggestions use the same
   // selection vocabulary; neither list loses its native height or overflow.
   :is(.prompt, .suggestion-container) .suggestion-item {
+    min-block-size: 40px;
     border-radius: 3px;
     color: var(--text-normal);
   }
 
   :is(.prompt, .suggestion-container) .suggestion-item.is-selected {
-    background-color: var(--q-active, var(--background-modifier-active-hover));
-    box-shadow: inset 3px 0 var(--q-accent, var(--interactive-accent));
-    font-weight: 600;
+    border-inline-start: 4px solid var(--q-accent-strong);
+    background-color: var(--q-accent-wash);
+    box-shadow: 2px 2px 0 var(--q-shadow);
+    font-weight: 700;
   }
 
   :is(.prompt, .suggestion-container) .suggestion-aux {
@@ -100,8 +104,8 @@ body:not(.is-mobile) {
 
 @media (hover: hover) and (pointer: fine) {
   body:not(.is-mobile) {
-    .menu .menu-item:not(.is-disabled):hover,
-    :is(.prompt, .suggestion-container) .suggestion-item:not(.is-disabled):hover {
+    .menu .menu-item:not(.is-disabled):not(.is-selected):hover,
+    :is(.prompt, .suggestion-container) .suggestion-item:not(.is-disabled):not(.is-selected):hover {
       background-color: var(--q-hover, var(--background-modifier-hover));
       color: var(--text-normal);
     }

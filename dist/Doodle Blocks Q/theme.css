@@ -923,13 +923,15 @@ body:not(.is-mobile) .modal-container > .modal:not(.mod-settings) {
   box-shadow: 6px 6px 0 var(--q-shadow, var(--background-modifier-border));
 }
 body:not(.is-mobile) .menu .menu-item {
+  min-block-size: 40px;
   border-radius: 3px;
   color: var(--text-normal);
 }
 body:not(.is-mobile) .menu .menu-item.is-selected {
-  background-color: var(--q-active, var(--background-modifier-active-hover));
-  box-shadow: inset 3px 0 var(--q-accent, var(--interactive-accent));
-  font-weight: 600;
+  border-inline-start: 4px solid var(--q-accent-strong);
+  background-color: var(--q-accent-wash);
+  box-shadow: 2px 2px 0 var(--q-shadow);
+  font-weight: 700;
 }
 body:not(.is-mobile) .menu .menu-item:is(.mod-warning, .is-warning, .is-dangerous):not(.is-disabled) {
   color: var(--q-danger, var(--q-brick));
@@ -945,13 +947,15 @@ body:not(.is-mobile) .prompt .prompt-instructions {
   color: var(--text-muted);
 }
 body:not(.is-mobile) :is(.prompt, .suggestion-container) .suggestion-item {
+  min-block-size: 40px;
   border-radius: 3px;
   color: var(--text-normal);
 }
 body:not(.is-mobile) :is(.prompt, .suggestion-container) .suggestion-item.is-selected {
-  background-color: var(--q-active, var(--background-modifier-active-hover));
-  box-shadow: inset 3px 0 var(--q-accent, var(--interactive-accent));
-  font-weight: 600;
+  border-inline-start: 4px solid var(--q-accent-strong);
+  background-color: var(--q-accent-wash);
+  box-shadow: 2px 2px 0 var(--q-shadow);
+  font-weight: 700;
 }
 body:not(.is-mobile) :is(.prompt, .suggestion-container) .suggestion-aux {
   color: var(--text-muted);
@@ -980,8 +984,8 @@ body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item,
 }
 
 @media (hover: hover) and (pointer: fine) {
-  body:not(.is-mobile) .menu .menu-item:not(.is-disabled):hover,
-  body:not(.is-mobile) :is(.prompt, .suggestion-container) .suggestion-item:not(.is-disabled):hover {
+  body:not(.is-mobile) .menu .menu-item:not(.is-disabled):not(.is-selected):hover,
+  body:not(.is-mobile) :is(.prompt, .suggestion-container) .suggestion-item:not(.is-disabled):not(.is-selected):hover {
     background-color: var(--q-hover, var(--background-modifier-hover));
     color: var(--text-normal);
   }

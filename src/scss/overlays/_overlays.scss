@@ -1,0 +1,127 @@
+// Native Obsidian overlays share Q's paper and short, hard shadow. Leave their
+// placement, scrolling, and internal controls to Obsidian.
+body:not(.is-mobile) {
+  .menu,
+  .prompt,
+  .suggestion-container,
+  .notice,
+  .modal-container > .modal:not(.mod-settings) {
+    box-sizing: border-box;
+    max-inline-size: calc(100vw - 32px);
+    border: 2px solid var(--q-ink, var(--text-normal));
+    border-radius: 6px;
+    background-color: var(--q-paper, var(--background-primary));
+    color: var(--text-normal);
+    box-shadow: 4px 4px 0 var(--q-shadow, var(--background-modifier-border));
+  }
+
+  .modal-container > .modal:not(.mod-settings) {
+    box-shadow: 6px 6px 0 var(--q-shadow, var(--background-modifier-border));
+  }
+
+  .menu {
+    .menu-item {
+      border-radius: 3px;
+      color: var(--text-normal);
+    }
+
+    .menu-item.is-selected {
+      background-color: var(--q-active, var(--background-modifier-active-hover));
+      box-shadow: inset 3px 0 var(--q-accent, var(--interactive-accent));
+      font-weight: 600;
+    }
+
+    .menu-item:is(.mod-warning, .is-warning, .is-dangerous):not(.is-disabled) {
+      color: var(--q-danger, var(--q-brick));
+    }
+
+    .menu-separator {
+      border-color: var(--q-line, var(--background-modifier-border));
+    }
+  }
+
+  .prompt {
+    .prompt-input-container {
+      box-shadow: inset 0 -1px var(--q-line, var(--background-modifier-border));
+    }
+
+    .prompt-instructions {
+      box-shadow: inset 0 1px var(--q-line, var(--background-modifier-border));
+      color: var(--text-muted);
+    }
+  }
+
+  // Command palette results and native autocomplete suggestions use the same
+  // selection vocabulary; neither list loses its native height or overflow.
+  :is(.prompt, .suggestion-container) .suggestion-item {
+    border-radius: 3px;
+    color: var(--text-normal);
+  }
+
+  :is(.prompt, .suggestion-container) .suggestion-item.is-selected {
+    background-color: var(--q-active, var(--background-modifier-active-hover));
+    box-shadow: inset 3px 0 var(--q-accent, var(--interactive-accent));
+    font-weight: 600;
+  }
+
+  :is(.prompt, .suggestion-container) .suggestion-aux {
+    color: var(--text-muted);
+  }
+
+  .notice {
+    .notice-message {
+      color: var(--text-normal);
+    }
+
+    &.mod-error {
+      border-color: var(--q-danger, var(--q-brick));
+    }
+  }
+
+  .modal-container > .modal:not(.mod-settings) .modal-title {
+    color: var(--text-normal);
+    font-weight: 700;
+  }
+
+  :is(.menu .menu-item, .prompt .suggestion-item,
+    .suggestion-container .suggestion-item):focus-visible {
+    outline: 2px solid var(--q-accent, var(--interactive-accent));
+    outline-offset: -2px;
+  }
+
+  :is(.menu .menu-item, .prompt .suggestion-item,
+    .suggestion-container .suggestion-item).is-disabled {
+    opacity: .55;
+    box-shadow: none;
+    font-weight: inherit;
+    cursor: not-allowed;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body:not(.is-mobile) {
+    .menu .menu-item:not(.is-disabled):hover,
+    :is(.prompt, .suggestion-container) .suggestion-item:not(.is-disabled):hover {
+      background-color: var(--q-hover, var(--background-modifier-hover));
+      color: var(--text-normal);
+    }
+
+    .menu .menu-item:is(.mod-warning, .is-warning, .is-dangerous):not(.is-disabled):hover {
+      background-color: color-mix(in srgb, var(--q-danger, var(--q-brick)) 14%, var(--q-paper));
+      color: var(--q-danger, var(--q-brick));
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:not(.is-mobile) {
+    .menu,
+    .prompt,
+    .suggestion-container,
+    .notice,
+    .modal-container > .modal:not(.mod-settings) {
+      animation: none;
+      transition: none;
+    }
+  }
+}

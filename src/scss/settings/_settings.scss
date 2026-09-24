@@ -111,17 +111,32 @@ body.is-popout-modal:not(.is-mobile) .modal.mod-settings {
   }
 
   .setting-group > .setting-item-heading {
-    min-block-size: 0;
-    margin-block-end: 10px;
-    padding-inline: 10px 4px;
-    box-shadow: inset 3px 0 0 var(--q-sun);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-block-size: 46px;
+    margin-block-end: 14px;
+    padding-inline: 0 4px;
+  }
+
+  .setting-group > .setting-item-heading::before {
+    display: block;
+    inline-size: 26px;
+    block-size: 24px;
+    flex: none;
+    border: 2px solid var(--q-ink);
+    border-radius: 4px 4px 7px 4px;
+    background: var(--q-sun);
+    box-shadow: 3px 3px 0 var(--q-shadow);
+    content: "";
   }
 
   .setting-item-heading > .setting-item-name {
     color: var(--text-normal);
-    font-family: var(--q-font-interface);
-    font-size: var(--font-ui-large);
-    font-weight: 700;
+    font-family: var(--q-font-display);
+    font-size: clamp(21px, 1.8vw, 25px);
+    font-weight: 400;
+    line-height: 1.2;
   }
 
   .setting-group > .setting-items {

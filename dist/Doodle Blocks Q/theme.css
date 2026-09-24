@@ -570,18 +570,32 @@ body:not(.is-mobile).theme-dark {
 body:not(.is-mobile) :is(.modal, .prompt, .mod-settings) button:not(.clickable-icon),
 body:not(.is-mobile) .setting-item-control > button:not(.clickable-icon),
 body:not(.is-mobile) .markdown-rendered .copy-code-button {
+  min-block-size: 44px;
   border: 2px solid var(--q-ink);
-  border-radius: 6px;
+  border-radius: 7px;
   background-color: var(--q-paper);
   color: var(--text-normal);
-  box-shadow: 3px 3px 0 var(--q-control-shadow);
+  box-shadow: 4px 4px 0 var(--q-control-shadow);
   transition: background-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
 }
 body:not(.is-mobile) :is(.modal, .prompt, .mod-settings, .setting-item-control) button.mod-cta:not(.clickable-icon) {
-  border-color: var(--interactive-accent);
-  background-color: var(--interactive-accent);
-  color: var(--text-on-accent);
-  font-weight: 650;
+  position: relative;
+  border-color: var(--q-ink);
+  background-color: var(--q-sun);
+  color: #342b27;
+  font-weight: 700;
+}
+body:not(.is-mobile) :is(.modal, .prompt, .mod-settings, .setting-item-control) button.mod-cta:not(.clickable-icon)::after {
+  position: absolute;
+  inset-block-start: -2px;
+  inset-inline-end: -2px;
+  inline-size: 13px;
+  block-size: 13px;
+  border-inline-start: 1px solid var(--q-ink);
+  border-block-end: 1px solid var(--q-ink);
+  background: var(--q-paper);
+  clip-path: polygon(0 0, 100% 100%, 100% 0);
+  content: "";
 }
 body:not(.is-mobile) :is(.modal, .prompt, .mod-settings, .setting-item-control) button:is(.mod-warning, .mod-destructive):not(.clickable-icon) {
   border-color: var(--q-danger);
@@ -591,14 +605,14 @@ body:not(.is-mobile) :is(.modal, .prompt, .mod-settings, .setting-item-control) 
 body:not(.is-mobile) :is(.modal, .prompt, .mod-settings) button:not(.clickable-icon):not(:disabled):not([aria-disabled=true]):active,
 body:not(.is-mobile) .setting-item-control > button:not(.clickable-icon):not(:disabled):not([aria-disabled=true]):active,
 body:not(.is-mobile) .markdown-rendered .copy-code-button:not(:disabled):not([aria-disabled=true]):active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 var(--q-control-shadow);
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--q-control-shadow);
 }
 body:not(.is-mobile) :is(.modal, .prompt, .mod-settings) button:not(.clickable-icon):is(:disabled, [aria-disabled=true]),
 body:not(.is-mobile) .setting-item-control > button:not(.clickable-icon):is(:disabled, [aria-disabled=true]),
 body:not(.is-mobile) .markdown-rendered .copy-code-button:is(:disabled, [aria-disabled=true]) {
   box-shadow: none;
-  opacity: 0.56;
+  opacity: 0.67;
   cursor: not-allowed;
 }
 body:not(.is-mobile) :is(.modal, .prompt, .mod-settings, .workspace-leaf-content[data-type=search]) :is(input[type=text], input[type=search], input[type=email],
@@ -648,13 +662,14 @@ body:not(.is-mobile) .markdown-rendered .copy-code-button:focus-visible {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  body:not(.is-mobile) :is(.modal, .prompt, .mod-settings) button:not(.clickable-icon):not(:disabled):not([aria-disabled=true]):hover,
-  body:not(.is-mobile) .setting-item-control > button:not(.clickable-icon):not(:disabled):not([aria-disabled=true]):hover,
-  body:not(.is-mobile) .markdown-rendered .copy-code-button:not(:disabled):not([aria-disabled=true]):hover {
-    background-color: color-mix(in srgb, var(--q-sun) 19%, var(--q-paper));
+  body:not(.is-mobile) :is(.modal, .prompt, .mod-settings) button:not(.clickable-icon):not(:disabled):not([aria-disabled=true]):hover:not(:active),
+  body:not(.is-mobile) .setting-item-control > button:not(.clickable-icon):not(:disabled):not([aria-disabled=true]):hover:not(:active),
+  body:not(.is-mobile) .markdown-rendered .copy-code-button:not(:disabled):not([aria-disabled=true]):hover:not(:active) {
+    transform: translate(-1px, -1px);
+    background-color: color-mix(in srgb, var(--q-sun) 14%, var(--q-paper));
   }
   body:not(.is-mobile) :is(.modal, .prompt, .mod-settings, .setting-item-control) button.mod-cta:not(.clickable-icon):not(:disabled):hover {
-    background-color: var(--interactive-accent-hover);
+    background-color: color-mix(in srgb, var(--q-sun) 86%, var(--q-paper));
   }
   body:not(.is-mobile) :is(.modal, .prompt, .mod-settings, .setting-item-control) button:is(.mod-warning, .mod-destructive):not(.clickable-icon):not(:disabled):hover {
     background-color: color-mix(in srgb, var(--q-danger) 19%, var(--q-paper));

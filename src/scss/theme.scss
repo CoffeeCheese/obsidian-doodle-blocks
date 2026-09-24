@@ -1,0 +1,38 @@
+@use "foundations/fonts";
+
+// Issue 01 only: a readable Q paper baseline. Later tasks own component styling.
+.theme-light {
+  --q-canvas: #f1e9db;
+  --q-paper: #fffaf0;
+  --q-ink: #342b27;
+  --q-muted: #7d7068;
+  --q-line: #d8c9b8;
+  --q-sun: #ffd464;
+  --q-cyan: #55bac1;
+  --q-mint: #8fcf9b;
+
+  --background-primary: var(--q-paper);
+  --background-secondary: var(--q-canvas);
+  --background-secondary-alt: #fbf5e9;
+  --text-normal: var(--q-ink);
+  --text-muted: var(--q-muted);
+  --background-modifier-border: var(--q-line);
+}
+
+.theme-dark {
+  --q-canvas: #242323;
+  --q-paper: #34312e;
+  --q-ink: #f7ead8;
+  --q-muted: #c7b7a3;
+  --q-line: #6d6258;
+  --q-sun: #e7b84e;
+  --q-cyan: #69c8cb;
+  --q-mint: #7ebd8a;
+
+  --background-primary: var(--q-paper);
+  --background-secondary: var(--q-canvas);
+  --background-secondary-alt: #3c3732;
+  --text-normal: var(--q-ink);
+  --text-muted: var(--q-muted);
+  --background-modifier-border: var(--q-line);
+}

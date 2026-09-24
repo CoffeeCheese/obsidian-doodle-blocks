@@ -1,0 +1,15 @@
+.theme-light,
+.theme-dark {
+  // Obsidian combines these theme defaults with the user's font overrides.
+  --font-interface-theme: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-text-theme: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-monospace-theme: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+  // Component styles should consume the resolved Obsidian fonts and sizes.
+  --q-font-interface: var(--font-interface, var(--font-interface-theme));
+  --q-font-prose: var(--font-text, var(--font-text-theme));
+  --q-font-mono: var(--font-monospace, var(--font-monospace-theme));
+  --q-font-display: "Fusion Pixel", var(--q-font-interface);
+  --q-font-size-interface: var(--font-ui-medium);
+  --q-font-size-prose: var(--font-text-size);
+}

@@ -1,0 +1,187 @@
+// Obsidian 1.13.7 renders Settings in its own popout window.
+// Keep native scrolling, navigation, and control behavior; style their surfaces only.
+body.is-popout-modal:not(.is-mobile) .modal.mod-settings {
+  background-color: var(--q-paper);
+  color: var(--text-normal);
+
+  .vertical-tabs-container,
+  .vertical-tab-content-container,
+  .vertical-tab-content {
+    min-inline-size: 0;
+  }
+
+  .vertical-tab-header {
+    min-inline-size: 0;
+    background-color: var(--q-paper-deep);
+    border-inline-end: 1px solid var(--q-line);
+  }
+
+  .setting-search-container {
+    background-color: var(--q-paper-deep);
+    border-block-end: 1px solid var(--q-line);
+  }
+
+  .setting-search-container .search-input-container,
+  .setting-search-container input[type="search"] {
+    min-inline-size: 0;
+  }
+
+  .vertical-tab-header-group-title {
+    color: var(--text-muted);
+    font-family: var(--q-font-interface);
+    font-size: var(--font-ui-smaller);
+    font-weight: 650;
+    letter-spacing: .04em;
+  }
+
+  .vertical-tab-nav-item {
+    min-block-size: 34px;
+    border-radius: 5px;
+    color: var(--text-normal);
+    transition: background-color 120ms ease, box-shadow 120ms ease;
+  }
+
+  .vertical-tab-nav-item.is-active {
+    background-color: var(--q-accent-wash);
+    box-shadow: inset 3px 0 0 var(--interactive-accent), inset 0 0 0 1px var(--q-line-strong);
+    color: var(--text-normal);
+    font-weight: 650;
+  }
+
+  .vertical-tab-nav-item:focus-visible {
+    outline: 3px solid var(--interactive-accent);
+    outline-offset: 1px;
+  }
+
+  .setting-search-result-tab-label {
+    font-weight: 650;
+  }
+
+  .setting-search-result-tab-sublabel {
+    color: var(--text-muted);
+  }
+
+  .vertical-tab-content {
+    padding: 32px clamp(20px, 3vw, 36px) 56px;
+    background-color: var(--q-paper);
+  }
+
+  .setting-group + .setting-group {
+    margin-block-start: 26px;
+  }
+
+  .setting-group > .setting-item-heading {
+    min-block-size: 0;
+    margin-block-end: 10px;
+    padding-inline: 10px 4px;
+    box-shadow: inset 3px 0 0 var(--q-sun);
+  }
+
+  .setting-item-heading > .setting-item-name {
+    color: var(--text-normal);
+    font-family: var(--q-font-interface);
+    font-size: var(--font-ui-large);
+    font-weight: 700;
+  }
+
+  .setting-group > .setting-items {
+    border: 1px solid var(--q-line);
+    border-radius: 8px;
+    background-color: var(--q-panel);
+  }
+
+  .setting-items > .setting-item {
+    min-inline-size: 0;
+    padding: 18px 20px;
+    background-color: transparent;
+  }
+
+  .setting-items > .setting-item:not(:last-child) {
+    border-block-end: 1px solid var(--q-line);
+  }
+
+  .setting-item-info,
+  .setting-item-control {
+    min-inline-size: 0;
+  }
+
+  .setting-item-name {
+    color: var(--text-normal);
+    font-family: var(--q-font-interface);
+    font-size: var(--font-ui-medium);
+    font-weight: 650;
+  }
+
+  .setting-item-description {
+    color: var(--text-muted);
+    font-family: var(--q-font-interface);
+    font-size: var(--font-ui-small);
+    line-height: 1.45;
+  }
+
+  .setting-items > .setting-item.mod-navigable:focus-visible {
+    outline: 3px solid var(--interactive-accent);
+    outline-offset: -3px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.is-popout-modal:not(.is-mobile) .modal.mod-settings {
+    .vertical-tab-nav-item:not(.is-active):hover {
+      background-color: var(--q-hover);
+    }
+
+    .setting-items > .setting-item.mod-navigable:hover {
+      background-color: var(--q-hover);
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  body.is-popout-modal:not(.is-mobile) .modal.mod-settings {
+    .vertical-tab-header {
+      flex: 0 0 176px;
+      inline-size: 176px;
+    }
+
+    .vertical-tab-header-group-container,
+    .setting-search-results {
+      padding-inline: 8px;
+    }
+
+    .vertical-tab-content-container {
+      flex: 1 1 auto;
+    }
+
+    .vertical-tab-content {
+      padding: 24px 16px 40px;
+    }
+
+    .setting-items > .setting-item {
+      flex-wrap: wrap;
+      align-items: flex-start;
+      row-gap: 10px;
+      padding: 14px 16px;
+    }
+
+    .setting-items > .setting-item > .setting-item-info,
+    .setting-items > .setting-item > .setting-item-control {
+      flex: 1 1 100%;
+    }
+
+    .setting-items > .setting-item > .setting-item-control {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .setting-item-control > :is(input, select, button) {
+      max-inline-size: 100%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.is-popout-modal:not(.is-mobile) .modal.mod-settings .vertical-tab-nav-item {
+    transition: none;
+  }
+}

@@ -29,13 +29,20 @@ body:not(.is-mobile).theme-dark {
 
 body:not(.is-mobile) {
   @include native-button {
-    min-block-size: 44px;
     border: 2px solid var(--q-ink);
     border-radius: 7px;
     background-color: var(--q-paper);
     color: var(--text-normal);
     box-shadow: 4px 4px 0 var(--q-control-shadow);
     transition: background-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+  }
+
+  // Full-height actions live in native setting rows and modal action bars.
+  // Copy-code buttons and arbitrary buttons inside plugin dialogs keep their
+  // own compact geometry.
+  .mod-settings .setting-item-control > button:not(.clickable-icon),
+  .modal-container > .modal:not(.mod-settings) .modal-button-container > button:not(.clickable-icon) {
+    min-block-size: 44px;
   }
 
   :is(.modal, .prompt, .mod-settings, .setting-item-control)
@@ -175,6 +182,10 @@ body:not(.is-mobile) {
     }
 
     @include native-button(":active") {
+      transform: none;
+    }
+
+    @include native-button(":not(:disabled):not([aria-disabled='true']):hover:not(:active)") {
       transform: none;
     }
 

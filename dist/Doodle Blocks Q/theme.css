@@ -729,24 +729,59 @@ body.is-popout-modal:not(.is-mobile) .modal.mod-settings .setting-search-contain
 body.is-popout-modal:not(.is-mobile) .modal.mod-settings .setting-search-container input[type=search] {
   min-inline-size: 0;
 }
+body.is-popout-modal:not(.is-mobile) .modal.mod-settings .setting-search-container .search-input-container {
+  border: 2px solid var(--q-ink);
+  border-radius: 8px;
+  background-color: var(--q-paper);
+  box-shadow: inset 2px 2px 0 color-mix(in srgb, var(--q-line) 65%, transparent);
+}
+body.is-popout-modal:not(.is-mobile) .modal.mod-settings .setting-search-container .search-input-container:focus-within {
+  outline: 3px solid var(--q-accent-strong);
+  outline-offset: 2px;
+}
+body.is-popout-modal:not(.is-mobile) .modal.mod-settings .setting-search-container input[type=search] {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+body.is-popout-modal:not(.is-mobile) .modal.mod-settings .setting-search-container input[type=search]:focus-visible {
+  outline: none;
+}
 body.is-popout-modal:not(.is-mobile) .modal.mod-settings .vertical-tab-header-group-title {
   color: var(--text-muted);
-  font-family: var(--q-font-interface);
+  font-family: var(--q-font-mono);
   font-size: var(--font-ui-smaller);
   font-weight: 650;
   letter-spacing: 0.04em;
 }
 body.is-popout-modal:not(.is-mobile) .modal.mod-settings .vertical-tab-nav-item {
-  min-block-size: 34px;
-  border-radius: 5px;
+  min-block-size: 44px;
+  border: 2px solid transparent;
+  border-radius: 6px;
   color: var(--text-normal);
   transition: background-color 120ms ease, box-shadow 120ms ease;
 }
 body.is-popout-modal:not(.is-mobile) .modal.mod-settings .vertical-tab-nav-item.is-active {
+  position: relative;
+  padding-inline-start: 10px;
+  padding-inline-end: 24px;
+  border-color: var(--q-ink);
+  border-inline-start: 5px solid var(--q-accent-strong);
   background-color: var(--q-accent-wash);
-  box-shadow: inset 3px 0 0 var(--interactive-accent), inset 0 0 0 1px var(--q-line-strong);
+  box-shadow: 2px 2px 0 var(--q-shadow);
   color: var(--text-normal);
-  font-weight: 650;
+  font-weight: 700;
+}
+body.is-popout-modal:not(.is-mobile) .modal.mod-settings .vertical-tab-nav-item.is-active::after {
+  position: absolute;
+  inset-inline-end: 9px;
+  inset-block-start: calc(50% - 4px);
+  inline-size: 7px;
+  block-size: 7px;
+  border: 1px solid var(--q-ink);
+  border-radius: 50%;
+  background: var(--q-accent);
+  content: "";
 }
 body.is-popout-modal:not(.is-mobile) .modal.mod-settings .vertical-tab-nav-item:focus-visible {
   outline: 3px solid var(--interactive-accent);

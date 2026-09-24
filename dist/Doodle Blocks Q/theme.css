@@ -197,13 +197,16 @@ body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer]
 }
 body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-file-title.is-active {
   background-color: var(--q-accent-wash, var(--background-modifier-active-hover));
-  box-shadow: inset 3px 0 var(--q-accent, var(--interactive-accent)), inset 0 0 0 1px var(--q-line, var(--background-modifier-border));
-  font-weight: 600;
+  border: 1px solid var(--q-ink);
+  border-inline-start: 5px solid var(--q-accent-strong, var(--interactive-accent));
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 var(--q-shadow);
+  font-weight: 700;
 }
 body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-file-title:focus-visible,
 body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:focus-visible {
-  outline: 2px solid var(--q-accent, var(--interactive-accent));
-  outline-offset: -2px;
+  outline: 3px solid var(--q-accent-strong, var(--interactive-accent));
+  outline-offset: 2px;
 }
 body:not(.is-mobile) .workspace .workspace-ribbon .side-dock-ribbon-action,
 body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-header .nav-action-button,
@@ -218,7 +221,8 @@ body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-co
 }
 body:not(.is-mobile) .workspace .workspace-ribbon .side-dock-ribbon-action.is-active {
   background-color: var(--q-accent-wash, var(--background-modifier-active-hover));
-  box-shadow: inset 3px 0 var(--q-accent, var(--interactive-accent));
+  border-inline-start: 3px solid var(--q-accent-strong, var(--interactive-accent));
+  box-shadow: 2px 2px 0 var(--q-shadow);
 }
 body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type=search],
 [data-type=backlink],
@@ -276,9 +280,12 @@ body:not(.is-mobile) .workspace .workspace-split.mod-sidedock .workspace-leaf-co
 [data-type=file-properties],
 [data-type=all-properties]) .tree-item-self.is-active {
   background-color: var(--q-accent-wash, var(--background-modifier-active-hover));
-  box-shadow: inset 3px 0 var(--q-accent, var(--interactive-accent));
+  border: 1px solid var(--q-ink);
+  border-inline-start: 4px solid var(--q-accent-strong, var(--interactive-accent));
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 var(--q-shadow);
   color: var(--text-normal);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 @media (hover: hover) and (pointer: fine) {

@@ -579,7 +579,7 @@ body:not(.is-mobile) .markdown-rendered .copy-code-button {
   transition: background-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
 }
 body:not(.is-mobile) .mod-settings .setting-item-control > button:not(.clickable-icon),
-body:not(.is-mobile) .modal-container > .modal:not(.mod-settings) .modal-button-container > button:not(.clickable-icon) {
+body:not(.is-mobile) .modal-container > .modal:has(> .modal-content > p.u-break-word) .modal-button-container > button:not(.clickable-icon) {
   min-block-size: 44px;
 }
 body:not(.is-mobile) :is(.modal, .prompt, .mod-settings, .setting-item-control) button.mod-cta:not(.clickable-icon) {

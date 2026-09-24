@@ -37,11 +37,11 @@ body:not(.is-mobile) {
     transition: background-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
   }
 
-  // Full-height actions live in native setting rows and modal action bars.
-  // Copy-code buttons and arbitrary buttons inside plugin dialogs keep their
-  // own compact geometry.
+  // Full-height actions live in native setting rows and the core file-delete
+  // confirmation. Other dialogs and copy-code buttons keep their own height.
   .mod-settings .setting-item-control > button:not(.clickable-icon),
-  .modal-container > .modal:not(.mod-settings) .modal-button-container > button:not(.clickable-icon) {
+  .modal-container > .modal:has(> .modal-content > p.u-break-word)
+    .modal-button-container > button:not(.clickable-icon) {
     min-block-size: 44px;
   }
 

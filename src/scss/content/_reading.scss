@@ -1,13 +1,10 @@
 // Q reading surface. Keep Obsidian's readable line width, font settings, and
 // Markdown DOM intact; this partial is scoped to the native reading view.
+@use "../foundations/typography" as q-type;
+
 .markdown-reading-view {
   .inline-title {
-    color: var(--text-normal, var(--q-ink));
-    font-family: var(--q-font-display);
-    font-size: clamp(2rem, 3vw, 2.8rem);
-    font-weight: 400;
-    line-height: 1.3;
-    overflow-wrap: anywhere;
+    @include q-type.note-inline-title;
   }
 
   .markdown-preview-view {
@@ -44,15 +41,7 @@
     }
 
     h2::before {
-      position: absolute;
-      inset-inline-start: 0;
-      inset-block-start: .2em;
-      inline-size: 9px;
-      block-size: 22px;
-      border: 1px solid var(--q-ink);
-      background: var(--q-sun);
-      box-shadow: 2px 2px 0 var(--q-shadow);
-      content: "";
+      @include q-type.note-section-marker;
     }
 
     h3 { margin-block: 1.45em 0.55em; font-size: 1.25em; }

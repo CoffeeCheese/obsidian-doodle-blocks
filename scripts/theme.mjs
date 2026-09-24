@@ -1,7 +1,7 @@
 import { watch } from 'node:fs';
 import {
   existsSync, lstatSync, mkdirSync, readFileSync, readdirSync, realpathSync,
-  renameSync, writeFileSync,
+  renameSync, rmSync, writeFileSync,
 } from 'node:fs';
 import { basename, dirname, isAbsolute, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -85,6 +85,33 @@ function check(out, files) {
 }
 
 function writePackage(out, files) {
+  const outputStat = lstatSync(out, { throwIfNoEntry: false });
+  if (outputStat) {
+    if (!outputStat.isDirectory() || outputStat.isSymbolicLink()) throw new Error(`Theme output must be a directory: ${out}`);
+    const existing = listFiles(out);
+    if (existing.length) {
+      const manifestPath = join(out, 'manifest.json');
+      if (!existsSync(manifestPath) || lstatSync(manifestPath).isSymbolicLink()) {
+        throw new Error(`Refusing to replace an unrelated output directory: ${out}`);
+      }
+      let manifest;
+      try { manifest = JSON.parse(readFileSync(manifestPath, 'utf8')); } catch { /* invalid manifest */ }
+      if (manifest?.name !== packageName) throw new Error(`Refusing to replace an unrelated output directory: ${out}`);
+    }
+    // Check every package path before writing so an existing nested symlink
+    // cannot redirect even one generated file outside the chosen directory.
+    for (const name of files.keys()) {
+      const parts = name.split('/');
+      let current = out;
+      for (const part of parts.slice(0, -1)) {
+        current = join(current, part);
+        const directoryStat = lstatSync(current, { throwIfNoEntry: false });
+        if (directoryStat && (!directoryStat.isDirectory() || directoryStat.isSymbolicLink())) {
+          throw new Error(`Theme output contains an unsafe directory: ${current}`);
+        }
+      }
+    }
+  }
   mkdirSync(out, { recursive: true });
   for (const [name, contents] of files) {
     const target = join(out, name);
@@ -93,6 +120,20 @@ function writePackage(out, files) {
     writeFileSync(temporary, contents);
     renameSync(temporary, target);
   }
+  // A successful build is an exact package, including when an older build
+  // left files that are no longer part of the manifest.
+  const expected = new Set(files.keys());
+  const prune = (dir, prefix = '') => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const relative = join(prefix, entry.name);
+      const target = join(dir, entry.name);
+      if (entry.isDirectory()) {
+        if ([...expected].some((name) => name.startsWith(`${relative}/`))) prune(target, relative);
+        else rmSync(target, { recursive: true, force: true });
+      } else if (!expected.has(relative)) rmSync(target, { force: true });
+    }
+  };
+  prune(out);
 }
 
 function vaultThemePath(vault) {

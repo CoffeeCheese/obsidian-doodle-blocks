@@ -110,6 +110,7 @@ body:not(.is-mobile) {
   --q-control-transition: background-color 120ms ease, box-shadow 120ms ease;
   --q-code-surface: color-mix(in srgb, var(--q-paper) 82%, var(--q-cyan));
   --q-code-gutter: color-mix(in srgb, var(--q-paper) 88%, var(--q-cyan));
+  --q-code-gutter-paint: linear-gradient(to right, var(--q-code-gutter) 14px, var(--q-line) 14px 15px, var(--q-code-surface) 15px);
 }
 
 body:not(.is-mobile).doodle-q-use-accent {
@@ -343,7 +344,7 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:has(> code):h
   overflow: hidden;
   border: 2px solid var(--q-ink);
   border-radius: 4px;
-  background: linear-gradient(to right, var(--q-code-gutter) 14px, var(--q-line) 14px 15px, var(--q-code-surface) 15px);
+  background: var(--q-code-gutter-paint);
   box-shadow: 3px 3px 0 var(--q-shadow);
 }
 
@@ -403,7 +404,7 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre > .copy-code-
 
 /* CodeMirror owns line geometry and the copy flair; paint inside those bounds. */
 body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-codeblock {
-  background: linear-gradient(to right, var(--q-code-gutter) 14px, var(--q-line) 14px 15px, var(--q-code-surface) 15px);
+  background: var(--q-code-gutter-paint);
   box-shadow: inset 2px 0 var(--q-ink), inset -2px 0 var(--q-ink), 3px 0 0 var(--q-shadow);
 }
 

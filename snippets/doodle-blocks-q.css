@@ -40,6 +40,12 @@ settings:
     description: 关闭时保留 Obsidian 外观设置中的强调色。
     type: class-toggle
     default: false
+  -
+    id: doodle-q-display-font
+    title: 短标题字体
+    description: 只用于笔记标题与原生短标签；正文和代码沿用 Obsidian 字体设置。
+    type: variable-text
+    default: '"Q Patrick", "Q Xiaolai", "PingFang SC", cursive'
 */
 
 /* Q is a CSS snippet for Obsidian's default desktop theme. */
@@ -66,6 +72,9 @@ body:not(.is-mobile).theme-dark {
 }
 
 body:not(.is-mobile) {
+  --q-font-display: var(--doodle-q-display-font, "Q Patrick", "Q Xiaolai", "PingFang SC", cursive);
+  --q-font-prose: var(--font-text, "PingFang SC", system-ui, sans-serif);
+  --q-font-code: var(--font-monospace, "SFMono-Regular", monospace);
   --q-side: color-mix(in srgb, var(--q-paper) 48%, var(--q-canvas));
   --q-panel: color-mix(in srgb, var(--q-paper) 76%, var(--q-canvas));
   --q-hover: color-mix(in srgb, var(--q-sun) 17%, var(--q-paper));
@@ -122,4 +131,76 @@ body:not(.is-mobile) .workspace-ribbon.mod-left::after {
   font: 700 15px/1 ui-sans-serif, sans-serif;
   pointer-events: none;
   transform: translateX(-50%);
+}
+
+/* Handwriting stays on short native note headings; prose follows Obsidian. */
+body:not(.is-mobile) .markdown-reading-view .markdown-preview-view,
+body:not(.is-mobile) .markdown-source-view.mod-cm6 .cm-content {
+  color: var(--q-ink);
+  font-family: var(--q-font-prose);
+  line-height: 1.72;
+}
+
+body:not(.is-mobile) .markdown-reading-view .inline-title,
+body:not(.is-mobile) .markdown-source-view.mod-cm6 .inline-title,
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(h1, h2, h3),
+body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-line:is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3) {
+  color: var(--q-ink);
+  font-family: var(--q-font-display);
+  font-weight: 400;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+body:not(.is-mobile) .markdown-reading-view .inline-title,
+body:not(.is-mobile) .markdown-source-view.mod-cm6 .inline-title {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered h2,
+body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-2 {
+  border-inline-start: 8px solid var(--q-sun);
+  padding-inline-start: 12px;
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(mark, .search-result-file-matched-text),
+body:not(.is-mobile) .markdown-source-view.mod-cm6 .cm-highlight {
+  background-color: color-mix(in srgb, var(--q-sun) 73%, var(--q-paper));
+  color: var(--q-ink);
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(p, li, blockquote, td, th),
+body:not(.is-mobile) .markdown-source-view.mod-cm6 .cm-line {
+  overflow-wrap: break-word;
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered a {
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.16em;
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered blockquote {
+  border-inline-start: 3px solid var(--q-cyan);
+  background-color: color-mix(in srgb, var(--q-cyan) 7%, var(--q-paper));
+  color: var(--q-ink);
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(code, pre),
+body:not(.is-mobile) .markdown-source-view.mod-cm6 :is(.cm-inline-code, .HyperMD-codeblock) {
+  font-family: var(--q-font-code);
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre,
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(th, td) {
+  border-color: var(--q-line);
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(.el-table, .table-wrapper) {
+  max-inline-size: 100%;
+  overflow-x: auto;
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(img, video) {
+  max-inline-size: 100%;
+  block-size: auto;
 }

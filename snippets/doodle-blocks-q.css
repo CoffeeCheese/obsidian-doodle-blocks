@@ -1036,3 +1036,183 @@ body:not(.is-mobile) .notice .notice-message {
     transition: none;
   }
 }
+
+/* A new root tab is a bound doodle page. Its three actions remain Obsidian's. */
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] > .view-content {
+  overflow: auto;
+  container-type: inline-size;
+  container-name: q-new-tab;
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  box-sizing: border-box;
+  min-inline-size: 0;
+  inline-size: 100%;
+  min-block-size: 100%;
+  block-size: auto;
+  padding: clamp(32px, 5vh, 72px) 24px;
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-inline-size: 0;
+  inline-size: min(540px, 100%);
+  max-inline-size: 100%;
+  max-block-size: none;
+  min-block-size: 420px;
+  margin: 0;
+  padding: 66px 52px 42px 82px;
+  overflow: visible;
+  border: 2px solid var(--q-ink);
+  border-radius: 5px 5px 24px 5px;
+  background-color: var(--q-paper);
+  background-image:
+    linear-gradient(90deg, color-mix(in srgb, var(--q-sun) 16%, var(--q-paper)) 0 49px, var(--q-cyan) 49px 51px, transparent 51px),
+    repeating-linear-gradient(180deg, transparent 0 46px, color-mix(in srgb, var(--q-cyan) 16%, transparent) 46px 47px);
+  box-shadow: 7px 7px 0 var(--q-shadow);
+  color: var(--q-ink);
+  transform: rotate(-0.6deg);
+}
+
+/* Paper holes and the Q tab are inert; native action hit targets stay clear. */
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-container::before {
+  position: absolute;
+  inset-block: 32px 25px;
+  inset-inline-start: 10px;
+  inline-size: 30px;
+  background: radial-gradient(circle at 15px 15px, var(--q-canvas) 0 5px, var(--q-ink) 6px 7px, transparent 8px) 0 0 / 30px 54px repeat-y;
+  content: "";
+  pointer-events: none;
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-container::after {
+  position: absolute;
+  inset-block-start: -17px;
+  inset-inline-end: 28px;
+  padding: 7px 16px 6px;
+  border: 2px solid var(--q-ink);
+  border-radius: var(--q-radius-detail);
+  background: var(--q-sun);
+  box-shadow: 3px 3px 0 var(--q-shadow);
+  color: var(--q-on-sun);
+  content: "灵感，落在纸上";
+  font: 700 12px/1 var(--q-font-code);
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  transform: rotate(4deg);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-title {
+  margin: 0;
+  color: var(--q-ink);
+  text-align: start;
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-title::before {
+  display: block;
+  content: "下一页，写点什么";
+  font: 400 clamp(29px, 3vw, 40px)/1.25 var(--q-font-display);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-title::after {
+  display: block;
+  margin-block-start: 9px;
+  color: var(--q-muted);
+  content: "新建笔记，或打开已有文件。";
+  font: 14px/1.5 var(--q-font-prose);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action-list {
+  display: grid;
+  gap: 8px;
+  inline-size: 100%;
+  margin: 28px 0 0;
+  padding: 20px 0 0;
+  border-block-start: 2px dashed var(--q-line);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-inline-size: 0;
+  min-block-size: 54px;
+  margin: 0;
+  padding: 10px 12px 10px 44px;
+  border: 1px solid transparent;
+  border-radius: var(--q-radius-detail);
+  background: transparent;
+  color: var(--q-ink);
+  font: 600 16px/1.4 var(--q-font-prose);
+  text-align: start;
+  white-space: normal;
+  box-shadow: none;
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action::before {
+  position: absolute;
+  inset-inline-start: 13px;
+  inline-size: 14px;
+  block-size: 14px;
+  border: 2px solid var(--q-ink);
+  border-radius: 2px;
+  background: var(--q-sun);
+  box-shadow: 2px 2px 0 var(--q-shadow);
+  content: "";
+  pointer-events: none;
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action:nth-child(2)::before {
+  background: var(--q-cyan);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action.mod-close {
+  color: var(--q-muted);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action.mod-close::before {
+  background: var(--q-paper);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action:is(:hover, :focus-visible) {
+  border-color: var(--q-ink);
+  background: var(--q-selected);
+  box-shadow: 3px 3px 0 var(--q-shadow);
+  color: var(--q-ink);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action:focus-visible {
+  outline: 2px solid var(--q-focus);
+  outline-offset: 3px;
+}
+
+@container q-new-tab (max-width: 420px) {
+  body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-container {
+    min-block-size: 0;
+    padding: 56px 22px 26px 58px;
+  }
+
+  body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-container::after {
+    inset-inline-end: 10px;
+    padding-inline: 9px;
+    font-size: 10px;
+  }
+
+  body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-title::before {
+    font-size: 27px;
+  }
+
+  body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action {
+    min-block-size: 50px;
+    padding-inline-end: 4px;
+    font-size: 14px;
+  }
+}

@@ -3,11 +3,20 @@
 .workspace {
   --q-workspace-seam: var(--q-line, var(--background-modifier-border));
 
-  .workspace-ribbon.mod-left,
-  .workspace-split.mod-sidedock,
   .workspace-split.mod-root,
   .workspace-tab-header-container {
     background-color: var(--background-primary);
+  }
+
+  // Q uses a deeper strip for actions and a warm panel for both side docks.
+  // Native leaves have their own background, so color those as well.
+  .workspace-ribbon {
+    background-color: var(--q-paper-deep);
+  }
+
+  .workspace-split.mod-sidedock,
+  .workspace-split.mod-sidedock .workspace-leaf {
+    background-color: var(--q-panel);
   }
 
   // The ribbon and dock retain their native widths and collapse behaviour.
@@ -67,4 +76,9 @@
     outline: 3px solid var(--q-accent-strong, var(--interactive-accent));
     outline-offset: 2px;
   }
+}
+
+// Obsidian gives the vault switcher a more specific canvas background.
+body:not(.is-mobile) .workspace .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+  background-color: var(--q-paper-deep);
 }

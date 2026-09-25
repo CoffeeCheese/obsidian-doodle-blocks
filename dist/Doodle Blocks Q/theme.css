@@ -141,11 +141,16 @@
 .workspace {
   --q-workspace-seam: var(--q-line, var(--background-modifier-border));
 }
-.workspace .workspace-ribbon.mod-left,
-.workspace .workspace-split.mod-sidedock,
 .workspace .workspace-split.mod-root,
 .workspace .workspace-tab-header-container {
   background-color: var(--background-primary);
+}
+.workspace .workspace-ribbon {
+  background-color: var(--q-paper-deep);
+}
+.workspace .workspace-split.mod-sidedock,
+.workspace .workspace-split.mod-sidedock .workspace-leaf {
+  background-color: var(--q-panel);
 }
 .workspace .workspace-ribbon.mod-left {
   border-inline-end: 1px solid var(--q-workspace-seam);
@@ -188,6 +193,10 @@
 .workspace .workspace-tab-header:focus-visible {
   outline: 3px solid var(--q-accent-strong, var(--interactive-accent));
   outline-offset: 2px;
+}
+
+body:not(.is-mobile) .workspace .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+  background-color: var(--q-paper-deep);
 }
 
 body:not(.is-mobile) .workspace .workspace-leaf-content[data-type=file-explorer] .nav-file-title,

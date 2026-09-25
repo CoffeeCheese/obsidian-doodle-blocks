@@ -46,6 +46,16 @@ settings:
     description: 只用于笔记标题与原生短标签；正文和代码沿用 Obsidian 字体设置。
     type: variable-text
     default: '"Q Patrick", "Q Xiaolai", "PingFang SC", cursive'
+  -
+    id: doodle-q-selection-shadow
+    title: 选中项阴影
+    description: 当前标签和文件树选中项的短硬阴影长度。
+    type: variable-number-slider
+    default: 2
+    min: 0
+    max: 4
+    step: 1
+    format: px
 */
 
 /* Q is a CSS snippet for Obsidian's default desktop theme. */
@@ -109,6 +119,106 @@ body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-tab-header-contain
 body:not(.is-mobile) .workspace-split.mod-sidedock .nav-files-container,
 body:not(.is-mobile) .workspace-split.mod-sidedock .nav-header {
   background-color: var(--q-panel);
+}
+
+/* Native workspace seams and selection states. Pane geometry stays native. */
+body:not(.is-mobile) .workspace-ribbon.mod-left,
+body:not(.is-mobile) .workspace-split.mod-left-split {
+  border-inline-end: 1px solid var(--q-line);
+}
+
+body:not(.is-mobile) .workspace-split.mod-right-split {
+  border-inline-start: 1px solid var(--q-line);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header-container,
+body:not(.is-mobile) .workspace-split.mod-root .view-header {
+  border-block-end: 1px solid var(--q-line);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header-container {
+  background-color: var(--q-paper);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header.is-active {
+  margin-block-start: 3px;
+  border: 1px solid var(--q-ink);
+  border-block-end: 0;
+  border-radius: 6px 6px 0 0;
+  background-color: var(--q-selected);
+  box-shadow: var(--doodle-q-selection-shadow, 2px) 0 0 var(--q-shadow);
+}
+
+body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-tab-header.is-active {
+  border-block-end: 2px solid var(--q-cyan);
+  background-color: var(--q-selected);
+}
+
+body:not(.is-mobile) .workspace-tab-header.is-active .workspace-tab-header-inner-title {
+  color: var(--q-ink);
+  font-family: var(--q-font-display);
+}
+
+body:not(.is-mobile) .workspace-tab-header:not(.is-active):hover,
+body:not(.is-mobile) .workspace-ribbon .side-dock-ribbon-action:not(.is-active):hover {
+  background-color: var(--q-hover);
+}
+
+body:not(.is-mobile) .workspace-ribbon .side-dock-ribbon-action.is-active {
+  border: 1px solid var(--q-ink);
+  border-inline-start: 3px solid var(--q-cyan);
+  border-radius: 4px;
+  background-color: var(--q-selected);
+  box-shadow: var(--doodle-q-selection-shadow, 2px) var(--doodle-q-selection-shadow, 2px) 0 var(--q-shadow);
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title.is-active,
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-folder-title.is-active {
+  margin-inline: 4px;
+  border: 1px solid var(--q-ink);
+  border-inline-start: 4px solid var(--q-cyan);
+  border-radius: 4px;
+  background-color: var(--q-selected);
+  box-shadow: var(--doodle-q-selection-shadow, 2px) var(--doodle-q-selection-shadow, 2px) 0 var(--q-shadow);
+  color: var(--q-ink);
+  font-weight: 700;
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title):not(.is-active):hover,
+body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type="outline"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="search"]) .tree-item-self:not(.is-active):hover {
+  border-radius: 4px;
+  background-color: var(--q-hover);
+}
+
+body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type="outline"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="search"]) .tree-item-self.is-active {
+  border: 1px solid var(--q-ink);
+  border-inline-start: 4px solid var(--q-cyan);
+  border-radius: 4px;
+  background-color: var(--q-selected);
+  box-shadow: var(--doodle-q-selection-shadow, 2px) var(--doodle-q-selection-shadow, 2px) 0 var(--q-shadow);
+  color: var(--q-ink);
+}
+
+body:not(.is-mobile) .workspace :is(.workspace-tab-header, .side-dock-ribbon-action, .nav-file-title, .nav-folder-title, .tree-item-self):focus-visible {
+  outline: 2px solid var(--q-focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1000px) {
+  body:not(.is-mobile) .workspace-split.mod-root {
+    min-inline-size: 240px;
+    flex: 1 1 320px;
+  }
+
+  body:not(.is-mobile) .workspace-split.mod-sidedock:not(.is-sidedock-collapsed) {
+    min-inline-size: 150px;
+    flex-shrink: 1;
+  }
+
+  body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-tab-container,
+  body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-container {
+    min-inline-size: 0;
+  }
 }
 
 body:not(.is-mobile) .workspace-ribbon.mod-left {

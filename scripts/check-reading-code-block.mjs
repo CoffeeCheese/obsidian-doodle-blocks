@@ -10,6 +10,10 @@ const probe = `JSON.stringify((()=>{
   const preRect = pre.getBoundingClientRect();
   const buttonRect = button.getBoundingClientRect();
   return {
+    languageClass: pre.className,
+    toolbarLanguage: getComputedStyle(pre, '::before').content,
+    languageSamples: [...document.querySelectorAll('.markdown-preview-view pre:has(> .copy-code-button)')]
+      .map(block => ({ className: block.className, label: getComputedStyle(block, '::before').content })),
     gutterPaint: preStyle.backgroundImage,
     codeInset: code.getBoundingClientRect().left + parseFloat(getComputedStyle(code).paddingLeft) - preRect.left,
     buttonLabel: getComputedStyle(button, '::after').content,
@@ -25,6 +29,17 @@ const output = execFileSync('obsidian', ['vault=dev-test', 'eval', `code=${probe
 const result = JSON.parse(output.replace(/^=>\s*/, '').trim());
 assert.ok(result, '真实 Obsidian 阅读视图中必须存在带原生复制按钮的代码块');
 console.log(result);
+assert.match(result.languageClass, /\blanguage-javascript\b/, '当前验收笔记的首个围栏应为 JavaScript');
+assert.equal(result.toolbarLanguage, '"JavaScript"', '左上角应显示围栏声明的语言');
+for (const [className, label] of [
+  ['language-javascript', 'JavaScript'],
+  ['language-css', 'CSS'],
+  ['language-sh', 'Shell'],
+  ['language-text', 'Text']
+]) {
+  assert.equal(result.languageSamples.find(sample => sample.className === className)?.label,
+    `"${label}"`, `${className} 应显示对应语言`);
+}
 assert.equal(result.gutterPaint, 'none', '无行号时不应绘制空白行号栏');
 assert.ok(result.codeInset <= 22, '代码正文不应为行号栏额外让位');
 assert.equal(result.nativeButton, true, '保留 Obsidian 原生复制按钮');

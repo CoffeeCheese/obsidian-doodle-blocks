@@ -348,6 +348,42 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:has(> code):h
   box-shadow: 3px 3px 0 var(--q-shadow);
 }
 
+/* Obsidian exposes the fence language as a class, not a readable attribute.
+   Map known classes to labels; unknown or missing languages keep CODE. */
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-js, .language-javascript) { --q-code-language: "JavaScript"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-jsx { --q-code-language: "JSX"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-ts, .language-typescript) { --q-code-language: "TypeScript"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-tsx { --q-code-language: "TSX"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-css { --q-code-language: "CSS"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-scss { --q-code-language: "SCSS"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-sass { --q-code-language: "Sass"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-html, .language-htm) { --q-code-language: "HTML"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-xml { --q-code-language: "XML"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-svg { --q-code-language: "SVG"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-json, .language-jsonc, .language-json5) { --q-code-language: "JSON"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-yaml, .language-yml) { --q-code-language: "YAML"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-toml { --q-code-language: "TOML"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-md, .language-markdown) { --q-code-language: "Markdown"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-mdx { --q-code-language: "MDX"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-sh, .language-bash, .language-shell, .language-zsh) { --q-code-language: "Shell"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-powershell, .language-ps1) { --q-code-language: "PowerShell"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-py, .language-python) { --q-code-language: "Python"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-rb, .language-ruby) { --q-code-language: "Ruby"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-go, .language-golang) { --q-code-language: "Go"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-rs, .language-rust) { --q-code-language: "Rust"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-java { --q-code-language: "Java"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-kt, .language-kotlin) { --q-code-language: "Kotlin"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-swift { --q-code-language: "Swift"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-c { --q-code-language: "C"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-cpp, .language-cxx) { --q-code-language: "C++"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-cs, .language-csharp) { --q-code-language: "C#"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-php { --q-code-language: "PHP"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-sql { --q-code-language: "SQL"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-lua { --q-code-language: "Lua"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-r { --q-code-language: "R"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-dart { --q-code-language: "Dart"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-text, .language-txt, .language-plaintext) { --q-code-language: "Text"; }
+
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:has(> .copy-code-button)::before {
   display: block;
   box-sizing: border-box;
@@ -356,7 +392,7 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:has(> .copy-c
   border-block-end: 2px solid var(--q-ink);
   background: radial-gradient(circle at 17px 50%, var(--q-sun) 0 4px, var(--q-ink) 4px 5px, transparent 5px), var(--q-cyan);
   color: var(--q-ink);
-  content: "CODE";
+  content: var(--q-code-language, "CODE");
   font: 700 11px/36px var(--q-font-code);
   user-select: none;
 }

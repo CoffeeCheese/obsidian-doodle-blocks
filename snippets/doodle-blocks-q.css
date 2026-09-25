@@ -103,6 +103,9 @@ body:not(.is-mobile) {
   --q-button-active-shadow: inset 2px 2px 0 var(--q-shadow), 1px 1px 0 var(--q-shadow);
   --q-input-shadow: inset 2px 2px 0 color-mix(in srgb, var(--q-line) 55%, transparent);
   --q-switch-shadow: inset 0 0 0 1px var(--q-ink), 2px 2px 0 var(--q-shadow);
+  --q-slider-shadow: 0 0 0 1px var(--q-ink), 1px 1px 0 var(--q-shadow);
+  --q-slider-thumb-shadow: 2px 2px 0 var(--q-shadow);
+  --q-slider-thumb-hover-shadow: 3px 3px 0 var(--q-shadow);
   --q-control-transition: background-color 120ms ease, box-shadow 120ms ease;
 }
 
@@ -388,6 +391,18 @@ body:not(.is-mobile) .mod-settings .checkbox-container.is-enabled {
   background-color: var(--interactive-accent);
 }
 
+/* Keep Obsidian's range geometry and fill calculation; change only its paper surface. */
+body:not(.is-mobile) .mod-settings input[type="range"].slider {
+  --slider-fill-background: var(--q-cyan);
+  --slider-thumb-background: var(--q-paper);
+  --slider-thumb-border-width: 2px;
+  --slider-thumb-border-color: var(--q-ink);
+  --slider-thumb-shadow: var(--q-slider-thumb-shadow);
+  --slider-thumb-shadow-hover: var(--q-slider-thumb-hover-shadow);
+  background-color: var(--q-paper);
+  box-shadow: var(--q-slider-shadow);
+}
+
 body:not(.is-mobile) :is(.mod-settings, .modal-container.mod-confirmation, .prompt) :is(input[type="checkbox"], input[type="radio"], input[type="range"]),
 body:not(.is-mobile) .markdown-rendered .task-list-item-checkbox {
   accent-color: var(--interactive-accent);
@@ -405,11 +420,18 @@ body:not(.is-mobile).doodle-q-quiet-controls {
   --q-button-active-shadow: none;
   --q-input-shadow: none;
   --q-switch-shadow: none;
+  --q-slider-shadow: none;
+  --q-slider-thumb-shadow: none;
+  --q-slider-thumb-hover-shadow: none;
   --q-control-transition: none;
 }
 
 body:not(.is-mobile).doodle-q-quiet-controls :is(.mod-settings .checkbox-container, .mod-settings .setting-item-control input, .mod-settings .setting-item-control textarea, .mod-settings .setting-item-control select),
 body:not(.is-mobile).doodle-q-quiet-controls .mod-settings .checkbox-container::after {
+  transition: none;
+}
+
+body:not(.is-mobile).doodle-q-quiet-controls .mod-settings input[type="range"].slider::-webkit-slider-thumb {
   transition: none;
 }
 
@@ -420,6 +442,10 @@ body:not(.is-mobile).doodle-q-quiet-controls .mod-settings .checkbox-container::
 
   body:not(.is-mobile) :is(.mod-settings .checkbox-container, .mod-settings .setting-item-control input, .mod-settings .setting-item-control textarea, .mod-settings .setting-item-control select),
   body:not(.is-mobile) .mod-settings .checkbox-container::after {
+    transition: none;
+  }
+
+  body:not(.is-mobile) .mod-settings input[type="range"].slider::-webkit-slider-thumb {
     transition: none;
   }
 }

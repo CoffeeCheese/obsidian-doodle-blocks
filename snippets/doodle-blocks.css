@@ -119,6 +119,14 @@ body:not(.is-mobile) {
   --db-font-code: var(--font-monospace, "SFMono-Regular", monospace);
   --db-side: color-mix(in srgb, var(--db-paper) 48%, var(--db-canvas));
   --db-panel: color-mix(in srgb, var(--db-paper) 76%, var(--db-canvas));
+  /* Native workspace chrome uses these tokens beneath the styled paper surfaces. */
+  --background-primary: var(--db-paper);
+  --background-primary-alt: var(--db-panel);
+  --background-secondary: var(--db-side);
+  --background-secondary-alt: var(--db-panel);
+  --background-modifier-border: var(--db-line);
+  --ribbon-background: var(--db-side);
+  --ribbon-background-collapsed: var(--db-side);
   --db-hover: color-mix(in srgb, var(--db-sun) 17%, var(--db-paper));
   --db-selected: color-mix(in srgb, var(--db-cyan) 28%, var(--db-paper));
   --db-focus: color-mix(in srgb, var(--db-cyan) 70%, var(--db-ink));

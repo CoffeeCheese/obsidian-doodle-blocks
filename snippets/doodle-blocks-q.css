@@ -462,12 +462,12 @@ body.is-popout-modal:not(.is-mobile) .mod-settings :is(.vertical-tabs-container,
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-header {
   min-inline-size: 0;
-  border-inline-end: 1px solid var(--q-line);
+  border-inline-end: 2px solid var(--q-ink);
   background-color: var(--q-side);
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container {
-  border-block-end: 1px solid var(--q-line);
+  border-block-end: 2px solid var(--q-ink);
   background-color: var(--q-side);
 }
 
@@ -507,8 +507,8 @@ body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item {
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item.is-active {
   border-color: var(--q-ink);
-  background-color: var(--q-selected);
-  box-shadow: inset 4px 0 var(--q-cyan), 2px 2px 0 var(--q-shadow);
+  background-color: var(--q-sun);
+  box-shadow: inset 4px 0 var(--q-ink), 2px 2px 0 var(--q-shadow);
   font-weight: 700;
 }
 
@@ -553,7 +553,7 @@ body.is-popout-modal:not(.is-mobile) .mod-settings .setting-item-heading > .sett
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-group > .setting-items,
 body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-container {
-  border: 1px solid var(--q-line);
+  border: 1px solid var(--q-ink);
   border-radius: 7px;
   background-color: var(--q-panel);
 }

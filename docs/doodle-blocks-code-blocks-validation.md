@@ -33,3 +33,5 @@
 2026-09-25 语言标签回归：同一脚本先在 `language-javascript` 围栏捕获固定 `CODE`，修复后 4 个真实围栏分别得到 JavaScript、CSS、Shell、Text；真实深色和 640px 桌面视口下仍一致。Obsidian 阅读视图只提供 `language-xxx` 类名，没有独立语言文本节点；因此 CSS 对常见语言和别名显式映射，缺失或未映射类名回退 `CODE`。原生复制结果仍只有代码，开发错误输出为空。
 
 验收结束后已删除合成笔记和临时截图，恢复原笔记、浅色默认主题、原窗口尺寸，并保持 Doodle Blocks 两个片段及 Style Settings 已启用。
+
+2026-09-26 实时预览回归：最小 JavaScript 围栏复现语言标签位于条带右侧、没有可见复制提示；阅读视图同时通过原有检查。原因是实时预览仅绘制了代码行与条带，原生 `.code-block-flair` 仍沿用右对齐布局。修复后，语言与黄色圆点位于左侧，原生复制控件的可点击区域位于右侧，条带高度为 38px。`node scripts/check-live-preview-code-block.mjs` 在真实 Obsidian 中验证位置、点击命中与编辑区域；浅深色下阅读视图回归均通过。点击复制后只得到代码正文，开发错误输出为空。`Theme Debug/Doodle Blocks 代码块回归.md` 保留在 `dev-test` 中，便于后续肉眼对照。

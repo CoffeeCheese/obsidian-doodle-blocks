@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 
 const probe = `JSON.stringify((()=>{
-  const pre = document.querySelector('.markdown-preview-view pre');
+  const view = app.workspace.activeLeaf?.view?.containerEl;
+  const pre = view?.querySelector('.markdown-preview-view pre.language-javascript:has(> .copy-code-button)');
   const code = pre?.querySelector('code');
   const button = pre?.querySelector('.copy-code-button');
   if (!pre || !code || !button) return null;
@@ -12,7 +13,7 @@ const probe = `JSON.stringify((()=>{
   return {
     languageClass: pre.className,
     toolbarLanguage: getComputedStyle(pre, '::before').content,
-    languageSamples: [...document.querySelectorAll('.markdown-preview-view pre:has(> .copy-code-button)')]
+    languageSamples: [...view.querySelectorAll('.markdown-preview-view pre:has(> .copy-code-button)')]
       .map(block => ({ className: block.className, label: getComputedStyle(block, '::before').content })),
     gutterPaint: preStyle.backgroundImage,
     codeInset: code.getBoundingClientRect().left + parseFloat(getComputedStyle(code).paddingLeft) - preRect.left,

@@ -98,6 +98,12 @@ body:not(.is-mobile) {
   --q-hover: color-mix(in srgb, var(--q-sun) 17%, var(--q-paper));
   --q-selected: color-mix(in srgb, var(--q-cyan) 28%, var(--q-paper));
   --q-focus: color-mix(in srgb, var(--q-cyan) 70%, var(--q-ink));
+  --q-button-shadow: 3px 3px 0 var(--q-shadow);
+  --q-button-hover-shadow: 4px 4px 0 var(--q-shadow);
+  --q-button-active-shadow: 0 0 0 var(--q-shadow), inset 2px 2px 0 var(--q-shadow);
+  --q-input-shadow: inset 2px 2px 0 color-mix(in srgb, var(--q-line) 55%, transparent);
+  --q-switch-shadow: inset 0 0 0 1px var(--q-ink), 2px 2px 0 var(--q-shadow);
+  --q-control-transition: background-color 120ms ease, box-shadow 120ms ease;
 }
 
 body:not(.is-mobile).doodle-q-use-accent {
@@ -180,24 +186,7 @@ body:not(.is-mobile) .workspace-ribbon .side-dock-ribbon-action.is-active {
   box-shadow: var(--doodle-q-selection-shadow, 2px) var(--doodle-q-selection-shadow, 2px) 0 var(--q-shadow);
 }
 
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title.is-active,
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-folder-title.is-active {
-  margin-inline: 4px;
-  border: 1px solid var(--q-ink);
-  border-inline-start: 4px solid var(--q-cyan);
-  border-radius: 4px;
-  background-color: var(--q-selected);
-  box-shadow: var(--doodle-q-selection-shadow, 2px) var(--doodle-q-selection-shadow, 2px) 0 var(--q-shadow);
-  color: var(--q-ink);
-  font-weight: 700;
-}
-
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title):not(.is-active):hover,
-body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type="outline"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="search"]) .tree-item-self:not(.is-active):hover {
-  border-radius: 4px;
-  background-color: var(--q-hover);
-}
-
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title).is-active,
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type="outline"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="search"]) .tree-item-self.is-active {
   border: 1px solid var(--q-ink);
   border-inline-start: 4px solid var(--q-cyan);
@@ -205,6 +194,17 @@ body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([d
   background-color: var(--q-selected);
   box-shadow: var(--doodle-q-selection-shadow, 2px) var(--doodle-q-selection-shadow, 2px) 0 var(--q-shadow);
   color: var(--q-ink);
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title).is-active {
+  margin-inline: 4px;
+  font-weight: 700;
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title):not(.is-active):hover,
+body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type="outline"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="search"]) .tree-item-self:not(.is-active):hover {
+  border-radius: 4px;
+  background-color: var(--q-hover);
 }
 
 body:not(.is-mobile) .workspace :is(.workspace-tab-header, .side-dock-ribbon-action, .nav-file-title, .nav-folder-title, .tree-item-self):focus-visible {
@@ -324,49 +324,49 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(img, video) {
 }
 
 /* Native controls: draw depth with shadows, without moving setting rows. */
-body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-button-container > button, .prompt .prompt-input-container > button) {
+body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button) {
   border: 2px solid var(--q-ink);
   border-radius: 6px;
   background-color: var(--q-paper);
-  box-shadow: 3px 3px 0 var(--q-shadow);
+  box-shadow: var(--q-button-shadow);
   color: var(--q-ink);
-  transition: background-color 120ms ease, box-shadow 120ms ease;
+  transition: var(--q-control-transition);
 }
 
-body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-button-container > button, .prompt .prompt-input-container > button).mod-cta {
+body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button).mod-cta {
   background-color: var(--q-sun);
   color: #342b27;
   font-weight: 700;
 }
 
-body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-button-container > button, .prompt .prompt-input-container > button):is(.mod-warning, .mod-destructive) {
+body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button):is(.mod-warning, .mod-destructive) {
   border-color: var(--q-danger);
   background-color: color-mix(in srgb, var(--q-danger) 12%, var(--q-paper));
   color: var(--q-danger);
 }
 
-body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-button-container > button, .prompt .prompt-input-container > button):is(:disabled, [aria-disabled="true"]) {
+body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button):is(:disabled, [aria-disabled="true"]) {
   box-shadow: none;
   opacity: 0.65;
   cursor: not-allowed;
 }
 
-body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-button-container > button, .prompt .prompt-input-container > button):not(:disabled):not([aria-disabled="true"]):hover {
+body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button):not(:disabled):not([aria-disabled="true"]):hover {
   background-color: var(--q-hover);
-  box-shadow: 4px 4px 0 var(--q-shadow);
+  box-shadow: var(--q-button-hover-shadow);
 }
 
-body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-button-container > button, .prompt .prompt-input-container > button).mod-cta:not(:disabled):hover {
+body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button).mod-cta:not(:disabled):hover {
   background-color: color-mix(in srgb, var(--q-sun) 82%, var(--q-paper));
 }
 
-body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-button-container > button, .prompt .prompt-input-container > button):is(.mod-warning, .mod-destructive):not(:disabled):hover {
+body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button):is(.mod-warning, .mod-destructive):not(:disabled):hover {
   background-color: color-mix(in srgb, var(--q-danger) 19%, var(--q-paper));
   color: var(--q-danger);
 }
 
-body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-button-container > button, .prompt .prompt-input-container > button):not(:disabled):active {
-  box-shadow: 0 0 0 var(--q-shadow), inset 2px 2px 0 var(--q-shadow);
+body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button):not(:disabled):active {
+  box-shadow: var(--q-button-active-shadow);
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control, .prompt .prompt-input-container, .workspace-leaf-content[data-type="search"] .search-input-container)
@@ -374,36 +374,50 @@ body:not(.is-mobile) :is(.mod-settings .setting-item-control, .prompt .prompt-in
   border: 2px solid var(--q-ink);
   border-radius: 5px;
   background-color: var(--q-paper);
-  box-shadow: inset 2px 2px 0 color-mix(in srgb, var(--q-line) 55%, transparent);
+  box-shadow: var(--q-input-shadow);
   color: var(--q-ink);
 }
 
 body:not(.is-mobile) .mod-settings .checkbox-container {
-  box-shadow: inset 0 0 0 1px var(--q-ink), 2px 2px 0 var(--q-shadow);
+  box-shadow: var(--q-switch-shadow);
 }
 
 body:not(.is-mobile) .mod-settings .checkbox-container.is-enabled {
-  background-color: var(--q-cyan);
+  background-color: var(--interactive-accent);
 }
 
-body:not(.is-mobile) :is(.mod-settings, .modal, .prompt) :is(input[type="checkbox"], input[type="radio"], input[type="range"]),
+body:not(.is-mobile) :is(.mod-settings, .modal-container.mod-confirmation, .prompt) :is(input[type="checkbox"], input[type="radio"], input[type="range"]),
 body:not(.is-mobile) .markdown-rendered .task-list-item-checkbox {
-  accent-color: var(--q-cyan);
+  accent-color: var(--interactive-accent);
 }
 
-body:not(.is-mobile) :is(.mod-settings, .modal, .prompt) :is(button, input, textarea, select, .checkbox-container, .clickable-icon):focus-visible,
+body:not(.is-mobile) :is(.mod-settings, .modal-container.mod-confirmation, .prompt) :is(button, input, textarea, select, .checkbox-container, .clickable-icon):focus-visible,
 body:not(.is-mobile) .mod-settings .checkbox-container:focus-within {
   outline: 2px solid var(--q-focus);
   outline-offset: 2px;
 }
 
-body:not(.is-mobile).doodle-q-quiet-controls :is(.mod-settings .setting-item-control > button, .modal-button-container > button, .prompt .prompt-input-container > button, .mod-settings .checkbox-container) {
-  box-shadow: none;
+body:not(.is-mobile).doodle-q-quiet-controls {
+  --q-button-shadow: none;
+  --q-button-hover-shadow: none;
+  --q-button-active-shadow: none;
+  --q-input-shadow: none;
+  --q-switch-shadow: none;
+  --q-control-transition: none;
+}
+
+body:not(.is-mobile).doodle-q-quiet-controls :is(.mod-settings .checkbox-container, .mod-settings .setting-item-control input, .mod-settings .setting-item-control textarea, .mod-settings .setting-item-control select),
+body:not(.is-mobile).doodle-q-quiet-controls .mod-settings .checkbox-container::after {
   transition: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-button-container > button, .prompt .prompt-input-container > button) {
+  body:not(.is-mobile) {
+    --q-control-transition: none;
+  }
+
+  body:not(.is-mobile) :is(.mod-settings .checkbox-container, .mod-settings .setting-item-control input, .mod-settings .setting-item-control textarea, .mod-settings .setting-item-control select),
+  body:not(.is-mobile) .mod-settings .checkbox-container::after {
     transition: none;
   }
 }
@@ -579,7 +593,7 @@ body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-
 
 /* Temporary native UI keeps Obsidian's placement, scrolling and keys. */
 body:not(.is-mobile) :is(.menu, .prompt, .suggestion-container, .notice),
-body:not(.is-mobile) .modal-container > .modal:not(.mod-settings) {
+body:not(.is-mobile) .modal-container.mod-confirmation > .modal {
   box-sizing: border-box;
   max-inline-size: calc(100vw - 32px);
   border: 2px solid var(--q-ink);
@@ -589,15 +603,15 @@ body:not(.is-mobile) .modal-container > .modal:not(.mod-settings) {
   color: var(--q-ink);
 }
 
-body:not(.is-mobile) .modal-container > .modal:not(.mod-settings) {
+body:not(.is-mobile) .modal-container.mod-confirmation > .modal {
   box-shadow: 7px 7px 0 var(--q-shadow);
 }
 
-body:not(.is-mobile) .modal-container .modal-bg {
+body:not(.is-mobile) .modal-container.mod-confirmation .modal-bg {
   background-color: rgb(35 29 25 / 53%);
 }
 
-body:not(.is-mobile) .modal-container > .modal:not(.mod-settings) .modal-title {
+body:not(.is-mobile) .modal-container.mod-confirmation > .modal .modal-title {
   color: var(--q-ink);
   font-family: var(--q-font-display);
   font-size: 1.5rem;
@@ -668,7 +682,7 @@ body:not(.is-mobile) .notice .notice-message {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body:not(.is-mobile) :is(.menu, .prompt, .suggestion-container, .notice, .modal-container > .modal:not(.mod-settings)) {
+  body:not(.is-mobile) :is(.menu, .prompt, .suggestion-container, .notice, .modal-container.mod-confirmation > .modal) {
     animation: none;
     transition: none;
   }

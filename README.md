@@ -1,6 +1,6 @@
 # Doodle Blocks Q
 
-适用于 Obsidian 桌面端默认主题的 Q 风格 CSS 代码片段。它提供奶油纸与深色纸面、连续工作区、青色选中态、黄色标记和原生控件反馈。外观参数可由 [Style Settings](https://github.com/community-archive/obsidian-style-settings) 调整；没有该插件时也能使用默认样式。
+适用于 Obsidian 桌面端默认主题的 Q 风格 CSS 代码片段。它提供奶油纸与深色纸面、墨线分界、黄色活动标签、青色文件选中态和原生控件反馈。外观参数可由 [Style Settings](https://github.com/community-archive/obsidian-style-settings) 调整；没有该插件时也能使用默认样式。
 
 ## 安装
 
@@ -11,6 +11,12 @@
 5. 可选：安装并启用 Style Settings 社区插件，在「Style Settings → Doodle Blocks Q」调整浅深色纸面、墨色、青色、黄色、短标题字体、选中阴影和控件触感。设置变更会立即应用，默认不覆盖 Obsidian 自己的强调色。
 
 更新时替换这两个 CSS 文件，在 Obsidian 中刷新代码片段。撤销时停用这两个片段即可恢复默认主题外观；Style Settings 插件可以继续保留。个人设置值由插件保存在 Vault 内，需要完全重置时可在 Q 分组中恢复默认值。
+
+## 视频细节与 CSS 位置
+
+活动顶部标签采用视频中的黄色纸签，普通按钮使用纸白内面与墨线，主操作按钮使用青绿色。按钮在悬停和按下时改变短硬阴影，不移动控件；设置滑杆保留 Obsidian 的尺寸和拖动行为，用墨边白色滑块与青色进度呈现。视频里的卡通角色、手机预览、旋转和抖动属于被编辑的内容，没有加入笔记工作区。设置中的「减少控件触感」与系统减少动态偏好可关闭装饰过渡。
+
+`snippets/` 是可编辑源码，也是用户直接复制的发布文件；Style Settings 声明与样式在同一份 CSS 中。目前不需要把 CSS 搬进 `src/`，也不需要生成第二份样式文件。将来确实需要拆包或生成不同产物时，再建立明确的构建流程。
 
 ## 字体与兼容性
 

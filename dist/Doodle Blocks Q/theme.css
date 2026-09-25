@@ -664,6 +664,10 @@ body:not(.is-mobile) :is(.modal, .mod-settings, .setting-item-control) .checkbox
   border-radius: 6px;
   box-shadow: 3px 3px 0 var(--q-control-shadow);
 }
+body:not(.is-mobile) :is(.modal, .mod-settings, .setting-item-control) .checkbox-container:not(:active)::after,
+body:not(.is-mobile) .modal .setting-group.mod-list .checkbox-container:not(:active)::after {
+  margin-block-start: 0;
+}
 body:not(.is-mobile) :is(.modal, .mod-settings, .setting-item-control) .checkbox-container.is-enabled {
   background-color: var(--interactive-accent);
 }
@@ -886,7 +890,7 @@ body.is-popout-modal:not(.is-mobile) .modal.mod-settings .setting-items > .setti
     background-color: var(--q-hover);
   }
 }
-@media (max-width: 760px) {
+@media (max-width: 700px) {
   body.is-popout-modal:not(.is-mobile) .modal.mod-settings .vertical-tab-header {
     flex: 0 0 176px;
     inline-size: 176px;

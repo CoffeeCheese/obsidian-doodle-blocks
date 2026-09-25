@@ -124,6 +124,13 @@ body:not(.is-mobile) {
     box-shadow: 3px 3px 0 var(--q-control-shadow);
   }
 
+  // The native knob already starts inside the track's border. Its original
+  // top margin would add another 2px and leave it touching the bottom edge.
+  :is(.modal, .mod-settings, .setting-item-control) .checkbox-container:not(:active)::after,
+  .modal .setting-group.mod-list .checkbox-container:not(:active)::after {
+    margin-block-start: 0;
+  }
+
   :is(.modal, .mod-settings, .setting-item-control) .checkbox-container.is-enabled {
     background-color: var(--interactive-accent);
   }

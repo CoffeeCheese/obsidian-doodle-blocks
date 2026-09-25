@@ -343,7 +343,7 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:has(> code):h
   overflow: hidden;
   border: 2px solid var(--q-ink);
   border-radius: 4px;
-  background: linear-gradient(to right, var(--q-code-gutter) 30px, var(--q-line) 30px 31px, var(--q-code-surface) 31px);
+  background: linear-gradient(to right, var(--q-code-gutter) 14px, var(--q-line) 14px 15px, var(--q-code-surface) 15px);
   box-shadow: 3px 3px 0 var(--q-shadow);
 }
 
@@ -365,7 +365,7 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:has(> .copy-c
   box-sizing: border-box;
   min-inline-size: 0;
   max-inline-size: 100%;
-  padding: 13px 16px 14px 44px;
+  padding: 13px 16px 14px;
   overflow-x: auto;
   overflow-y: hidden;
   background: transparent;

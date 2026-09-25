@@ -439,6 +439,14 @@ body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-inline-co
   box-decoration-break: clone;
 }
 
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered a > code {
+  color: inherit;
+}
+
+body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-inline-code.cm-link {
+  color: var(--link-external-color, var(--text-accent));
+}
+
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(.el-table, .table-wrapper) {
   max-inline-size: 100%;
   overflow-x: auto;

@@ -3,15 +3,105 @@ name: Doodle Blocks Q
 id: doodle-blocks-q
 settings:
   -
-    id: doodle-q-stamp-color
-    title: Q 标记颜色
-    description: 左侧工具栏底部的 Q 标记颜色。
-    type: variable-color
+    id: doodle-q-paper
+    title: 笔记纸面
+    description: 笔记与对话框的主纸色；左右侧栏会随之变化。
+    type: variable-themed-color
     format: hex
-    default: '#ffd464'
+    default-light: '#fffaf0'
+    default-dark: '#34312e'
+  -
+    id: doodle-q-ink
+    title: 墨色
+    description: Q 边框、标题与正文的主要颜色。
+    type: variable-themed-color
+    format: hex
+    default-light: '#342b27'
+    default-dark: '#f7ead8'
+  -
+    id: doodle-q-cyan
+    title: 选中青色
+    description: 当前文件、标签和键盘焦点的颜色。
+    type: variable-themed-color
+    format: hex
+    default-light: '#55bac1'
+    default-dark: '#69c8cb'
+  -
+    id: doodle-q-sun
+    title: 标记黄色
+    description: Q 标记、标题标记及主要操作的暖色。
+    type: variable-themed-color
+    format: hex
+    default-light: '#ffd464'
+    default-dark: '#e7b84e'
+  -
+    id: doodle-q-use-accent
+    title: 用 Q 青色覆盖 Obsidian 强调色
+    description: 关闭时保留 Obsidian 外观设置中的强调色。
+    type: class-toggle
+    default: false
 */
 
 /* Q is a CSS snippet for Obsidian's default desktop theme. */
+body:not(.is-mobile).theme-light {
+  --q-canvas: #f1e9db;
+  --q-paper: var(--doodle-q-paper, #fffaf0);
+  --q-ink: var(--doodle-q-ink, #342b27);
+  --q-cyan: var(--doodle-q-cyan, #55bac1);
+  --q-sun: var(--doodle-q-sun, #ffd464);
+  --q-shadow: #b9a796;
+  --q-line: #d8c9b8;
+  --q-muted: #7d7068;
+}
+
+body:not(.is-mobile).theme-dark {
+  --q-canvas: #242323;
+  --q-paper: var(--doodle-q-paper, #34312e);
+  --q-ink: var(--doodle-q-ink, #f7ead8);
+  --q-cyan: var(--doodle-q-cyan, #69c8cb);
+  --q-sun: var(--doodle-q-sun, #e7b84e);
+  --q-shadow: #171615;
+  --q-line: #6d6258;
+  --q-muted: #c7b7a3;
+}
+
+body:not(.is-mobile) {
+  --q-side: color-mix(in srgb, var(--q-paper) 48%, var(--q-canvas));
+  --q-panel: color-mix(in srgb, var(--q-paper) 76%, var(--q-canvas));
+  --q-hover: color-mix(in srgb, var(--q-sun) 17%, var(--q-paper));
+  --q-selected: color-mix(in srgb, var(--q-cyan) 28%, var(--q-paper));
+  --q-focus: color-mix(in srgb, var(--q-cyan) 70%, var(--q-ink));
+}
+
+body:not(.is-mobile).doodle-q-use-accent {
+  --interactive-accent: var(--q-cyan);
+  --interactive-accent-hover: var(--q-focus);
+}
+
+body:not(.is-mobile) .workspace {
+  background-color: var(--q-canvas);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root,
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content,
+body:not(.is-mobile) .workspace-split.mod-root .view-content,
+body:not(.is-mobile) .workspace-split.mod-root .view-header {
+  background-color: var(--q-paper);
+}
+
+body:not(.is-mobile) .workspace-ribbon,
+body:not(.is-mobile) .workspace-split.mod-sidedock,
+body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content,
+body:not(.is-mobile) .workspace-split.mod-sidedock .view-content {
+  background-color: var(--q-side);
+}
+
+body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-tab-header-container,
+body:not(.is-mobile) .workspace-split.mod-sidedock .nav-files-container,
+body:not(.is-mobile) .workspace-split.mod-sidedock .nav-header {
+  background-color: var(--q-panel);
+}
+
 body:not(.is-mobile) .workspace-ribbon.mod-left {
   position: relative;
 }
@@ -24,9 +114,9 @@ body:not(.is-mobile) .workspace-ribbon.mod-left::after {
   place-items: center;
   inline-size: 25px;
   block-size: 25px;
-  border: 1px solid var(--text-normal);
+  border: 1px solid var(--q-ink);
   border-radius: 5px;
-  background: var(--doodle-q-stamp-color, #ffd464);
+  background: var(--q-sun);
   color: #342b27;
   content: "Q";
   font: 700 15px/1 ui-sans-serif, sans-serif;

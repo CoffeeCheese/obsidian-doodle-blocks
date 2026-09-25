@@ -138,14 +138,18 @@ body:not(.is-mobile) .workspace-split.mod-sidedock .nav-header {
 /* Native workspace seams and selection states. Pane geometry stays native. */
 body:not(.is-mobile) .workspace-ribbon.mod-left,
 body:not(.is-mobile) .workspace-split.mod-left-split {
-  border-inline-end: 1px solid var(--q-line);
+  border-inline-end: 2px solid var(--q-ink);
 }
 
 body:not(.is-mobile) .workspace-split.mod-right-split {
-  border-inline-start: 1px solid var(--q-line);
+  border-inline-start: 2px solid var(--q-ink);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header-container,
+body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-tab-header-container {
+  border-block-end: 2px solid var(--q-ink);
+}
+
 body:not(.is-mobile) .workspace-split.mod-root .view-header {
   border-block-end: 1px solid var(--q-line);
 }
@@ -155,12 +159,10 @@ body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header-container {
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header.is-active {
-  margin-block-start: 3px;
-  border: 1px solid var(--q-ink);
-  border-block-end: 0;
-  border-radius: 6px 6px 0 0;
-  background-color: var(--q-selected);
-  box-shadow: var(--doodle-q-selection-shadow, 2px) 0 0 var(--q-shadow);
+  border: 2px solid var(--q-ink);
+  border-radius: 6px;
+  background-color: var(--q-sun);
+  box-shadow: var(--doodle-q-selection-shadow, 2px) var(--doodle-q-selection-shadow, 2px) 0 var(--q-shadow);
 }
 
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-tab-header.is-active {

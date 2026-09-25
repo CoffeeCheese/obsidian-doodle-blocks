@@ -12,6 +12,19 @@
 
 更新时替换这两个 CSS 文件，在 Obsidian 中刷新代码片段。撤销时停用这两个片段即可恢复默认主题外观；Style Settings 插件可以继续保留。个人设置值由插件保存在 Vault 内，需要完全重置时可在 Q 分组中恢复默认值。
 
+## Homepage 工作台
+
+项目另附一份可作为启动页的 [Q 工作台笔记](homepage/Q%20工作台.md) 和专用的 [工作台样式片段](snippets/doodle-blocks-q-homepage.css)。它们是可选附件，主题 CSS 单独使用时不依赖 Homepage。工作台采用方案 A 的仪表盘布局：顶部总览当天，下面依次是常用插件入口、今日及逾期任务、项目任务完成数、知识库指标、最近笔记和本周日记。快速入口中「工作量洞察」和「AI 助手」排在最前。数据在当前 Vault 内由 DataviewJS 和 Obsidian 元数据读取，按钮调用已启用插件的 Obsidian 命令；不会把笔记内容发送到本项目。项目卡片只展示 Project Manager 中有未完成任务的最近项目，任务完成数由该插件状态计算。
+
+安装工作台：
+
+1. 在目标 Vault 安装并启用 [Homepage](https://github.com/mirnovov/obsidian-homepage) 与 Dataview，并在 Dataview 设置中启用 JavaScript 查询。
+2. 把 `homepage/Q 工作台.md` 复制到 Vault 根目录；把 `snippets/doodle-blocks-q-homepage.css` 复制到 `.obsidian/snippets/` 并启用。工作台片段只作用于带 `q-homepage` 属性的阅读视图。
+3. 在 Homepage 设置中选「File → Q 工作台」，开启「Open on startup」，视图选「Reading view」。建议启动和手动打开都选「Keep open notes」，以便保留已有标签。可启用「Refresh Dataview」。
+4. QuickAdd 若尚无 Choice，先从工作台点击「配置快速记录」，添加一个 Capture；完成后「快速记录」按钮会启用。
+
+当前只在 Obsidian 桌面端验证。没有任务、项目或最近笔记时会显示明确空状态；QuickAdd 未配置 Choice 时显示配置入口。日期卡片可打开已有日记，今天没有日记时可通过「日记」命令创建；其他日期没有日记时会提示使用日记插件创建。顶部时间是打开工作台时的时间，重新打开或刷新 Dataview 后更新。
+
 ## 新标签页
 
 桌面端的新标签页是一张 Q 涂鸦本纸页：黄色书签、装订孔、青色页边线和浅色纸纹围住原生的「创建新文件」「打开文件」「关闭标签页」操作。装饰不会拦截点击；窄分栏和矮窗口中纸页会缩排并允许纵向滚动。浅色与深色外观沿用同一套 Q 配色，其他视图的空状态不受影响。

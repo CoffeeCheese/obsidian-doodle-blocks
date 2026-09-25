@@ -331,7 +331,9 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(th, td) {
   border-color: var(--q-line);
 }
 
-/* Native fenced blocks: the toolbar and gutter are paint, never copied text. */
+/* Native fenced blocks: the toolbar and gutter are paint, never copied text.
+   Reading code has no row nodes; CodeMirror virtualizes its lines. CSS cannot
+   keep a per-block row counter correct through edits, wrapping, and scrolling. */
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:has(> code):has(> .copy-code-button) {
   position: relative;
   box-sizing: border-box;

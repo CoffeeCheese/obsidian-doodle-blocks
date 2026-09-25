@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="880" viewBox="0 0 1440 880" role="img" aria-labelledby="title description">
+  <title id="title">Doodle Blocks 首页工作台视觉示意</title>
+  <desc id="description">Obsidian 奶油纸工作区内展示 Doodle Blocks 首页工作台。黄色标签页之下是今日总览、快速入口、待办与提醒、项目进度、知识库概览和最近笔记。</desc>
+  <defs>
+    <pattern id="dots" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#d8c9b8" opacity=".55"/></pattern>
+    <pattern id="rule" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M0 29H30" stroke="#55bac1" stroke-width="1" opacity=".15"/></pattern>
+    <clipPath id="window"><rect x="57" y="127" width="1326" height="680" rx="9"/></clipPath>
+    <style>
+      text { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; fill: #342b27; }
+      .display { font-family: "Marker Felt", "Comic Sans MS", "PingFang SC", cursive; }
+      .mono { font-family: "SFMono-Regular", Menlo, Consolas, monospace; }
+      .muted { fill: #7d7068; }
+      .white { fill: #fffaf0; }
+      .rule { stroke: #d8c9b8; stroke-width: 1.5; }
+      .ink-rule { stroke: #342b27; stroke-width: 2.5; }
+    </style>
+  </defs>
+
+  <rect width="1440" height="880" fill="#f1e9db"/>
+  <rect width="1440" height="880" fill="url(#dots)"/>
+  <path d="M0 72H1440M0 826H1440" class="rule"/>
+  <rect x="57" y="35" width="16" height="50" rx="3" fill="#ffd464" stroke="#342b27" stroke-width="2.5"/>
+  <text x="90" y="72" class="display" font-size="42" font-weight="700">Doodle Blocks</text>
+  <text x="1064" y="68" class="mono muted" font-size="14" letter-spacing="2">YOUR DAY, ON ONE PAGE</text>
+
+  <rect x="64" y="135" width="1326" height="680" rx="9" fill="#b9a796"/>
+  <rect x="57" y="127" width="1326" height="680" rx="9" fill="#fffaf0" stroke="#342b27" stroke-width="3"/>
+  <g clip-path="url(#window)">
+    <rect x="57" y="127" width="1326" height="43" fill="#eee5d8"/>
+    <path d="M57 170H1383" class="ink-rule"/>
+    <circle cx="84" cy="148" r="5.5" fill="#ffd464" stroke="#342b27" stroke-width="1.3"/>
+    <circle cx="104" cy="148" r="5.5" fill="#55bac1" stroke="#342b27" stroke-width="1.3"/>
+    <circle cx="124" cy="148" r="5.5" fill="#fffaf0" stroke="#342b27" stroke-width="1.3"/>
+    <text x="626" y="153" class="mono muted" font-size="13" letter-spacing="1.6">DOODLE BLOCKS  /  OBSIDIAN</text>
+
+    <rect x="57" y="170" width="196" height="637" fill="#f4eddf"/>
+    <path d="M253 170V807" class="ink-rule"/>
+    <text x="86" y="210" class="mono muted" font-size="12" letter-spacing="1.5">EXPLORER</text>
+    <rect x="78" y="229" width="152" height="37" rx="4" fill="#d9eff0" stroke="#342b27" stroke-width="1.8"/>
+    <rect x="78" y="229" width="5" height="37" fill="#55bac1"/>
+    <text x="96" y="253" font-size="14" font-weight="700">▤  我的工作台</text>
+    <text x="94" y="301" font-size="14">▤  今日日记</text>
+    <text x="94" y="346" font-size="14">▤  项目计划</text>
+    <text x="94" y="391" font-size="14">▤  灵感收集</text>
+    <path d="M78 420H230" class="rule"/>
+    <text x="86" y="449" class="mono muted" font-size="11" letter-spacing="1.3">PINNED</text>
+    <text x="94" y="486" font-size="14">✦  最近笔记</text>
+    <text x="94" y="528" font-size="14">✦  本周回顾</text>
+    <path d="M107 723c23-28 65-28 88 0M115 737c21-16 50-16 72 0" fill="none" stroke="#342b27" stroke-width="2" opacity=".32"/>
+    <circle cx="151" cy="715" r="58" fill="#ffd464" opacity=".24"/>
+
+    <rect x="253" y="170" width="1130" height="53" fill="#fffaf0"/>
+    <path d="M253 223H1383" class="rule"/>
+    <rect x="279" y="183" width="203" height="36" rx="5" fill="#b9a796"/>
+    <rect x="276" y="180" width="203" height="36" rx="5" fill="#ffd464" stroke="#342b27" stroke-width="2.3"/>
+    <text x="294" y="204" class="display" font-size="17" font-weight="700">我的工作台</text>
+    <text x="445" y="203" font-size="15">×</text>
+    <text x="512" y="204" class="muted" font-size="14">今日日记</text>
+    <text x="620" y="203" class="muted" font-size="16">＋</text>
+
+    <rect x="253" y="223" width="1130" height="584" fill="#fffaf0"/>
+    <rect x="253" y="223" width="1130" height="584" fill="url(#rule)"/>
+
+    <!-- The homepage is the subject: its hero and cards occupy the whole note pane. -->
+    <rect x="287" y="257" width="1060" height="143" rx="7" fill="#b9a796"/>
+    <rect x="282" y="252" width="1060" height="143" rx="7" fill="#fffaf0" stroke="#342b27" stroke-width="2.5"/>
+    <rect x="284" y="254" width="1056" height="139" rx="5" fill="url(#rule)"/>
+    <circle cx="1260" cy="284" r="76" fill="none" stroke="#ffd464" stroke-width="21" opacity=".5"/>
+    <text x="311" y="284" class="mono muted" font-size="11" letter-spacing="1.5">DOODLE DESK / TODAY</text>
+    <text x="311" y="343" class="display" font-size="42" font-weight="700">把今天放在眼前。</text>
+    <rect x="510" y="346" width="92" height="7" fill="#ffd464" opacity=".85"/>
+    <text x="313" y="373" class="muted" font-size="14">任务、近期变化和常用入口，都在这一页。</text>
+    <text x="1176" y="342" class="display" font-size="47">09:41</text>
+    <text x="1193" y="369" class="muted" font-size="13">9 月 26 日 · 周六</text>
+
+    <!-- Quick actions: first card, before tasks. -->
+    <rect x="287" y="427" width="333" height="204" rx="7" fill="#b9a796"/>
+    <rect x="282" y="422" width="333" height="204" rx="7" fill="#fffaf0" stroke="#342b27" stroke-width="2.4"/>
+    <text x="302" y="457" class="display" font-size="23" font-weight="700">快速入口</text>
+    <text x="529" y="455" class="mono muted" font-size="11">PLUGINS</text>
+    <rect x="302" y="474" width="140" height="39" rx="4" fill="#ffd464" stroke="#342b27" stroke-width="1.5"/>
+    <text x="313" y="499" font-size="13" font-weight="700">工作量洞察 ↗</text>
+    <rect x="457" y="474" width="138" height="39" rx="4" fill="#fffaf0" stroke="#342b27" stroke-width="1.5"/>
+    <text x="473" y="499" font-size="13" font-weight="700">AI 助手 ↗</text>
+    <rect x="302" y="522" width="140" height="39" rx="4" fill="#fffaf0" stroke="#342b27" stroke-width="1.5"/>
+    <text x="316" y="547" font-size="13">今日日记 ↗</text>
+    <rect x="457" y="522" width="138" height="39" rx="4" fill="#fffaf0" stroke="#342b27" stroke-width="1.5"/>
+    <text x="470" y="547" font-size="13">新建绘图 ↗</text>
+    <rect x="302" y="570" width="140" height="39" rx="4" fill="#fffaf0" stroke="#342b27" stroke-width="1.5"/>
+    <text x="317" y="595" font-size="13">快速记录 ↗</text>
+    <rect x="457" y="570" width="138" height="39" rx="4" fill="#fffaf0" stroke="#342b27" stroke-width="1.5"/>
+    <text x="473" y="595" font-size="13">打开日历 ↗</text>
+
+    <!-- Task monitor: main column. -->
+    <rect x="650" y="427" width="333" height="344" rx="7" fill="#b9a796"/>
+    <rect x="645" y="422" width="333" height="344" rx="7" fill="#fffaf0" stroke="#342b27" stroke-width="2.4"/>
+    <text x="665" y="457" class="display" font-size="23" font-weight="700">待办与提醒</text>
+    <text x="929" y="455" class="muted" font-size="12">打开 ↗</text>
+    <path d="M665 470H956" class="rule"/>
+    <rect x="665" y="486" width="86" height="72" rx="5" fill="#d9eff0"/>
+    <text x="678" y="528" class="display" font-size="30">03</text>
+    <text x="680" y="546" class="muted" font-size="11">今天</text>
+    <rect x="767" y="486" width="86" height="72" rx="5" fill="#fff2cb"/>
+    <text x="780" y="528" class="display" font-size="30">01</text>
+    <text x="782" y="546" class="muted" font-size="11">本周</text>
+    <rect x="869" y="486" width="86" height="72" rx="5" fill="#f1e9db"/>
+    <text x="882" y="528" class="display" font-size="30">00</text>
+    <text x="884" y="546" class="muted" font-size="11">逾期</text>
+    <text x="667" y="594" font-size="13">□  完成首页工作台整理</text>
+    <path d="M665 607H956" class="rule"/>
+    <text x="667" y="635" font-size="13">□  梳理本周项目计划</text>
+    <path d="M665 648H956" class="rule"/>
+    <text x="667" y="676" font-size="13">□  记录一个新的想法</text>
+    <rect x="665" y="706" width="291" height="39" rx="4" fill="#fffaf0" stroke="#342b27" stroke-width="1.5"/>
+    <text x="717" y="731" font-size="13">打开完整任务列表 ↗</text>
+
+    <!-- Project and knowledge monitors. -->
+    <rect x="1017" y="427" width="329" height="204" rx="7" fill="#b9a796"/>
+    <rect x="1012" y="422" width="329" height="204" rx="7" fill="#fffaf0" stroke="#342b27" stroke-width="2.4"/>
+    <text x="1032" y="457" class="display" font-size="23" font-weight="700">项目进度</text>
+    <text x="1291" y="455" class="muted" font-size="12">打开 ↗</text>
+    <path d="M1032 471H1320" class="rule"/>
+    <text x="1033" y="497" font-size="13" font-weight="700">主题细节整理</text>
+    <text x="1260" y="497" class="muted" font-size="11">4 / 6</text>
+    <path d="M1032 511H1320" class="rule"/>
+    <text x="1033" y="539" font-size="13" font-weight="700">阅读体验优化</text>
+    <text x="1260" y="539" class="muted" font-size="11">2 / 5</text>
+    <path d="M1032 553H1320" class="rule"/>
+    <text x="1033" y="582" font-size="13" font-weight="700">首页工作台</text>
+    <text x="1260" y="582" class="muted" font-size="11">3 / 4</text>
+
+    <rect x="287" y="652" width="333" height="119" rx="7" fill="#b9a796"/>
+    <rect x="282" y="647" width="333" height="119" rx="7" fill="#fffaf0" stroke="#342b27" stroke-width="2.4"/>
+    <text x="302" y="682" class="display" font-size="21" font-weight="700">知识库概览</text>
+    <rect x="302" y="696" width="68" height="51" rx="4" fill="#fff2cb"/>
+    <text x="310" y="725" class="display" font-size="21">128</text>
+    <text x="311" y="739" class="muted" font-size="10">笔记</text>
+    <rect x="377" y="696" width="68" height="51" rx="4" fill="#d9eff0"/>
+    <text x="385" y="725" class="display" font-size="21">36</text>
+    <text x="386" y="739" class="muted" font-size="10">标签</text>
+    <rect x="452" y="696" width="68" height="51" rx="4" fill="#f1e9db"/>
+    <text x="460" y="725" class="display" font-size="21">12</text>
+    <text x="460" y="739" class="muted" font-size="10">近 7 日</text>
+    <rect x="527" y="696" width="68" height="51" rx="4" fill="#f1e9db"/>
+    <text x="535" y="725" class="display" font-size="21">03</text>
+    <text x="535" y="739" class="muted" font-size="10">项目</text>
+
+    <rect x="1017" y="652" width="329" height="119" rx="7" fill="#b9a796"/>
+    <rect x="1012" y="647" width="329" height="119" rx="7" fill="#fffaf0" stroke="#342b27" stroke-width="2.4"/>
+    <text x="1032" y="682" class="display" font-size="21" font-weight="700">最近笔记</text>
+    <text x="1270" y="680" class="mono muted" font-size="10">RECENT</text>
+    <path d="M1032 697H1320" class="rule"/>
+    <text x="1033" y="717" font-size="12">▤  今天的灵感</text>
+    <text x="1271" y="717" class="muted" font-size="10">刚刚</text>
+    <path d="M1032 729H1320" class="rule"/>
+    <text x="1033" y="751" font-size="12">▤  本周回顾</text>
+    <text x="1271" y="751" class="muted" font-size="10">昨天</text>
+  </g>
+  <text x="60" y="854" class="mono muted" font-size="12" letter-spacing="1.4">PAPER / INK / SUN / CYAN</text>
+  <text x="1101" y="854" class="mono muted" font-size="12" letter-spacing="1.4">DOODLE DESK · VISUAL PREVIEW</text>
+</svg>

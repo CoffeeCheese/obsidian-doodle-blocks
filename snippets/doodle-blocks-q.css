@@ -98,9 +98,9 @@ body:not(.is-mobile) {
   --q-hover: color-mix(in srgb, var(--q-sun) 17%, var(--q-paper));
   --q-selected: color-mix(in srgb, var(--q-cyan) 28%, var(--q-paper));
   --q-focus: color-mix(in srgb, var(--q-cyan) 70%, var(--q-ink));
-  --q-button-shadow: 3px 3px 0 var(--q-shadow);
-  --q-button-hover-shadow: 4px 4px 0 var(--q-shadow);
-  --q-button-active-shadow: 0 0 0 var(--q-shadow), inset 2px 2px 0 var(--q-shadow);
+  --q-button-shadow: inset 0 2px 0 rgb(255 255 255 / 36%), 3px 3px 0 var(--q-shadow);
+  --q-button-hover-shadow: inset 0 2px 0 rgb(255 255 255 / 36%), 4px 4px 0 var(--q-shadow);
+  --q-button-active-shadow: inset 2px 2px 0 var(--q-shadow), 1px 1px 0 var(--q-shadow);
   --q-input-shadow: inset 2px 2px 0 color-mix(in srgb, var(--q-line) 55%, transparent);
   --q-switch-shadow: inset 0 0 0 1px var(--q-ink), 2px 2px 0 var(--q-shadow);
   --q-control-transition: background-color 120ms ease, box-shadow 120ms ease;
@@ -336,8 +336,8 @@ body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-co
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button).mod-cta {
-  background-color: var(--q-sun);
-  color: #342b27;
+  background-color: var(--q-cyan);
+  color: #1c2b2d;
   font-weight: 700;
 }
 
@@ -359,7 +359,7 @@ body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-co
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button).mod-cta:not(:disabled):hover {
-  background-color: color-mix(in srgb, var(--q-sun) 82%, var(--q-paper));
+  background-color: color-mix(in srgb, var(--q-cyan) 88%, var(--q-paper));
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button):is(.mod-warning, .mod-destructive):not(:disabled):hover {

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-labelledby="title description">
+  <title id="title">Doodle Blocks 涂鸦纸签</title>
+  <desc id="description">一张奶油色纸签叠在青色卡片上，黄色积木标题与墨线涂鸦点亮页面。</desc>
+  <g stroke="#342b27" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="25" y="20" width="56" height="62" rx="5" fill="#b9a796" stroke="none"/>
+    <rect x="19" y="16" width="56" height="62" rx="5" fill="#55bac1" stroke-width="3" transform="rotate(7 47 47)"/>
+    <rect x="15" y="13" width="57" height="63" rx="5" fill="#fffaf0" stroke-width="3"/>
+    <rect x="22" y="22" width="43" height="16" rx="2" fill="#ffd464" stroke-width="2.5"/>
+    <path d="M27 31h23m-23 17h30m-30 10h20" fill="none" stroke-width="3"/>
+    <path d="m52 55 4 5 8-11" fill="none" stroke="#2e908f" stroke-width="3"/>
+    <path d="M79 8v9m-5-4.5h10M84 65l3-3m-12 19 3 3" fill="none" stroke-width="2.5"/>
+    <circle cx="8" cy="47" r="2" fill="#ffd464" stroke-width="1.5"/>
+  </g>
+</svg>

@@ -1,6 +1,10 @@
 <h1 align="center">DOODLE BLOCKS</h1>
 
 <p align="center">
+  <img src="docs/images/doodle-blocks-mark.svg" alt="Doodle Blocks 涂鸦纸签图标" width="96" height="96">
+</p>
+
+<p align="center">
   <strong>把今天放在眼前，把想法留在纸上。</strong><br>
   为 Obsidian 默认主题准备的桌面端 CSS 片段与首页工作台
 </p>
@@ -31,7 +35,7 @@
 
 ### 按功能安装插件
 
-**只使用主题样式不需要安装插件。**要在 Obsidian 中调配色，或把工作台设为启动页，再按功能安装：
+**只使用主题样式不需要安装插件。** 要在 Obsidian 中调配色，或把工作台设为启动页，再按功能安装：
 
 | 插件 | 什么时候安装 |
 | --- | --- |
@@ -45,9 +49,9 @@
 
 ### 添加字体与工作台
 
-**手写字体。**将 [`doodle-blocks-fonts.css`](snippets/doodle-blocks-fonts.css) 放入 `.obsidian/snippets/` 并启用 `doodle-blocks-fonts`。它只影响短标题和标签，正文与代码仍使用 Obsidian 的字体设置。
+**手写字体**：将 [`doodle-blocks-fonts.css`](snippets/doodle-blocks-fonts.css) 放入 `.obsidian/snippets/` 并启用 `doodle-blocks-fonts`。它只影响短标题和标签，正文与代码仍使用 Obsidian 的字体设置。
 
-**首页工作台。**先启用 Homepage 和 Dataview，再按顺序完成：
+**首页工作台**：先启用 Homepage 和 Dataview，再按顺序完成：
 
 1. 将[工作台笔记](homepage/Doodle%20Blocks%20工作台.md)复制到 Vault 根目录。
 2. 将 [`doodle-blocks-homepage.css`](snippets/doodle-blocks-homepage.css) 放入 `.obsidian/snippets/` 并启用。
@@ -56,9 +60,9 @@
 <details>
 <summary>按需开启工作台的更多快捷入口</summary>
 
-- **任务与项目：**Tasks 打开完整任务列表；dotpm 显示项目进度；Project Manager Insights 提供工作量洞察，并依赖 dotpm。
-- **记录与日历：**QuickAdd 用于快速记录，需先配置 Choice；Calendar 打开日历；「今日日记」使用 Obsidian 自带的「日记」核心插件。
-- **绘图与 AI：**Excalidraw 新建绘图；Claudian 打开 AI 助手。
+- **任务与项目**：Tasks 打开完整任务列表；dotpm 显示项目进度；Project Manager Insights 提供工作量洞察，并依赖 dotpm。
+- **记录与日历**：QuickAdd 用于快速记录，需先配置 Choice；Calendar 打开日历；「今日日记」使用 Obsidian 自带的「日记」核心插件。
+- **绘图与 AI**：Excalidraw 新建绘图；Claudian 打开 AI 助手。
 
 这些插件只影响对应入口，主题样式不依赖它们。
 
@@ -97,9 +101,9 @@ Doodle Blocks 用奶油纸面、墨线边框、黄色活动状态和青色选中
 
 ## 使用与兼容
 
-- **适配范围：**Obsidian 桌面端默认主题，支持浅色与深色模式。
-- **更新与撤销：**替换相应 CSS 文件并刷新代码片段列表；停用片段即可撤销外观。
-- **授权：**项目采用 [MIT 许可证](LICENSE)。内嵌字体的来源与授权见 [SOURCES.md](snippets/fonts/SOURCES.md)。
+- **适配范围**：Obsidian 桌面端默认主题，支持浅色与深色模式。
+- **更新与撤销**：替换相应 CSS 文件并刷新代码片段列表；停用片段即可撤销外观。
+- **授权**：项目采用 [MIT 许可证](LICENSE)。内嵌字体的来源与授权见 [SOURCES.md](snippets/fonts/SOURCES.md)。
 
 ## 感谢与反馈
 

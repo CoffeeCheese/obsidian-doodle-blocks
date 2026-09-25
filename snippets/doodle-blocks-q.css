@@ -21,7 +21,7 @@ settings:
   -
     id: doodle-q-cyan
     title: 选中青色
-    description: 当前文件、标签和键盘焦点的颜色。
+    description: 当前文件、侧栏选中、键盘焦点和主操作按钮的颜色。
     type: variable-themed-color
     format: hex
     default-light: '#55bac1'
@@ -29,7 +29,7 @@ settings:
   -
     id: doodle-q-sun
     title: 标记黄色
-    description: Q 标记、标题标记及主要操作的暖色。
+    description: 活动标签、设置分类、命令选中项与标题标记的暖色。
     type: variable-themed-color
     format: hex
     default-light: '#ffd464'
@@ -664,10 +664,16 @@ body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion
 }
 
 body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item).is-selected {
+  background-color: var(--q-selected);
+  box-shadow: inset 4px 0 var(--q-cyan);
+  color: var(--q-ink);
+  font-weight: 700;
+}
+
+body:not(.is-mobile) .prompt .suggestion-item.is-selected {
   background-color: var(--q-sun);
   box-shadow: inset 4px 0 var(--q-ink);
   color: var(--q-on-sun);
-  font-weight: 700;
 }
 
 body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item):not(.is-selected):not(.is-disabled):hover {
@@ -691,6 +697,12 @@ body:not(.is-mobile) .menu .menu-item:is(.mod-warning, .is-warning, .is-dangerou
 
 body:not(.is-mobile) .menu .menu-item:is(.mod-warning, .is-warning, .is-dangerous):hover {
   background-color: color-mix(in srgb, var(--q-danger) 16%, var(--q-paper));
+}
+
+body:not(.is-mobile) .menu .menu-item:is(.mod-warning, .is-warning, .is-dangerous).is-selected {
+  background-color: var(--q-paper);
+  box-shadow: inset 4px 0 var(--q-danger);
+  color: var(--q-danger);
 }
 
 body:not(.is-mobile) .menu .menu-separator {

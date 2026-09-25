@@ -184,6 +184,8 @@ body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header-container {
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header.is-active {
+  /* Leave room for the hard shadow before the quiet pane divider. */
+  margin-block-end: calc(var(--doodle-q-selection-shadow, 2px) + 2px);
   border: 2px solid var(--q-ink);
   border-radius: var(--q-radius-control);
   background-color: var(--q-sun);
@@ -678,6 +680,13 @@ body:not(.is-mobile) .mod-settings .checkbox-container:focus-within {
   outline-offset: 2px;
 }
 
+/* A single inset accent rule shows focus without a second outer frame. */
+body:not(.is-mobile) :is(.mod-settings .setting-item-control, .prompt .prompt-input-container, .workspace-leaf-content[data-type="search"] .search-input-container)
+  :is(input[type="text"], input[type="search"], input[type="number"], textarea, select.dropdown:not(.is-measuring)):focus-visible {
+  outline: none;
+  box-shadow: inset 0 -3px 0 var(--q-focus);
+}
+
 body:not(.is-mobile).doodle-q-quiet-controls {
   --q-button-shadow: none;
   --q-button-hover-shadow: none;
@@ -746,8 +755,8 @@ body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container .se
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container .search-input-container:focus-within {
-  outline: 2px solid var(--q-focus);
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: inset 0 -3px 0 var(--q-focus), inset 2px 2px 0 var(--q-line);
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container input[type="search"] {

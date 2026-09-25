@@ -21,25 +21,19 @@ settings:
   -
     id: doodle-q-cyan
     title: 选中青色
-    description: 当前文件、侧栏选中、键盘焦点和主操作按钮的颜色。
+    description: 文件与设置选中框、键盘焦点、代码条带和信息提示的颜色。
     type: variable-themed-color
     format: hex
     default-light: '#55bac1'
     default-dark: '#69c8cb'
   -
     id: doodle-q-sun
-    title: 标记黄色
-    description: 活动标签、设置分类、命令选中项与标题标记的暖色。
+    title: 主题黄色
+    description: Obsidian 强调色、活动标签、主按钮与标题标记的暖色。
     type: variable-themed-color
     format: hex
     default-light: '#ffd464'
     default-dark: '#e7b84e'
-  -
-    id: doodle-q-use-accent
-    title: 用 Q 青色覆盖 Obsidian 强调色
-    description: 关闭时保留 Obsidian 外观设置中的强调色。
-    type: class-toggle
-    default: false
   -
     id: doodle-q-display-font
     title: 短标题字体
@@ -77,6 +71,7 @@ body:not(.is-mobile).theme-light {
   --q-danger: #a84d40;
   --q-content-link: #207e85;
   --q-content-link-hover: #176a70;
+  --q-accent-ink: color-mix(in srgb, var(--q-sun) 40%, var(--q-ink));
   --q-callout-blue: #20578a;
   --q-callout-teal: #116e70;
   --q-callout-green: #206438;
@@ -97,6 +92,7 @@ body:not(.is-mobile).theme-dark {
   --q-danger: #ed998b;
   --q-content-link: #89d6d6;
   --q-content-link-hover: #b2e6e4;
+  --q-accent-ink: color-mix(in srgb, var(--q-sun) 70%, var(--q-ink));
   --q-callout-blue: #a6cff5;
   --q-callout-teal: #8dd9d7;
   --q-callout-green: #a8dcaf;
@@ -106,6 +102,18 @@ body:not(.is-mobile).theme-dark {
 }
 
 body:not(.is-mobile) {
+  /* Match native controls to the yellow Q tab without changing semantic colors. */
+  --q-sun-hover: color-mix(in srgb, var(--q-sun) 82%, var(--q-ink));
+  --color-accent: var(--q-sun);
+  --color-accent-1: var(--q-sun);
+  --color-accent-2: var(--q-sun-hover);
+  --interactive-accent: var(--q-sun);
+  --interactive-accent-hover: var(--q-sun-hover);
+  --text-accent: var(--q-accent-ink);
+  --text-accent-hover: var(--q-accent-ink);
+  --text-on-accent: var(--q-on-sun);
+  --checkbox-color: var(--q-sun);
+  --checkbox-color-hover: var(--q-sun-hover);
   --q-font-display: var(--doodle-q-display-font, "Q Patrick", "Q Xiaolai", "PingFang SC", cursive);
   --q-font-prose: var(--font-text, "PingFang SC", system-ui, sans-serif);
   --q-font-code: var(--font-monospace, "SFMono-Regular", monospace);
@@ -129,11 +137,6 @@ body:not(.is-mobile) {
   --q-code-surface: color-mix(in srgb, var(--q-paper) 82%, var(--q-cyan));
   --q-radius-detail: 4px;
   --q-radius-control: 6px;
-}
-
-body:not(.is-mobile).doodle-q-use-accent {
-  --interactive-accent: var(--q-cyan);
-  --interactive-accent-hover: var(--q-focus);
 }
 
 body:not(.is-mobile) .workspace {
@@ -605,8 +608,8 @@ body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-co
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button).mod-cta {
-  background-color: var(--q-cyan);
-  color: #1c2b2d;
+  background-color: var(--q-sun);
+  color: var(--q-on-sun);
   font-weight: 700;
 }
 
@@ -628,7 +631,7 @@ body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-co
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button).mod-cta:not(:disabled):hover {
-  background-color: color-mix(in srgb, var(--q-cyan) 88%, var(--q-paper));
+  background-color: var(--q-sun-hover);
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button):is(.mod-warning, .mod-destructive):not(:disabled):hover {
@@ -659,7 +662,7 @@ body:not(.is-mobile) .mod-settings .checkbox-container.is-enabled {
 
 /* Keep Obsidian's range geometry and fill calculation; change only its paper surface. */
 body:not(.is-mobile) .mod-settings input[type="range"].slider {
-  --slider-fill-background: var(--q-cyan);
+  --slider-fill-background: var(--q-sun);
   --slider-thumb-background: var(--q-paper);
   --slider-thumb-border-width: 2px;
   --slider-thumb-border-color: var(--q-ink);
@@ -967,12 +970,6 @@ body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion
   box-shadow: inset 4px 0 var(--q-cyan);
   color: var(--q-ink);
   font-weight: 700;
-}
-
-body:not(.is-mobile) .prompt .suggestion-item.is-selected {
-  background-color: var(--q-sun);
-  box-shadow: inset 4px 0 var(--q-ink);
-  color: var(--q-on-sun);
 }
 
 body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item):not(.is-selected):not(.is-disabled):hover {

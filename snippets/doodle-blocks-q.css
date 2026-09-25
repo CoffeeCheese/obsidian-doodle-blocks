@@ -360,6 +360,11 @@ body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-bu
   background-color: color-mix(in srgb, var(--q-sun) 82%, var(--q-paper));
 }
 
+body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-button-container > button, .prompt .prompt-input-container > button):is(.mod-warning, .mod-destructive):not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--q-danger) 19%, var(--q-paper));
+  color: var(--q-danger);
+}
+
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-button-container > button, .prompt .prompt-input-container > button):not(:disabled):active {
   box-shadow: 0 0 0 var(--q-shadow), inset 2px 2px 0 var(--q-shadow);
 }
@@ -568,6 +573,103 @@ body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-
 
 @media (prefers-reduced-motion: reduce) {
   body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item {
+    transition: none;
+  }
+}
+
+/* Temporary native UI keeps Obsidian's placement, scrolling and keys. */
+body:not(.is-mobile) :is(.menu, .prompt, .suggestion-container, .notice),
+body:not(.is-mobile) .modal-container > .modal:not(.mod-settings) {
+  box-sizing: border-box;
+  max-inline-size: calc(100vw - 32px);
+  border: 2px solid var(--q-ink);
+  border-radius: 6px;
+  background-color: var(--q-paper);
+  box-shadow: 4px 4px 0 var(--q-shadow);
+  color: var(--q-ink);
+}
+
+body:not(.is-mobile) .modal-container > .modal:not(.mod-settings) {
+  box-shadow: 7px 7px 0 var(--q-shadow);
+}
+
+body:not(.is-mobile) .modal-container .modal-bg {
+  background-color: rgb(35 29 25 / 53%);
+}
+
+body:not(.is-mobile) .modal-container > .modal:not(.mod-settings) .modal-title {
+  color: var(--q-ink);
+  font-family: var(--q-font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item) {
+  border-radius: 3px;
+  color: var(--q-ink);
+}
+
+body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item).is-selected {
+  background-color: var(--q-selected);
+  box-shadow: inset 4px 0 var(--q-cyan);
+  font-weight: 700;
+}
+
+body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item):not(.is-selected):not(.is-disabled):hover {
+  background-color: var(--q-hover);
+}
+
+body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item):focus-visible {
+  outline: 2px solid var(--q-focus);
+  outline-offset: -2px;
+}
+
+body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item).is-disabled {
+  box-shadow: none;
+  opacity: 0.58;
+  cursor: not-allowed;
+}
+
+body:not(.is-mobile) .menu .menu-item:is(.mod-warning, .is-warning, .is-dangerous) {
+  color: var(--q-danger);
+}
+
+body:not(.is-mobile) .menu .menu-item:is(.mod-warning, .is-warning, .is-dangerous):hover {
+  background-color: color-mix(in srgb, var(--q-danger) 16%, var(--q-paper));
+}
+
+body:not(.is-mobile) .menu .menu-separator {
+  border-color: var(--q-line);
+}
+
+body:not(.is-mobile) .prompt .prompt-input-container {
+  box-shadow: inset 0 -1px var(--q-line);
+}
+
+body:not(.is-mobile) .prompt .prompt-instructions {
+  box-shadow: inset 0 1px var(--q-line);
+  color: var(--q-muted);
+}
+
+body:not(.is-mobile) :is(.prompt, .suggestion-container) .suggestion-aux {
+  color: var(--q-muted);
+}
+
+body:not(.is-mobile) .notice {
+  border-inline-start: 5px solid var(--q-cyan);
+}
+
+body:not(.is-mobile) .notice.mod-error {
+  border-color: var(--q-danger);
+}
+
+body:not(.is-mobile) .notice .notice-message {
+  color: var(--q-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:not(.is-mobile) :is(.menu, .prompt, .suggestion-container, .notice, .modal-container > .modal:not(.mod-settings)) {
+    animation: none;
     transition: none;
   }
 }

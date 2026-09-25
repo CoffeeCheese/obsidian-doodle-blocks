@@ -1,0 +1,35 @@
+/* @settings
+name: Doodle Blocks Q
+id: doodle-blocks-q
+settings:
+  -
+    id: doodle-q-stamp-color
+    title: Q 标记颜色
+    description: 左侧工具栏底部的 Q 标记颜色。
+    type: variable-color
+    format: hex
+    default: '#ffd464'
+*/
+
+/* Q is a CSS snippet for Obsidian's default desktop theme. */
+body:not(.is-mobile) .workspace-ribbon.mod-left {
+  position: relative;
+}
+
+body:not(.is-mobile) .workspace-ribbon.mod-left::after {
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-end: 14px;
+  display: grid;
+  place-items: center;
+  inline-size: 25px;
+  block-size: 25px;
+  border: 1px solid var(--text-normal);
+  border-radius: 5px;
+  background: var(--doodle-q-stamp-color, #ffd464);
+  color: #342b27;
+  content: "Q";
+  font: 700 15px/1 ui-sans-serif, sans-serif;
+  pointer-events: none;
+  transform: translateX(-50%);
+}

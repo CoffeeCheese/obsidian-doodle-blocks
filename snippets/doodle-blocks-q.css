@@ -402,3 +402,172 @@ body:not(.is-mobile).doodle-q-quiet-controls :is(.mod-settings .setting-item-con
     transition: none;
   }
 }
+
+/* Obsidian 1.13 opens Settings in a separate native popout window. */
+body.is-popout-modal:not(.is-mobile) .modal.mod-settings {
+  background-color: var(--q-paper);
+  color: var(--q-ink);
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings :is(.vertical-tabs-container, .vertical-tab-content-container, .vertical-tab-content) {
+  min-inline-size: 0;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-header {
+  min-inline-size: 0;
+  border-inline-end: 1px solid var(--q-line);
+  background-color: var(--q-side);
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container {
+  border-block-end: 1px solid var(--q-line);
+  background-color: var(--q-side);
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container .search-input-container {
+  min-inline-size: 0;
+  border: 2px solid var(--q-ink);
+  border-radius: 7px;
+  background-color: var(--q-paper);
+  box-shadow: inset 2px 2px 0 var(--q-line);
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container .search-input-container:focus-within {
+  outline: 2px solid var(--q-focus);
+  outline-offset: 2px;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container input[type="search"] {
+  min-inline-size: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  outline: none;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-header-group-title {
+  color: var(--q-muted);
+  font-family: var(--q-font-code);
+  letter-spacing: 0.04em;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: var(--q-ink);
+  transition: background-color 120ms ease;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item.is-active {
+  border-color: var(--q-ink);
+  background-color: var(--q-selected);
+  box-shadow: inset 4px 0 var(--q-cyan), 2px 2px 0 var(--q-shadow);
+  font-weight: 700;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item:not(.is-active):hover,
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-items > .setting-item.mod-navigable:hover {
+  background-color: var(--q-hover);
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item:focus-visible,
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-items > .setting-item.mod-navigable:focus-visible {
+  outline: 2px solid var(--q-focus);
+  outline-offset: 2px;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-content {
+  background-color: var(--q-paper);
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-group > .setting-item-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-block-end: 12px;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-group > .setting-item-heading::before {
+  inline-size: 9px;
+  block-size: 24px;
+  flex: none;
+  border: 1px solid var(--q-ink);
+  background-color: var(--q-sun);
+  box-shadow: 2px 2px 0 var(--q-shadow);
+  content: "";
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-item-heading > .setting-item-name {
+  color: var(--q-ink);
+  font-family: var(--q-font-display);
+  font-size: 1.4em;
+  font-weight: 400;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-group > .setting-items,
+body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-container {
+  border: 1px solid var(--q-line);
+  border-radius: 7px;
+  background-color: var(--q-panel);
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-group > .setting-items > .setting-item,
+body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-container > .setting-item {
+  min-inline-size: 0;
+  padding-block: 16px;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-group > .setting-items > .setting-item:not(:last-child),
+body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-container > .setting-item:not(:last-child) {
+  border-block-end: 1px solid var(--q-line);
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-item-info,
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-item-control {
+  min-inline-size: 0;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-item-name {
+  color: var(--q-ink);
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .setting-item-description {
+  color: var(--q-muted);
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-id="doodle-blocks-q"] {
+  border-inline-start: 8px solid var(--q-sun);
+  background-color: var(--q-hover);
+}
+
+@media (max-width: 760px) {
+  body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-header {
+    inline-size: 176px;
+    flex: 0 0 176px;
+  }
+
+  body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-content {
+    padding-inline: 14px;
+  }
+
+  body.is-popout-modal:not(.is-mobile) .mod-settings .setting-group > .setting-items > .setting-item,
+  body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-container > .setting-item {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+
+  body.is-popout-modal:not(.is-mobile) .mod-settings .setting-group > .setting-items > .setting-item > :is(.setting-item-info, .setting-item-control),
+  body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-container > .setting-item > :is(.setting-item-info, .setting-item-control) {
+    flex: 1 1 100%;
+  }
+
+  body.is-popout-modal:not(.is-mobile) .mod-settings .setting-item-control {
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item {
+    transition: none;
+  }
+}

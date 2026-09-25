@@ -108,6 +108,8 @@ body:not(.is-mobile) {
   --q-slider-thumb-shadow: 2px 2px 0 var(--q-shadow);
   --q-slider-thumb-hover-shadow: 3px 3px 0 var(--q-shadow);
   --q-control-transition: background-color 120ms ease, box-shadow 120ms ease;
+  --q-code-surface: color-mix(in srgb, var(--q-paper) 82%, var(--q-cyan));
+  --q-code-gutter: color-mix(in srgb, var(--q-paper) 88%, var(--q-cyan));
 }
 
 body:not(.is-mobile).doodle-q-use-accent {
@@ -327,6 +329,74 @@ body:not(.is-mobile) .markdown-source-view.mod-cm6 :is(.cm-inline-code, .HyperMD
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre,
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(th, td) {
   border-color: var(--q-line);
+}
+
+/* Native fenced blocks: the toolbar and gutter are paint, never copied text. */
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:has(> code):has(> .copy-code-button) {
+  position: relative;
+  box-sizing: border-box;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid var(--q-ink);
+  border-radius: 4px;
+  background: linear-gradient(to right, var(--q-code-gutter) 30px, var(--q-line) 30px 31px, var(--q-code-surface) 31px);
+  box-shadow: 3px 3px 0 var(--q-shadow);
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:has(> .copy-code-button)::before {
+  display: block;
+  box-sizing: border-box;
+  block-size: 38px;
+  padding-inline: 32px 46px;
+  border-block-end: 2px solid var(--q-ink);
+  background: radial-gradient(circle at 17px 50%, var(--q-sun) 0 4px, var(--q-ink) 4px 5px, transparent 5px), var(--q-cyan);
+  color: var(--q-ink);
+  content: "CODE";
+  font: 700 11px/36px var(--q-font-code);
+  user-select: none;
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:has(> .copy-code-button) > code {
+  display: block;
+  box-sizing: border-box;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  padding: 13px 16px 14px 44px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: transparent;
+  white-space: pre;
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre > .copy-code-button {
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 4px;
+  inset-inline-end: 6px;
+  display: grid;
+  place-items: center;
+  inline-size: 30px;
+  block-size: 28px;
+  padding: 4px;
+  border: 1px solid var(--q-ink);
+  border-radius: 4px;
+  background: var(--q-paper);
+  box-shadow: 2px 2px 0 var(--q-shadow);
+  color: var(--q-ink);
+  opacity: 1;
+  transition: var(--q-control-transition);
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre > .copy-code-button:hover {
+  background: var(--q-hover);
+  box-shadow: var(--q-button-hover-shadow);
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre > .copy-code-button:focus-visible {
+  outline: 2px solid var(--q-focus);
+  outline-offset: 2px;
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(.el-table, .table-wrapper) {

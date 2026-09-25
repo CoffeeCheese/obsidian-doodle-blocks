@@ -98,6 +98,7 @@ body:not(.is-mobile) {
   --q-hover: color-mix(in srgb, var(--q-sun) 17%, var(--q-paper));
   --q-selected: color-mix(in srgb, var(--q-cyan) 28%, var(--q-paper));
   --q-focus: color-mix(in srgb, var(--q-cyan) 70%, var(--q-ink));
+  --q-on-sun: #342b27;
   --q-button-shadow: inset 0 2px 0 rgb(255 255 255 / 36%), 3px 3px 0 var(--q-shadow);
   --q-button-hover-shadow: inset 0 2px 0 rgb(255 255 255 / 36%), 4px 4px 0 var(--q-shadow);
   --q-button-active-shadow: inset 2px 2px 0 var(--q-shadow), 1px 1px 0 var(--q-shadow);
@@ -176,6 +177,10 @@ body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-tab-header.is-acti
 body:not(.is-mobile) .workspace-tab-header.is-active .workspace-tab-header-inner-title {
   color: var(--q-ink);
   font-family: var(--q-font-display);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header.is-active .workspace-tab-header-inner-title {
+  color: var(--q-on-sun);
 }
 
 body:not(.is-mobile) .workspace-tab-header:not(.is-active):hover,
@@ -509,6 +514,7 @@ body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item.is-act
   border-color: var(--q-ink);
   background-color: var(--q-sun);
   box-shadow: inset 4px 0 var(--q-ink), 2px 2px 0 var(--q-shadow);
+  color: var(--q-on-sun);
   font-weight: 700;
 }
 
@@ -627,12 +633,12 @@ body:not(.is-mobile) .modal-container.mod-confirmation > .modal {
   border: 2px solid var(--q-ink);
   border-radius: 6px;
   background-color: var(--q-paper);
-  box-shadow: 4px 4px 0 var(--q-shadow);
+  box-shadow: inset 0 2px 0 rgb(255 255 255 / 30%), 4px 4px 0 var(--q-shadow);
   color: var(--q-ink);
 }
 
 body:not(.is-mobile) .modal-container.mod-confirmation > .modal {
-  box-shadow: 7px 7px 0 var(--q-shadow);
+  box-shadow: inset 0 2px 0 rgb(255 255 255 / 30%), 7px 7px 0 var(--q-shadow);
 }
 
 body:not(.is-mobile) .modal-container.mod-confirmation .modal-bg {
@@ -652,8 +658,9 @@ body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion
 }
 
 body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item).is-selected {
-  background-color: var(--q-selected);
-  box-shadow: inset 4px 0 var(--q-cyan);
+  background-color: var(--q-sun);
+  box-shadow: inset 4px 0 var(--q-ink);
+  color: var(--q-on-sun);
   font-weight: 700;
 }
 
@@ -681,11 +688,11 @@ body:not(.is-mobile) .menu .menu-item:is(.mod-warning, .is-warning, .is-dangerou
 }
 
 body:not(.is-mobile) .menu .menu-separator {
-  border-color: var(--q-line);
+  border-color: color-mix(in srgb, var(--q-ink) 48%, var(--q-paper));
 }
 
 body:not(.is-mobile) .prompt .prompt-input-container {
-  box-shadow: inset 0 -1px var(--q-line);
+  box-shadow: inset 0 -2px var(--q-ink);
 }
 
 body:not(.is-mobile) .prompt .prompt-instructions {

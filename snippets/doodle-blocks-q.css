@@ -75,6 +75,14 @@ body:not(.is-mobile).theme-light {
   --q-line: #d8c9b8;
   --q-muted: #7d7068;
   --q-danger: #a84d40;
+  --q-content-link: #207e85;
+  --q-content-link-hover: #176a70;
+  --q-callout-blue: #20578a;
+  --q-callout-teal: #116e70;
+  --q-callout-green: #206438;
+  --q-callout-amber: #8a4700;
+  --q-callout-red: #9b3041;
+  --q-callout-violet: #6d4d95;
 }
 
 body:not(.is-mobile).theme-dark {
@@ -87,6 +95,14 @@ body:not(.is-mobile).theme-dark {
   --q-line: #6d6258;
   --q-muted: #c7b7a3;
   --q-danger: #ed998b;
+  --q-content-link: #89d6d6;
+  --q-content-link-hover: #b2e6e4;
+  --q-callout-blue: #a6cff5;
+  --q-callout-teal: #8dd9d7;
+  --q-callout-green: #a8dcaf;
+  --q-callout-amber: #f0c48e;
+  --q-callout-red: #f3a5b0;
+  --q-callout-violet: #d8bfe8;
 }
 
 body:not(.is-mobile) {
@@ -111,6 +127,8 @@ body:not(.is-mobile) {
   --q-slider-thumb-hover-shadow: 3px 3px 0 var(--q-shadow);
   --q-control-transition: background-color 120ms ease, box-shadow 120ms ease;
   --q-code-surface: color-mix(in srgb, var(--q-paper) 82%, var(--q-cyan));
+  --q-radius-detail: 4px;
+  --q-radius-control: 6px;
 }
 
 body:not(.is-mobile).doodle-q-use-accent {
@@ -145,16 +163,16 @@ body:not(.is-mobile) .workspace-split.mod-sidedock .nav-header {
 /* Native workspace seams and selection states. Pane geometry stays native. */
 body:not(.is-mobile) .workspace-ribbon.mod-left,
 body:not(.is-mobile) .workspace-split.mod-left-split {
-  border-inline-end: 2px solid var(--q-ink);
+  border-inline-end: 1px solid var(--q-line);
 }
 
 body:not(.is-mobile) .workspace-split.mod-right-split {
-  border-inline-start: 2px solid var(--q-ink);
+  border-inline-start: 1px solid var(--q-line);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header-container,
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-tab-header-container {
-  border-block-end: 2px solid var(--q-ink);
+  border-block-end: 1px solid var(--q-line);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .view-header {
@@ -167,7 +185,7 @@ body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header-container {
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header.is-active {
   border: 2px solid var(--q-ink);
-  border-radius: 6px;
+  border-radius: var(--q-radius-control);
   background-color: var(--q-sun);
   box-shadow: var(--doodle-q-selection-shadow, 2px) var(--doodle-q-selection-shadow, 2px) 0 var(--q-shadow);
 }
@@ -200,7 +218,7 @@ body:not(.is-mobile) .workspace-ribbon .side-dock-ribbon-action:not(.is-active):
 body:not(.is-mobile) .workspace-ribbon .side-dock-ribbon-action.is-active {
   border: 1px solid var(--q-ink);
   border-inline-start: 3px solid var(--q-cyan);
-  border-radius: 4px;
+  border-radius: var(--q-radius-detail);
   background-color: var(--q-selected);
   box-shadow: var(--doodle-q-selection-shadow, 2px) var(--doodle-q-selection-shadow, 2px) 0 var(--q-shadow);
 }
@@ -209,7 +227,7 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type="outline"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="search"]) .tree-item-self.is-active {
   border: 1px solid var(--q-ink);
   border-inline-start: 4px solid var(--q-cyan);
-  border-radius: 4px;
+  border-radius: var(--q-radius-detail);
   background-color: var(--q-selected);
   box-shadow: var(--doodle-q-selection-shadow, 2px) var(--doodle-q-selection-shadow, 2px) 0 var(--q-shadow);
   color: var(--q-ink);
@@ -222,7 +240,7 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav
 
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title):not(.is-active):hover,
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type="outline"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="search"]) .tree-item-self:not(.is-active):hover {
-  border-radius: 4px;
+  border-radius: var(--q-radius-detail);
   background-color: var(--q-hover);
 }
 
@@ -261,7 +279,7 @@ body:not(.is-mobile) .workspace-ribbon.mod-left::after {
   inline-size: 25px;
   block-size: 25px;
   border: 1px solid var(--q-ink);
-  border-radius: 5px;
+  border-radius: var(--q-radius-control);
   background: var(--q-sun);
   color: #342b27;
   content: "Q";
@@ -296,8 +314,24 @@ body:not(.is-mobile) .markdown-source-view.mod-cm6 .inline-title {
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered h2,
 body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-2 {
-  border-inline-start: 8px solid var(--q-sun);
-  padding-inline-start: 12px;
+  position: relative;
+  padding-inline-start: 32px;
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered h2::before,
+body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-header-2::before {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 50%;
+  box-sizing: border-box;
+  inline-size: 9px;
+  block-size: 22px;
+  border: 1px solid var(--q-ink);
+  background-color: var(--q-sun);
+  box-shadow: 2px 2px 0 var(--q-shadow);
+  content: "";
+  pointer-events: none;
+  transform: translateY(-50%);
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(mark, .search-result-file-matched-text),
@@ -312,8 +346,57 @@ body:not(.is-mobile) .markdown-source-view.mod-cm6 .cm-line {
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered a {
+  color: var(--q-content-link);
   text-decoration-thickness: 0.09em;
   text-underline-offset: 0.16em;
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered a:hover {
+  color: var(--q-content-link-hover);
+}
+
+body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview :is(.cm-link, .cm-url) {
+  color: var(--q-content-link);
+}
+
+body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview :is(.cm-link, .cm-url) .cm-underline {
+  color: var(--q-content-link);
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered .task-list-item-checkbox,
+body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview input[type="checkbox"] {
+  accent-color: var(--q-content-link);
+}
+
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered,
+body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview {
+  --checkbox-color: var(--q-content-link);
+}
+
+/* Obsidian keeps the callout type color for its icon, rule, and paper tint.
+   Only the small title text gets a higher-contrast shade of that hue. */
+body:not(.is-mobile) :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) .callout:is([data-callout="note"], [data-callout="info"], [data-callout="todo"]) .callout-title-inner {
+  color: var(--q-callout-blue);
+}
+
+body:not(.is-mobile) :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) .callout:is([data-callout="abstract"], [data-callout="summary"], [data-callout="tldr"], [data-callout="tip"], [data-callout="hint"], [data-callout="important"]) .callout-title-inner {
+  color: var(--q-callout-teal);
+}
+
+body:not(.is-mobile) :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) .callout:is([data-callout="success"], [data-callout="check"], [data-callout="done"]) .callout-title-inner {
+  color: var(--q-callout-green);
+}
+
+body:not(.is-mobile) :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) .callout:is([data-callout="question"], [data-callout="help"], [data-callout="faq"], [data-callout="warning"], [data-callout="caution"], [data-callout="attention"]) .callout-title-inner {
+  color: var(--q-callout-amber);
+}
+
+body:not(.is-mobile) :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) .callout:is([data-callout="failure"], [data-callout="fail"], [data-callout="missing"], [data-callout="danger"], [data-callout="error"], [data-callout="bug"]) .callout-title-inner {
+  color: var(--q-callout-red);
+}
+
+body:not(.is-mobile) :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) .callout[data-callout="example"] .callout-title-inner {
+  color: var(--q-callout-violet);
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered blockquote {
@@ -496,7 +579,7 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered a > code {
 }
 
 body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-inline-code.cm-link {
-  color: var(--link-external-color, var(--text-accent));
+  color: var(--q-content-link);
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(.el-table, .table-wrapper) {
@@ -512,7 +595,7 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(img, video) {
 /* Native controls: draw depth with shadows, without moving setting rows. */
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button) {
   border: 2px solid var(--q-ink);
-  border-radius: 6px;
+  border-radius: var(--q-radius-control);
   background-color: var(--q-paper);
   box-shadow: var(--q-button-shadow);
   color: var(--q-ink);
@@ -558,7 +641,7 @@ body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-co
 body:not(.is-mobile) :is(.mod-settings .setting-item-control, .prompt .prompt-input-container, .workspace-leaf-content[data-type="search"] .search-input-container)
   :is(input[type="text"], input[type="search"], input[type="number"], textarea, select.dropdown:not(.is-measuring)) {
   border: 2px solid var(--q-ink);
-  border-radius: 5px;
+  border-radius: var(--q-radius-control);
   background-color: var(--q-paper);
   box-shadow: var(--q-input-shadow);
   color: var(--q-ink);
@@ -645,19 +728,19 @@ body.is-popout-modal:not(.is-mobile) .mod-settings :is(.vertical-tabs-container,
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-header {
   min-inline-size: 0;
-  border-inline-end: 2px solid var(--q-ink);
+  border-inline-end: 1px solid var(--q-line);
   background-color: var(--q-side);
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container {
-  border-block-end: 2px solid var(--q-ink);
+  border-block-end: 1px solid var(--q-line);
   background-color: var(--q-side);
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container .search-input-container {
   min-inline-size: 0;
   border: 2px solid var(--q-ink);
-  border-radius: 7px;
+  border-radius: var(--q-radius-control);
   background-color: var(--q-paper);
   box-shadow: inset 2px 2px 0 var(--q-line);
 }
@@ -683,16 +766,17 @@ body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-header-group-ti
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item {
   border: 1px solid transparent;
-  border-radius: 5px;
+  border-radius: var(--q-radius-control);
   color: var(--q-ink);
   transition: background-color 120ms ease;
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item.is-active {
   border-color: var(--q-ink);
-  background-color: var(--q-sun);
-  box-shadow: inset 4px 0 var(--q-ink), 2px 2px 0 var(--q-shadow);
-  color: var(--q-on-sun);
+  border-inline-start: 4px solid var(--q-cyan);
+  background-color: var(--q-selected);
+  box-shadow: 2px 2px 0 var(--q-shadow);
+  color: var(--q-ink);
   font-weight: 700;
 }
 
@@ -738,7 +822,7 @@ body.is-popout-modal:not(.is-mobile) .mod-settings .setting-item-heading > .sett
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-group > .setting-items,
 body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-container {
   border: 1px solid var(--q-ink);
-  border-radius: 7px;
+  border-radius: var(--q-radius-control);
   background-color: var(--q-panel);
 }
 
@@ -767,8 +851,42 @@ body.is-popout-modal:not(.is-mobile) .mod-settings .setting-item-description {
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-id="doodle-blocks-q"] {
-  border-inline-start: 8px solid var(--q-sun);
-  background-color: var(--q-hover);
+  margin-block: 14px 0;
+  padding: 12px 14px;
+  border: 1px solid var(--q-ink);
+  border-inline-start: 4px solid var(--q-cyan);
+  border-radius: var(--q-radius-control);
+  background-color: var(--q-selected);
+  box-shadow: 2px 2px 0 var(--q-shadow);
+  color: var(--q-ink);
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-id="doodle-blocks-q"]:focus-visible {
+  outline: 2px solid var(--q-focus);
+  outline-offset: 2px;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-id="doodle-blocks-q"] + .style-settings-container {
+  margin-block: 10px 18px;
+  padding: 10px 14px 14px;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-id="doodle-blocks-q"] + .style-settings-container > .setting-item {
+  margin: 0;
+  padding: 16px 0;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings :is(.style-settings-import, .style-settings-export) {
+  color: var(--q-content-link);
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.16em;
+}
+
+body.is-popout-modal:not(.is-mobile) .mod-settings :is(.style-settings-import, .style-settings-export):hover {
+  color: var(--q-content-link-hover);
 }
 
 @media (max-width: 760px) {
@@ -809,7 +927,7 @@ body:not(.is-mobile) .modal-container.mod-confirmation > .modal {
   box-sizing: border-box;
   max-inline-size: calc(100vw - 32px);
   border: 2px solid var(--q-ink);
-  border-radius: 6px;
+  border-radius: var(--q-radius-control);
   background-color: var(--q-paper);
   box-shadow: inset 0 2px 0 rgb(255 255 255 / 30%), 4px 4px 0 var(--q-shadow);
   color: var(--q-ink);
@@ -831,7 +949,7 @@ body:not(.is-mobile) .modal-container.mod-confirmation > .modal .modal-title {
 }
 
 body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item) {
-  border-radius: 3px;
+  border-radius: var(--q-radius-detail);
   color: var(--q-ink);
 }
 

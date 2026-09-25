@@ -1,9 +1,9 @@
 /* @settings
-name: Doodle Blocks Q
-id: doodle-blocks-q
+name: Doodle Blocks
+id: doodle-blocks
 settings:
   -
-    id: doodle-q-paper
+    id: doodle-blocks-paper
     title: 笔记纸面
     description: 笔记与对话框的主纸色；左右侧栏会随之变化。
     type: variable-themed-color
@@ -11,15 +11,15 @@ settings:
     default-light: '#fffaf0'
     default-dark: '#34312e'
   -
-    id: doodle-q-ink
+    id: doodle-blocks-ink
     title: 墨色
-    description: Q 边框、标题与正文的主要颜色。
+    description: 墨线边框、标题与正文的主要颜色。
     type: variable-themed-color
     format: hex
     default-light: '#342b27'
     default-dark: '#f7ead8'
   -
-    id: doodle-q-cyan
+    id: doodle-blocks-cyan
     title: 选中青色
     description: 文件与设置选中框、键盘焦点、代码条带和信息提示的颜色。
     type: variable-themed-color
@@ -27,7 +27,7 @@ settings:
     default-light: '#55bac1'
     default-dark: '#69c8cb'
   -
-    id: doodle-q-sun
+    id: doodle-blocks-sun
     title: 主题黄色
     description: Obsidian 强调色、活动标签、主按钮与标题标记的暖色。
     type: variable-themed-color
@@ -35,13 +35,13 @@ settings:
     default-light: '#ffd464'
     default-dark: '#e7b84e'
   -
-    id: doodle-q-display-font
+    id: doodle-blocks-display-font
     title: 短标题字体
     description: 只用于笔记标题与原生短标签；正文和代码沿用 Obsidian 字体设置。
     type: variable-text
-    default: '"Q Patrick", "Q Xiaolai", "PingFang SC", cursive'
+    default: '"Doodle Patrick", "Doodle Xiaolai", "PingFang SC", cursive'
   -
-    id: doodle-q-selection-shadow
+    id: doodle-blocks-selection-shadow
     title: 选中项阴影
     description: 当前标签和文件树选中项的短硬阴影长度。
     type: variable-number-slider
@@ -51,148 +51,148 @@ settings:
     step: 1
     format: px
   -
-    id: doodle-q-quiet-controls
+    id: doodle-blocks-quiet-controls
     title: 减少控件触感
     description: 移除按钮和表单的装饰阴影与过渡；系统减少动态偏好始终优先。
     type: class-toggle
     default: false
 */
 
-/* Q is a CSS snippet for Obsidian's default desktop theme. */
+/* Doodle Blocks is a CSS snippet for Obsidian's default desktop theme. */
 body:not(.is-mobile).theme-light {
-  --q-canvas: #f1e9db;
-  --q-paper: var(--doodle-q-paper, #fffaf0);
-  --q-ink: var(--doodle-q-ink, #342b27);
-  --q-cyan: var(--doodle-q-cyan, #55bac1);
-  --q-sun: var(--doodle-q-sun, #ffd464);
-  --q-shadow: #b9a796;
-  --q-line: #d8c9b8;
-  --q-muted: #7d7068;
-  --q-danger: #a84d40;
-  --q-content-link: #207e85;
-  --q-content-link-hover: #176a70;
-  --q-accent-ink: color-mix(in srgb, var(--q-sun) 40%, var(--q-ink));
-  --q-callout-blue: #20578a;
-  --q-callout-teal: #116e70;
-  --q-callout-green: #206438;
-  --q-callout-amber: #8a4700;
-  --q-callout-red: #9b3041;
-  --q-callout-violet: #6d4d95;
+  --db-canvas: #f1e9db;
+  --db-paper: var(--doodle-blocks-paper, #fffaf0);
+  --db-ink: var(--doodle-blocks-ink, #342b27);
+  --db-cyan: var(--doodle-blocks-cyan, #55bac1);
+  --db-sun: var(--doodle-blocks-sun, #ffd464);
+  --db-shadow: #b9a796;
+  --db-line: #d8c9b8;
+  --db-muted: #7d7068;
+  --db-danger: #a84d40;
+  --db-content-link: #207e85;
+  --db-content-link-hover: #176a70;
+  --db-accent-ink: color-mix(in srgb, var(--db-sun) 40%, var(--db-ink));
+  --db-callout-blue: #20578a;
+  --db-callout-teal: #116e70;
+  --db-callout-green: #206438;
+  --db-callout-amber: #8a4700;
+  --db-callout-red: #9b3041;
+  --db-callout-violet: #6d4d95;
 }
 
 body:not(.is-mobile).theme-dark {
-  --q-canvas: #242323;
-  --q-paper: var(--doodle-q-paper, #34312e);
-  --q-ink: var(--doodle-q-ink, #f7ead8);
-  --q-cyan: var(--doodle-q-cyan, #69c8cb);
-  --q-sun: var(--doodle-q-sun, #e7b84e);
-  --q-shadow: #171615;
-  --q-line: #6d6258;
-  --q-muted: #c7b7a3;
-  --q-danger: #ed998b;
-  --q-content-link: #89d6d6;
-  --q-content-link-hover: #b2e6e4;
-  --q-accent-ink: color-mix(in srgb, var(--q-sun) 70%, var(--q-ink));
-  --q-callout-blue: #a6cff5;
-  --q-callout-teal: #8dd9d7;
-  --q-callout-green: #a8dcaf;
-  --q-callout-amber: #f0c48e;
-  --q-callout-red: #f3a5b0;
-  --q-callout-violet: #d8bfe8;
+  --db-canvas: #242323;
+  --db-paper: var(--doodle-blocks-paper, #34312e);
+  --db-ink: var(--doodle-blocks-ink, #f7ead8);
+  --db-cyan: var(--doodle-blocks-cyan, #69c8cb);
+  --db-sun: var(--doodle-blocks-sun, #e7b84e);
+  --db-shadow: #171615;
+  --db-line: #6d6258;
+  --db-muted: #c7b7a3;
+  --db-danger: #ed998b;
+  --db-content-link: #89d6d6;
+  --db-content-link-hover: #b2e6e4;
+  --db-accent-ink: color-mix(in srgb, var(--db-sun) 70%, var(--db-ink));
+  --db-callout-blue: #a6cff5;
+  --db-callout-teal: #8dd9d7;
+  --db-callout-green: #a8dcaf;
+  --db-callout-amber: #f0c48e;
+  --db-callout-red: #f3a5b0;
+  --db-callout-violet: #d8bfe8;
 }
 
 body:not(.is-mobile) {
-  /* Match native controls to the yellow Q tab without changing semantic colors. */
-  --q-sun-hover: color-mix(in srgb, var(--q-sun) 82%, var(--q-ink));
-  --color-accent: var(--q-sun);
-  --color-accent-1: var(--q-sun);
-  --color-accent-2: var(--q-sun-hover);
-  --interactive-accent: var(--q-sun);
-  --interactive-accent-hover: var(--q-sun-hover);
-  --text-accent: var(--q-accent-ink);
-  --text-accent-hover: var(--q-accent-ink);
-  --text-on-accent: var(--q-on-sun);
-  --checkbox-color: var(--q-sun);
-  --checkbox-color-hover: var(--q-sun-hover);
-  --q-font-display: var(--doodle-q-display-font, "Q Patrick", "Q Xiaolai", "PingFang SC", cursive);
-  --q-font-prose: var(--font-text, "PingFang SC", system-ui, sans-serif);
-  --q-font-code: var(--font-monospace, "SFMono-Regular", monospace);
-  --q-side: color-mix(in srgb, var(--q-paper) 48%, var(--q-canvas));
-  --q-panel: color-mix(in srgb, var(--q-paper) 76%, var(--q-canvas));
-  --q-hover: color-mix(in srgb, var(--q-sun) 17%, var(--q-paper));
-  --q-selected: color-mix(in srgb, var(--q-cyan) 28%, var(--q-paper));
-  --q-focus: color-mix(in srgb, var(--q-cyan) 70%, var(--q-ink));
-  --q-on-sun: #342b27;
-  --q-button-shadow: inset 0 2px 0 rgb(255 255 255 / 36%), 3px 3px 0 var(--q-shadow);
-  --q-button-hover-shadow: inset 0 2px 0 rgb(255 255 255 / 36%), 4px 4px 0 var(--q-shadow);
-  --q-button-active-shadow: inset 2px 2px 0 var(--q-shadow), 1px 1px 0 var(--q-shadow);
-  --q-code-copy-shadow: 2px 2px 0 var(--q-shadow);
-  --q-code-copy-hover-shadow: 3px 3px 0 var(--q-shadow);
-  --q-input-shadow: inset 2px 2px 0 color-mix(in srgb, var(--q-line) 55%, transparent);
-  --q-switch-shadow: inset 0 0 0 1px var(--q-ink), 2px 2px 0 var(--q-shadow);
-  --q-slider-shadow: 0 0 0 1px var(--q-ink), 1px 1px 0 var(--q-shadow);
-  --q-slider-thumb-shadow: 2px 2px 0 var(--q-shadow);
-  --q-slider-thumb-hover-shadow: 3px 3px 0 var(--q-shadow);
-  --q-control-transition: background-color 120ms ease, box-shadow 120ms ease;
-  --q-code-surface: color-mix(in srgb, var(--q-paper) 82%, var(--q-cyan));
-  --q-radius-detail: 4px;
-  --q-radius-control: 6px;
+  /* Match native controls to the yellow active tab without changing semantic colors. */
+  --db-sun-hover: color-mix(in srgb, var(--db-sun) 82%, var(--db-ink));
+  --color-accent: var(--db-sun);
+  --color-accent-1: var(--db-sun);
+  --color-accent-2: var(--db-sun-hover);
+  --interactive-accent: var(--db-sun);
+  --interactive-accent-hover: var(--db-sun-hover);
+  --text-accent: var(--db-accent-ink);
+  --text-accent-hover: var(--db-accent-ink);
+  --text-on-accent: var(--db-on-sun);
+  --checkbox-color: var(--db-sun);
+  --checkbox-color-hover: var(--db-sun-hover);
+  --db-font-display: var(--doodle-blocks-display-font, "Doodle Patrick", "Doodle Xiaolai", "PingFang SC", cursive);
+  --db-font-prose: var(--font-text, "PingFang SC", system-ui, sans-serif);
+  --db-font-code: var(--font-monospace, "SFMono-Regular", monospace);
+  --db-side: color-mix(in srgb, var(--db-paper) 48%, var(--db-canvas));
+  --db-panel: color-mix(in srgb, var(--db-paper) 76%, var(--db-canvas));
+  --db-hover: color-mix(in srgb, var(--db-sun) 17%, var(--db-paper));
+  --db-selected: color-mix(in srgb, var(--db-cyan) 28%, var(--db-paper));
+  --db-focus: color-mix(in srgb, var(--db-cyan) 70%, var(--db-ink));
+  --db-on-sun: #342b27;
+  --db-button-shadow: inset 0 2px 0 rgb(255 255 255 / 36%), 3px 3px 0 var(--db-shadow);
+  --db-button-hover-shadow: inset 0 2px 0 rgb(255 255 255 / 36%), 4px 4px 0 var(--db-shadow);
+  --db-button-active-shadow: inset 2px 2px 0 var(--db-shadow), 1px 1px 0 var(--db-shadow);
+  --db-code-copy-shadow: 2px 2px 0 var(--db-shadow);
+  --db-code-copy-hover-shadow: 3px 3px 0 var(--db-shadow);
+  --db-input-shadow: inset 2px 2px 0 color-mix(in srgb, var(--db-line) 55%, transparent);
+  --db-switch-shadow: inset 0 0 0 1px var(--db-ink), 2px 2px 0 var(--db-shadow);
+  --db-slider-shadow: 0 0 0 1px var(--db-ink), 1px 1px 0 var(--db-shadow);
+  --db-slider-thumb-shadow: 2px 2px 0 var(--db-shadow);
+  --db-slider-thumb-hover-shadow: 3px 3px 0 var(--db-shadow);
+  --db-control-transition: background-color 120ms ease, box-shadow 120ms ease;
+  --db-code-surface: color-mix(in srgb, var(--db-paper) 82%, var(--db-cyan));
+  --db-radius-detail: 4px;
+  --db-radius-control: 6px;
 }
 
 body:not(.is-mobile) .workspace {
-  background-color: var(--q-canvas);
+  background-color: var(--db-canvas);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root,
 body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content,
 body:not(.is-mobile) .workspace-split.mod-root .view-content,
 body:not(.is-mobile) .workspace-split.mod-root .view-header {
-  background-color: var(--q-paper);
+  background-color: var(--db-paper);
 }
 
 body:not(.is-mobile) .workspace-ribbon,
 body:not(.is-mobile) .workspace-split.mod-sidedock,
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content,
 body:not(.is-mobile) .workspace-split.mod-sidedock .view-content {
-  background-color: var(--q-side);
+  background-color: var(--db-side);
 }
 
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-tab-header-container,
 body:not(.is-mobile) .workspace-split.mod-sidedock .nav-files-container,
 body:not(.is-mobile) .workspace-split.mod-sidedock .nav-header {
-  background-color: var(--q-panel);
+  background-color: var(--db-panel);
 }
 
 /* Native workspace seams and selection states. Pane geometry stays native. */
 body:not(.is-mobile) .workspace-ribbon.mod-left,
 body:not(.is-mobile) .workspace-split.mod-left-split {
-  border-inline-end: 1px solid var(--q-line);
+  border-inline-end: 1px solid var(--db-line);
 }
 
 body:not(.is-mobile) .workspace-split.mod-right-split {
-  border-inline-start: 1px solid var(--q-line);
+  border-inline-start: 1px solid var(--db-line);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header-container,
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-tab-header-container {
-  border-block-end: 1px solid var(--q-line);
+  border-block-end: 1px solid var(--db-line);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .view-header {
-  border-block-end: 1px solid var(--q-line);
+  border-block-end: 1px solid var(--db-line);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header-container {
-  background-color: var(--q-paper);
+  background-color: var(--db-paper);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header.is-active {
   /* Leave room for the hard shadow before the quiet pane divider. */
-  margin-block-end: calc(var(--doodle-q-selection-shadow, 2px) + 2px);
-  border: 2px solid var(--q-ink);
-  border-radius: var(--q-radius-control);
-  background-color: var(--q-sun);
-  box-shadow: var(--doodle-q-selection-shadow, 2px) var(--doodle-q-selection-shadow, 2px) 0 var(--q-shadow);
+  margin-block-end: calc(var(--doodle-blocks-selection-shadow, 2px) + 2px);
+  border: 2px solid var(--db-ink);
+  border-radius: var(--db-radius-control);
+  background-color: var(--db-sun);
+  box-shadow: var(--doodle-blocks-selection-shadow, 2px) var(--doodle-blocks-selection-shadow, 2px) 0 var(--db-shadow);
 }
 
 /* Obsidian's curved tab feet clash with the complete paper-tab outline. */
@@ -202,40 +202,40 @@ body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header.is-active::
 }
 
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-tab-header.is-active {
-  border-block-end: 2px solid var(--q-cyan);
-  background-color: var(--q-selected);
+  border-block-end: 2px solid var(--db-cyan);
+  background-color: var(--db-selected);
 }
 
 body:not(.is-mobile) .workspace-tab-header.is-active .workspace-tab-header-inner-title {
-  color: var(--q-ink);
-  font-family: var(--q-font-display);
+  color: var(--db-ink);
+  font-family: var(--db-font-display);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header.is-active .workspace-tab-header-inner-title {
-  color: var(--q-on-sun);
+  color: var(--db-on-sun);
 }
 
 body:not(.is-mobile) .workspace-tab-header:not(.is-active):hover,
 body:not(.is-mobile) .workspace-ribbon .side-dock-ribbon-action:not(.is-active):hover {
-  background-color: var(--q-hover);
+  background-color: var(--db-hover);
 }
 
 body:not(.is-mobile) .workspace-ribbon .side-dock-ribbon-action.is-active {
-  border: 1px solid var(--q-ink);
-  border-inline-start: 3px solid var(--q-cyan);
-  border-radius: var(--q-radius-detail);
-  background-color: var(--q-selected);
-  box-shadow: var(--doodle-q-selection-shadow, 2px) var(--doodle-q-selection-shadow, 2px) 0 var(--q-shadow);
+  border: 1px solid var(--db-ink);
+  border-inline-start: 3px solid var(--db-cyan);
+  border-radius: var(--db-radius-detail);
+  background-color: var(--db-selected);
+  box-shadow: var(--doodle-blocks-selection-shadow, 2px) var(--doodle-blocks-selection-shadow, 2px) 0 var(--db-shadow);
 }
 
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title).is-active,
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type="outline"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="search"]) .tree-item-self.is-active {
-  border: 1px solid var(--q-ink);
-  border-inline-start: 4px solid var(--q-cyan);
-  border-radius: var(--q-radius-detail);
-  background-color: var(--q-selected);
-  box-shadow: var(--doodle-q-selection-shadow, 2px) var(--doodle-q-selection-shadow, 2px) 0 var(--q-shadow);
-  color: var(--q-ink);
+  border: 1px solid var(--db-ink);
+  border-inline-start: 4px solid var(--db-cyan);
+  border-radius: var(--db-radius-detail);
+  background-color: var(--db-selected);
+  box-shadow: var(--doodle-blocks-selection-shadow, 2px) var(--doodle-blocks-selection-shadow, 2px) 0 var(--db-shadow);
+  color: var(--db-ink);
 }
 
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title).is-active {
@@ -245,12 +245,12 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav
 
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title):not(.is-active):hover,
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type="outline"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="search"]) .tree-item-self:not(.is-active):hover {
-  border-radius: var(--q-radius-detail);
-  background-color: var(--q-hover);
+  border-radius: var(--db-radius-detail);
+  background-color: var(--db-hover);
 }
 
 body:not(.is-mobile) .workspace :is(.workspace-tab-header, .side-dock-ribbon-action, .nav-file-title, .nav-folder-title, .tree-item-self):focus-visible {
-  outline: 2px solid var(--q-focus);
+  outline: 2px solid var(--db-focus);
   outline-offset: 2px;
 }
 
@@ -283,11 +283,11 @@ body:not(.is-mobile) .workspace-ribbon.mod-left::after {
   place-items: center;
   inline-size: 25px;
   block-size: 25px;
-  border: 1px solid var(--q-ink);
-  border-radius: var(--q-radius-control);
-  background: var(--q-sun);
+  border: 1px solid var(--db-ink);
+  border-radius: var(--db-radius-control);
+  background: var(--db-sun);
   color: #342b27;
-  content: "Q";
+  content: "D";
   font: 700 15px/1 ui-sans-serif, sans-serif;
   pointer-events: none;
   transform: translateX(-50%);
@@ -296,8 +296,8 @@ body:not(.is-mobile) .workspace-ribbon.mod-left::after {
 /* Handwriting stays on short native note headings; prose follows Obsidian. */
 body:not(.is-mobile) .markdown-reading-view .markdown-preview-view,
 body:not(.is-mobile) .markdown-source-view.mod-cm6 .cm-content {
-  color: var(--q-ink);
-  font-family: var(--q-font-prose);
+  color: var(--db-ink);
+  font-family: var(--db-font-prose);
   line-height: 1.72;
 }
 
@@ -305,8 +305,8 @@ body:not(.is-mobile) .markdown-reading-view .inline-title,
 body:not(.is-mobile) .markdown-source-view.mod-cm6 .inline-title,
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(h1, h2, h3),
 body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-line:is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3) {
-  color: var(--q-ink);
-  font-family: var(--q-font-display);
+  color: var(--db-ink);
+  font-family: var(--db-font-display);
   font-weight: 400;
   line-height: 1.35;
   overflow-wrap: anywhere;
@@ -331,9 +331,9 @@ body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-line.Hype
   box-sizing: border-box;
   inline-size: 9px;
   block-size: 22px;
-  border: 1px solid var(--q-ink);
-  background-color: var(--q-sun);
-  box-shadow: 2px 2px 0 var(--q-shadow);
+  border: 1px solid var(--db-ink);
+  background-color: var(--db-sun);
+  box-shadow: 2px 2px 0 var(--db-shadow);
   content: "";
   pointer-events: none;
   transform: translateY(-50%);
@@ -341,8 +341,8 @@ body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-line.Hype
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(mark, .search-result-file-matched-text),
 body:not(.is-mobile) .markdown-source-view.mod-cm6 .cm-highlight {
-  background-color: color-mix(in srgb, var(--q-sun) 73%, var(--q-paper));
-  color: var(--q-ink);
+  background-color: color-mix(in srgb, var(--db-sun) 73%, var(--db-paper));
+  color: var(--db-ink);
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(p, li, blockquote, td, th),
@@ -351,73 +351,73 @@ body:not(.is-mobile) .markdown-source-view.mod-cm6 .cm-line {
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered a {
-  color: var(--q-content-link);
+  color: var(--db-content-link);
   text-decoration-thickness: 0.09em;
   text-underline-offset: 0.16em;
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered a:hover {
-  color: var(--q-content-link-hover);
+  color: var(--db-content-link-hover);
 }
 
 body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview :is(.cm-link, .cm-url) {
-  color: var(--q-content-link);
+  color: var(--db-content-link);
 }
 
 body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview :is(.cm-link, .cm-url) .cm-underline {
-  color: var(--q-content-link);
+  color: var(--db-content-link);
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered .task-list-item-checkbox,
 body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview input[type="checkbox"] {
-  accent-color: var(--q-content-link);
+  accent-color: var(--db-content-link);
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered,
 body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview {
-  --checkbox-color: var(--q-content-link);
+  --checkbox-color: var(--db-content-link);
 }
 
 /* Obsidian keeps the callout type color for its icon, rule, and paper tint.
    Only the small title text gets a higher-contrast shade of that hue. */
 body:not(.is-mobile) :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) .callout:is([data-callout="note"], [data-callout="info"], [data-callout="todo"]) .callout-title-inner {
-  color: var(--q-callout-blue);
+  color: var(--db-callout-blue);
 }
 
 body:not(.is-mobile) :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) .callout:is([data-callout="abstract"], [data-callout="summary"], [data-callout="tldr"], [data-callout="tip"], [data-callout="hint"], [data-callout="important"]) .callout-title-inner {
-  color: var(--q-callout-teal);
+  color: var(--db-callout-teal);
 }
 
 body:not(.is-mobile) :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) .callout:is([data-callout="success"], [data-callout="check"], [data-callout="done"]) .callout-title-inner {
-  color: var(--q-callout-green);
+  color: var(--db-callout-green);
 }
 
 body:not(.is-mobile) :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) .callout:is([data-callout="question"], [data-callout="help"], [data-callout="faq"], [data-callout="warning"], [data-callout="caution"], [data-callout="attention"]) .callout-title-inner {
-  color: var(--q-callout-amber);
+  color: var(--db-callout-amber);
 }
 
 body:not(.is-mobile) :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) .callout:is([data-callout="failure"], [data-callout="fail"], [data-callout="missing"], [data-callout="danger"], [data-callout="error"], [data-callout="bug"]) .callout-title-inner {
-  color: var(--q-callout-red);
+  color: var(--db-callout-red);
 }
 
 body:not(.is-mobile) :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) .callout[data-callout="example"] .callout-title-inner {
-  color: var(--q-callout-violet);
+  color: var(--db-callout-violet);
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered blockquote {
-  border-inline-start: 3px solid var(--q-cyan);
-  background-color: color-mix(in srgb, var(--q-cyan) 7%, var(--q-paper));
-  color: var(--q-ink);
+  border-inline-start: 3px solid var(--db-cyan);
+  background-color: color-mix(in srgb, var(--db-cyan) 7%, var(--db-paper));
+  color: var(--db-ink);
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(code, pre),
 body:not(.is-mobile) .markdown-source-view.mod-cm6 :is(.cm-inline-code, .HyperMD-codeblock) {
-  font-family: var(--q-font-code);
+  font-family: var(--db-font-code);
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre,
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(th, td) {
-  border-color: var(--q-line);
+  border-color: var(--db-line);
 }
 
 /* Native fenced blocks: the toolbar is paint, never copied text.
@@ -430,58 +430,58 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:has(> code):h
   max-inline-size: 100%;
   padding: 0;
   overflow: hidden;
-  border: 2px solid var(--q-ink);
+  border: 2px solid var(--db-ink);
   border-radius: 4px;
-  background: var(--q-code-surface);
-  box-shadow: 3px 3px 0 var(--q-shadow);
+  background: var(--db-code-surface);
+  box-shadow: 3px 3px 0 var(--db-shadow);
 }
 
 /* Obsidian exposes the fence language as a class, not a readable attribute.
    Map known classes to labels; unknown or missing languages keep CODE. */
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-js, .language-javascript) { --q-code-language: "JavaScript"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-jsx { --q-code-language: "JSX"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-ts, .language-typescript) { --q-code-language: "TypeScript"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-tsx { --q-code-language: "TSX"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-css { --q-code-language: "CSS"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-scss { --q-code-language: "SCSS"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-sass { --q-code-language: "Sass"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-html, .language-htm) { --q-code-language: "HTML"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-xml { --q-code-language: "XML"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-svg { --q-code-language: "SVG"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-json, .language-jsonc, .language-json5) { --q-code-language: "JSON"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-yaml, .language-yml) { --q-code-language: "YAML"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-toml { --q-code-language: "TOML"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-md, .language-markdown) { --q-code-language: "Markdown"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-mdx { --q-code-language: "MDX"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-sh, .language-bash, .language-shell, .language-zsh) { --q-code-language: "Shell"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-powershell, .language-ps1) { --q-code-language: "PowerShell"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-py, .language-python) { --q-code-language: "Python"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-rb, .language-ruby) { --q-code-language: "Ruby"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-go, .language-golang) { --q-code-language: "Go"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-rs, .language-rust) { --q-code-language: "Rust"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-java { --q-code-language: "Java"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-kt, .language-kotlin) { --q-code-language: "Kotlin"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-swift { --q-code-language: "Swift"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-c { --q-code-language: "C"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-cpp, .language-cxx) { --q-code-language: "C++"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-cs, .language-csharp) { --q-code-language: "C#"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-php { --q-code-language: "PHP"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-sql { --q-code-language: "SQL"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-lua { --q-code-language: "Lua"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-r { --q-code-language: "R"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-dart { --q-code-language: "Dart"; }
-body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-text, .language-txt, .language-plaintext) { --q-code-language: "Text"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-js, .language-javascript) { --db-code-language: "JavaScript"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-jsx { --db-code-language: "JSX"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-ts, .language-typescript) { --db-code-language: "TypeScript"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-tsx { --db-code-language: "TSX"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-css { --db-code-language: "CSS"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-scss { --db-code-language: "SCSS"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-sass { --db-code-language: "Sass"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-html, .language-htm) { --db-code-language: "HTML"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-xml { --db-code-language: "XML"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-svg { --db-code-language: "SVG"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-json, .language-jsonc, .language-json5) { --db-code-language: "JSON"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-yaml, .language-yml) { --db-code-language: "YAML"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-toml { --db-code-language: "TOML"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-md, .language-markdown) { --db-code-language: "Markdown"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-mdx { --db-code-language: "MDX"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-sh, .language-bash, .language-shell, .language-zsh) { --db-code-language: "Shell"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-powershell, .language-ps1) { --db-code-language: "PowerShell"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-py, .language-python) { --db-code-language: "Python"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-rb, .language-ruby) { --db-code-language: "Ruby"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-go, .language-golang) { --db-code-language: "Go"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-rs, .language-rust) { --db-code-language: "Rust"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-java { --db-code-language: "Java"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-kt, .language-kotlin) { --db-code-language: "Kotlin"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-swift { --db-code-language: "Swift"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-c { --db-code-language: "C"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-cpp, .language-cxx) { --db-code-language: "C++"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-cs, .language-csharp) { --db-code-language: "C#"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-php { --db-code-language: "PHP"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-sql { --db-code-language: "SQL"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-lua { --db-code-language: "Lua"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-r { --db-code-language: "R"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre.language-dart { --db-code-language: "Dart"; }
+body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:is(.language-text, .language-txt, .language-plaintext) { --db-code-language: "Text"; }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre:has(> .copy-code-button)::before {
   display: block;
   box-sizing: border-box;
   block-size: 38px;
   padding-inline: 32px 46px;
-  border-block-end: 2px solid var(--q-ink);
-  background: radial-gradient(circle at 17px 50%, var(--q-sun) 0 4px, var(--q-ink) 4px 5px, transparent 5px), var(--q-cyan);
-  color: var(--q-ink);
-  content: var(--q-code-language, "CODE");
-  font: 700 11px/36px var(--q-font-code);
+  border-block-end: 2px solid var(--db-ink);
+  background: radial-gradient(circle at 17px 50%, var(--db-sun) 0 4px, var(--db-ink) 4px 5px, transparent 5px), var(--db-cyan);
+  color: var(--db-ink);
+  content: var(--db-code-language, "CODE");
+  font: 700 11px/36px var(--db-font-code);
   user-select: none;
 }
 
@@ -509,14 +509,14 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre > .copy-code-
   block-size: 28px;
   margin: 0;
   padding: 3px 8px;
-  border: 1px solid var(--q-ink);
+  border: 1px solid var(--db-ink);
   border-radius: 4px;
-  background: var(--q-paper);
-  box-shadow: var(--q-code-copy-shadow);
-  color: var(--q-ink);
-  font: 11px/1.3 var(--q-font-prose);
+  background: var(--db-paper);
+  box-shadow: var(--db-code-copy-shadow);
+  color: var(--db-ink);
+  font: 11px/1.3 var(--db-font-prose);
   opacity: 1;
-  transition: var(--q-control-transition);
+  transition: var(--db-control-transition);
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre > .copy-code-button > svg {
@@ -533,28 +533,28 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre > .copy-code-
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre > .copy-code-button:hover {
-  background: var(--q-sun);
-  box-shadow: var(--q-code-copy-hover-shadow);
+  background: var(--db-sun);
+  box-shadow: var(--db-code-copy-hover-shadow);
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered pre > .copy-code-button:focus-visible {
-  outline: 2px solid var(--q-focus);
+  outline: 2px solid var(--db-focus);
   outline-offset: 2px;
 }
 
 /* CodeMirror owns line geometry and the copy flair; paint inside those bounds. */
 body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-codeblock {
-  background: var(--q-code-surface);
-  box-shadow: inset 2px 0 var(--q-ink), inset -2px 0 var(--q-ink), 3px 0 0 var(--q-shadow);
+  background: var(--db-code-surface);
+  box-shadow: inset 2px 0 var(--db-ink), inset -2px 0 var(--db-ink), 3px 0 0 var(--db-shadow);
 }
 
 body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-codeblock-begin {
-  background: var(--q-cyan);
-  box-shadow: inset 2px 0 var(--q-ink), inset -2px 0 var(--q-ink), inset 0 2px var(--q-ink), inset 0 -2px var(--q-ink), 3px 0 0 var(--q-shadow);
+  background: var(--db-cyan);
+  box-shadow: inset 2px 0 var(--db-ink), inset -2px 0 var(--db-ink), inset 0 2px var(--db-ink), inset 0 -2px var(--db-ink), 3px 0 0 var(--db-shadow);
 }
 
 body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-codeblock-end {
-  box-shadow: inset 2px 0 var(--q-ink), inset -2px 0 var(--q-ink), inset 0 -2px var(--q-ink), 3px 3px 0 var(--q-shadow);
+  box-shadow: inset 2px 0 var(--db-ink), inset -2px 0 var(--db-ink), inset 0 -2px var(--db-ink), 3px 3px 0 var(--db-shadow);
 }
 
 body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-line.HyperMD-codeblock-begin .code-block-flair {
@@ -564,18 +564,18 @@ body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-line.Hype
   box-sizing: border-box;
   block-size: 24px;
   padding-block: 0;
-  color: var(--q-ink);
-  font-family: var(--q-font-code);
+  color: var(--db-ink);
+  font-family: var(--db-font-code);
 }
 
 /* Inline code keeps the native line box and wrapping behavior. */
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered :not(pre) > code,
 body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-inline-code:not(.cm-formatting) {
   border-radius: 3px;
-  background: color-mix(in srgb, var(--q-sun) 18%, var(--q-paper));
-  box-shadow: inset 0 0 0 1px var(--q-ink);
-  color: var(--q-ink);
-  font-family: var(--q-font-code);
+  background: color-mix(in srgb, var(--db-sun) 18%, var(--db-paper));
+  box-shadow: inset 0 0 0 1px var(--db-ink);
+  color: var(--db-ink);
+  font-family: var(--db-font-code);
   box-decoration-break: clone;
 }
 
@@ -584,7 +584,7 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered a > code {
 }
 
 body:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .cm-inline-code.cm-link {
-  color: var(--q-content-link);
+  color: var(--db-content-link);
 }
 
 body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(.el-table, .table-wrapper) {
@@ -599,24 +599,24 @@ body:not(.is-mobile) .markdown-reading-view .markdown-rendered :is(img, video) {
 
 /* Native controls: draw depth with shadows, without moving setting rows. */
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button) {
-  border: 2px solid var(--q-ink);
-  border-radius: var(--q-radius-control);
-  background-color: var(--q-paper);
-  box-shadow: var(--q-button-shadow);
-  color: var(--q-ink);
-  transition: var(--q-control-transition);
+  border: 2px solid var(--db-ink);
+  border-radius: var(--db-radius-control);
+  background-color: var(--db-paper);
+  box-shadow: var(--db-button-shadow);
+  color: var(--db-ink);
+  transition: var(--db-control-transition);
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button).mod-cta {
-  background-color: var(--q-sun);
-  color: var(--q-on-sun);
+  background-color: var(--db-sun);
+  color: var(--db-on-sun);
   font-weight: 700;
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button):is(.mod-warning, .mod-destructive) {
-  border-color: var(--q-danger);
-  background-color: color-mix(in srgb, var(--q-danger) 12%, var(--q-paper));
-  color: var(--q-danger);
+  border-color: var(--db-danger);
+  background-color: color-mix(in srgb, var(--db-danger) 12%, var(--db-paper));
+  color: var(--db-danger);
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button):is(:disabled, [aria-disabled="true"]) {
@@ -626,34 +626,34 @@ body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-co
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button):not(:disabled):not([aria-disabled="true"]):hover {
-  background-color: var(--q-hover);
-  box-shadow: var(--q-button-hover-shadow);
+  background-color: var(--db-hover);
+  box-shadow: var(--db-button-hover-shadow);
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button).mod-cta:not(:disabled):hover {
-  background-color: var(--q-sun-hover);
+  background-color: var(--db-sun-hover);
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button):is(.mod-warning, .mod-destructive):not(:disabled):hover {
-  background-color: color-mix(in srgb, var(--q-danger) 19%, var(--q-paper));
-  color: var(--q-danger);
+  background-color: color-mix(in srgb, var(--db-danger) 19%, var(--db-paper));
+  color: var(--db-danger);
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control > button, .modal-container.mod-confirmation .modal-button-container > button, .prompt .prompt-input-container > button):not(:disabled):active {
-  box-shadow: var(--q-button-active-shadow);
+  box-shadow: var(--db-button-active-shadow);
 }
 
 body:not(.is-mobile) :is(.mod-settings .setting-item-control, .prompt .prompt-input-container, .workspace-leaf-content[data-type="search"] .search-input-container)
   :is(input[type="text"], input[type="search"], input[type="number"], textarea, select.dropdown:not(.is-measuring)) {
-  border: 2px solid var(--q-ink);
-  border-radius: var(--q-radius-control);
-  background-color: var(--q-paper);
-  box-shadow: var(--q-input-shadow);
-  color: var(--q-ink);
+  border: 2px solid var(--db-ink);
+  border-radius: var(--db-radius-control);
+  background-color: var(--db-paper);
+  box-shadow: var(--db-input-shadow);
+  color: var(--db-ink);
 }
 
 body:not(.is-mobile) .mod-settings .checkbox-container {
-  box-shadow: var(--q-switch-shadow);
+  box-shadow: var(--db-switch-shadow);
 }
 
 body:not(.is-mobile) .mod-settings .checkbox-container.is-enabled {
@@ -662,14 +662,14 @@ body:not(.is-mobile) .mod-settings .checkbox-container.is-enabled {
 
 /* Keep Obsidian's range geometry and fill calculation; change only its paper surface. */
 body:not(.is-mobile) .mod-settings input[type="range"].slider {
-  --slider-fill-background: var(--q-sun);
-  --slider-thumb-background: var(--q-paper);
+  --slider-fill-background: var(--db-sun);
+  --slider-thumb-background: var(--db-paper);
   --slider-thumb-border-width: 2px;
-  --slider-thumb-border-color: var(--q-ink);
-  --slider-thumb-shadow: var(--q-slider-thumb-shadow);
-  --slider-thumb-shadow-hover: var(--q-slider-thumb-hover-shadow);
-  background-color: var(--q-paper);
-  box-shadow: var(--q-slider-shadow);
+  --slider-thumb-border-color: var(--db-ink);
+  --slider-thumb-shadow: var(--db-slider-thumb-shadow);
+  --slider-thumb-shadow-hover: var(--db-slider-thumb-hover-shadow);
+  background-color: var(--db-paper);
+  box-shadow: var(--db-slider-shadow);
 }
 
 body:not(.is-mobile) :is(.mod-settings, .modal-container.mod-confirmation, .prompt) :is(input[type="checkbox"], input[type="radio"], input[type="range"]),
@@ -679,7 +679,7 @@ body:not(.is-mobile) .markdown-rendered .task-list-item-checkbox {
 
 body:not(.is-mobile) :is(.mod-settings, .modal-container.mod-confirmation, .prompt) :is(button, input, textarea, select, .checkbox-container, .clickable-icon):focus-visible,
 body:not(.is-mobile) .mod-settings .checkbox-container:focus-within {
-  outline: 2px solid var(--q-focus);
+  outline: 2px solid var(--db-focus);
   outline-offset: 2px;
 }
 
@@ -687,35 +687,35 @@ body:not(.is-mobile) .mod-settings .checkbox-container:focus-within {
 body:not(.is-mobile) :is(.mod-settings .setting-item-control, .prompt .prompt-input-container, .workspace-leaf-content[data-type="search"] .search-input-container)
   :is(input[type="text"], input[type="search"], input[type="number"], textarea, select.dropdown:not(.is-measuring)):focus-visible {
   outline: none;
-  box-shadow: inset 0 -3px 0 var(--q-focus);
+  box-shadow: inset 0 -3px 0 var(--db-focus);
 }
 
-body:not(.is-mobile).doodle-q-quiet-controls {
-  --q-button-shadow: none;
-  --q-button-hover-shadow: none;
-  --q-button-active-shadow: none;
-  --q-code-copy-shadow: none;
-  --q-code-copy-hover-shadow: none;
-  --q-input-shadow: none;
-  --q-switch-shadow: none;
-  --q-slider-shadow: none;
-  --q-slider-thumb-shadow: none;
-  --q-slider-thumb-hover-shadow: none;
-  --q-control-transition: none;
+body:not(.is-mobile).doodle-blocks-quiet-controls {
+  --db-button-shadow: none;
+  --db-button-hover-shadow: none;
+  --db-button-active-shadow: none;
+  --db-code-copy-shadow: none;
+  --db-code-copy-hover-shadow: none;
+  --db-input-shadow: none;
+  --db-switch-shadow: none;
+  --db-slider-shadow: none;
+  --db-slider-thumb-shadow: none;
+  --db-slider-thumb-hover-shadow: none;
+  --db-control-transition: none;
 }
 
-body:not(.is-mobile).doodle-q-quiet-controls :is(.mod-settings .checkbox-container, .mod-settings .setting-item-control input, .mod-settings .setting-item-control textarea, .mod-settings .setting-item-control select),
-body:not(.is-mobile).doodle-q-quiet-controls .mod-settings .checkbox-container::after {
+body:not(.is-mobile).doodle-blocks-quiet-controls :is(.mod-settings .checkbox-container, .mod-settings .setting-item-control input, .mod-settings .setting-item-control textarea, .mod-settings .setting-item-control select),
+body:not(.is-mobile).doodle-blocks-quiet-controls .mod-settings .checkbox-container::after {
   transition: none;
 }
 
-body:not(.is-mobile).doodle-q-quiet-controls .mod-settings input[type="range"].slider::-webkit-slider-thumb {
+body:not(.is-mobile).doodle-blocks-quiet-controls .mod-settings input[type="range"].slider::-webkit-slider-thumb {
   transition: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
   body:not(.is-mobile) {
-    --q-control-transition: none;
+    --db-control-transition: none;
   }
 
   body:not(.is-mobile) :is(.mod-settings .checkbox-container, .mod-settings .setting-item-control input, .mod-settings .setting-item-control textarea, .mod-settings .setting-item-control select),
@@ -730,8 +730,8 @@ body:not(.is-mobile).doodle-q-quiet-controls .mod-settings input[type="range"].s
 
 /* Obsidian 1.13 opens Settings in a separate native popout window. */
 body.is-popout-modal:not(.is-mobile) .modal.mod-settings {
-  background-color: var(--q-paper);
-  color: var(--q-ink);
+  background-color: var(--db-paper);
+  color: var(--db-ink);
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings :is(.vertical-tabs-container, .vertical-tab-content-container, .vertical-tab-content) {
@@ -740,26 +740,26 @@ body.is-popout-modal:not(.is-mobile) .mod-settings :is(.vertical-tabs-container,
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-header {
   min-inline-size: 0;
-  border-inline-end: 1px solid var(--q-line);
-  background-color: var(--q-side);
+  border-inline-end: 1px solid var(--db-line);
+  background-color: var(--db-side);
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container {
-  border-block-end: 1px solid var(--q-line);
-  background-color: var(--q-side);
+  border-block-end: 1px solid var(--db-line);
+  background-color: var(--db-side);
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container .search-input-container {
   min-inline-size: 0;
-  border: 2px solid var(--q-ink);
-  border-radius: var(--q-radius-control);
-  background-color: var(--q-paper);
-  box-shadow: inset 2px 2px 0 var(--q-line);
+  border: 2px solid var(--db-ink);
+  border-radius: var(--db-radius-control);
+  background-color: var(--db-paper);
+  box-shadow: inset 2px 2px 0 var(--db-line);
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container .search-input-container:focus-within {
   outline: none;
-  box-shadow: inset 0 -3px 0 var(--q-focus), inset 2px 2px 0 var(--q-line);
+  box-shadow: inset 0 -3px 0 var(--db-focus), inset 2px 2px 0 var(--db-line);
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container input[type="search"] {
@@ -771,40 +771,40 @@ body.is-popout-modal:not(.is-mobile) .mod-settings .setting-search-container inp
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-header-group-title {
-  color: var(--q-muted);
-  font-family: var(--q-font-code);
+  color: var(--db-muted);
+  font-family: var(--db-font-code);
   letter-spacing: 0.04em;
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item {
   border: 1px solid transparent;
-  border-radius: var(--q-radius-control);
-  color: var(--q-ink);
+  border-radius: var(--db-radius-control);
+  color: var(--db-ink);
   transition: background-color 120ms ease;
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item.is-active {
-  border-color: var(--q-ink);
-  border-inline-start: 4px solid var(--q-cyan);
-  background-color: var(--q-selected);
-  box-shadow: 2px 2px 0 var(--q-shadow);
-  color: var(--q-ink);
+  border-color: var(--db-ink);
+  border-inline-start: 4px solid var(--db-cyan);
+  background-color: var(--db-selected);
+  box-shadow: 2px 2px 0 var(--db-shadow);
+  color: var(--db-ink);
   font-weight: 700;
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item:not(.is-active):hover,
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-items > .setting-item.mod-navigable:hover {
-  background-color: var(--q-hover);
+  background-color: var(--db-hover);
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-nav-item:focus-visible,
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-items > .setting-item.mod-navigable:focus-visible {
-  outline: 2px solid var(--q-focus);
+  outline: 2px solid var(--db-focus);
   outline-offset: 2px;
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .vertical-tab-content {
-  background-color: var(--q-paper);
+  background-color: var(--db-paper);
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-group > .setting-item-heading {
@@ -818,24 +818,24 @@ body.is-popout-modal:not(.is-mobile) .mod-settings .setting-group > .setting-ite
   inline-size: 9px;
   block-size: 24px;
   flex: none;
-  border: 1px solid var(--q-ink);
-  background-color: var(--q-sun);
-  box-shadow: 2px 2px 0 var(--q-shadow);
+  border: 1px solid var(--db-ink);
+  background-color: var(--db-sun);
+  box-shadow: 2px 2px 0 var(--db-shadow);
   content: "";
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-item-heading > .setting-item-name {
-  color: var(--q-ink);
-  font-family: var(--q-font-display);
+  color: var(--db-ink);
+  font-family: var(--db-font-display);
   font-size: 1.4em;
   font-weight: 400;
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-group > .setting-items,
 body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-container {
-  border: 1px solid var(--q-ink);
-  border-radius: var(--q-radius-control);
-  background-color: var(--q-panel);
+  border: 1px solid var(--db-ink);
+  border-radius: var(--db-radius-control);
+  background-color: var(--db-panel);
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-group > .setting-items > .setting-item,
@@ -846,7 +846,7 @@ body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-container > .
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-group > .setting-items > .setting-item:not(:last-child),
 body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-container > .setting-item:not(:last-child) {
-  border-block-end: 1px solid var(--q-line);
+  border-block-end: 1px solid var(--db-line);
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-item-info,
@@ -855,35 +855,35 @@ body.is-popout-modal:not(.is-mobile) .mod-settings .setting-item-control {
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-item-name {
-  color: var(--q-ink);
+  color: var(--db-ink);
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings .setting-item-description {
-  color: var(--q-muted);
+  color: var(--db-muted);
 }
 
-body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-id="doodle-blocks-q"] {
+body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-id="doodle-blocks"] {
   margin-block: 14px 0;
   padding: 12px 14px;
-  border: 1px solid var(--q-ink);
-  border-inline-start: 4px solid var(--q-cyan);
-  border-radius: var(--q-radius-control);
-  background-color: var(--q-selected);
-  box-shadow: 2px 2px 0 var(--q-shadow);
-  color: var(--q-ink);
+  border: 1px solid var(--db-ink);
+  border-inline-start: 4px solid var(--db-cyan);
+  border-radius: var(--db-radius-control);
+  background-color: var(--db-selected);
+  box-shadow: 2px 2px 0 var(--db-shadow);
+  color: var(--db-ink);
 }
 
-body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-id="doodle-blocks-q"]:focus-visible {
-  outline: 2px solid var(--q-focus);
+body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-id="doodle-blocks"]:focus-visible {
+  outline: 2px solid var(--db-focus);
   outline-offset: 2px;
 }
 
-body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-id="doodle-blocks-q"] + .style-settings-container {
+body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-id="doodle-blocks"] + .style-settings-container {
   margin-block: 10px 18px;
   padding: 10px 14px 14px;
 }
 
-body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-id="doodle-blocks-q"] + .style-settings-container > .setting-item {
+body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-id="doodle-blocks"] + .style-settings-container > .setting-item {
   margin: 0;
   padding: 16px 0;
   border-radius: 0;
@@ -892,13 +892,13 @@ body.is-popout-modal:not(.is-mobile) .mod-settings .style-settings-heading[data-
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings :is(.style-settings-import, .style-settings-export) {
-  color: var(--q-content-link);
+  color: var(--db-content-link);
   text-decoration-thickness: 0.09em;
   text-underline-offset: 0.16em;
 }
 
 body.is-popout-modal:not(.is-mobile) .mod-settings :is(.style-settings-import, .style-settings-export):hover {
-  color: var(--q-content-link-hover);
+  color: var(--db-content-link-hover);
 }
 
 @media (max-width: 760px) {
@@ -938,15 +938,15 @@ body:not(.is-mobile) :is(.menu, .prompt, .suggestion-container, .notice),
 body:not(.is-mobile) .modal-container.mod-confirmation > .modal {
   box-sizing: border-box;
   max-inline-size: calc(100vw - 32px);
-  border: 2px solid var(--q-ink);
-  border-radius: var(--q-radius-control);
-  background-color: var(--q-paper);
-  box-shadow: inset 0 2px 0 rgb(255 255 255 / 30%), 4px 4px 0 var(--q-shadow);
-  color: var(--q-ink);
+  border: 2px solid var(--db-ink);
+  border-radius: var(--db-radius-control);
+  background-color: var(--db-paper);
+  box-shadow: inset 0 2px 0 rgb(255 255 255 / 30%), 4px 4px 0 var(--db-shadow);
+  color: var(--db-ink);
 }
 
 body:not(.is-mobile) .modal-container.mod-confirmation > .modal {
-  box-shadow: inset 0 2px 0 rgb(255 255 255 / 30%), 7px 7px 0 var(--q-shadow);
+  box-shadow: inset 0 2px 0 rgb(255 255 255 / 30%), 7px 7px 0 var(--db-shadow);
 }
 
 body:not(.is-mobile) .modal-container.mod-confirmation .modal-bg {
@@ -954,30 +954,30 @@ body:not(.is-mobile) .modal-container.mod-confirmation .modal-bg {
 }
 
 body:not(.is-mobile) .modal-container.mod-confirmation > .modal .modal-title {
-  color: var(--q-ink);
-  font-family: var(--q-font-display);
+  color: var(--db-ink);
+  font-family: var(--db-font-display);
   font-size: 1.5rem;
   font-weight: 400;
 }
 
 body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item) {
-  border-radius: var(--q-radius-detail);
-  color: var(--q-ink);
+  border-radius: var(--db-radius-detail);
+  color: var(--db-ink);
 }
 
 body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item).is-selected {
-  background-color: var(--q-selected);
-  box-shadow: inset 4px 0 var(--q-cyan);
-  color: var(--q-ink);
+  background-color: var(--db-selected);
+  box-shadow: inset 4px 0 var(--db-cyan);
+  color: var(--db-ink);
   font-weight: 700;
 }
 
 body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item):not(.is-selected):not(.is-disabled):hover {
-  background-color: var(--q-hover);
+  background-color: var(--db-hover);
 }
 
 body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item):focus-visible {
-  outline: 2px solid var(--q-focus);
+  outline: 2px solid var(--db-focus);
   outline-offset: -2px;
 }
 
@@ -988,46 +988,46 @@ body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion
 }
 
 body:not(.is-mobile) .menu .menu-item:is(.mod-warning, .is-warning, .is-dangerous) {
-  color: var(--q-danger);
+  color: var(--db-danger);
 }
 
 body:not(.is-mobile) .menu .menu-item:is(.mod-warning, .is-warning, .is-dangerous):hover {
-  background-color: color-mix(in srgb, var(--q-danger) 16%, var(--q-paper));
+  background-color: color-mix(in srgb, var(--db-danger) 16%, var(--db-paper));
 }
 
 body:not(.is-mobile) .menu .menu-item:is(.mod-warning, .is-warning, .is-dangerous).is-selected {
-  background-color: var(--q-paper);
-  box-shadow: inset 4px 0 var(--q-danger);
-  color: var(--q-danger);
+  background-color: var(--db-paper);
+  box-shadow: inset 4px 0 var(--db-danger);
+  color: var(--db-danger);
 }
 
 body:not(.is-mobile) .menu .menu-separator {
-  border-color: color-mix(in srgb, var(--q-ink) 48%, var(--q-paper));
+  border-color: color-mix(in srgb, var(--db-ink) 48%, var(--db-paper));
 }
 
 body:not(.is-mobile) .prompt .prompt-input-container {
-  box-shadow: inset 0 -2px var(--q-ink);
+  box-shadow: inset 0 -2px var(--db-ink);
 }
 
 body:not(.is-mobile) .prompt .prompt-instructions {
-  box-shadow: inset 0 1px var(--q-line);
-  color: var(--q-muted);
+  box-shadow: inset 0 1px var(--db-line);
+  color: var(--db-muted);
 }
 
 body:not(.is-mobile) :is(.prompt, .suggestion-container) .suggestion-aux {
-  color: var(--q-muted);
+  color: var(--db-muted);
 }
 
 body:not(.is-mobile) .notice {
-  border-inline-start: 5px solid var(--q-cyan);
+  border-inline-start: 5px solid var(--db-cyan);
 }
 
 body:not(.is-mobile) .notice.mod-error {
-  border-color: var(--q-danger);
+  border-color: var(--db-danger);
 }
 
 body:not(.is-mobile) .notice .notice-message {
-  color: var(--q-ink);
+  color: var(--db-ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1070,24 +1070,24 @@ body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type
   margin: 0;
   padding: 66px 52px 42px 82px;
   overflow: visible;
-  border: 2px solid var(--q-ink);
+  border: 2px solid var(--db-ink);
   border-radius: 5px 5px 24px 5px;
-  background-color: var(--q-paper);
+  background-color: var(--db-paper);
   background-image:
-    linear-gradient(90deg, color-mix(in srgb, var(--q-sun) 16%, var(--q-paper)) 0 49px, var(--q-cyan) 49px 51px, transparent 51px),
-    repeating-linear-gradient(180deg, transparent 0 46px, color-mix(in srgb, var(--q-cyan) 16%, transparent) 46px 47px);
-  box-shadow: 7px 7px 0 var(--q-shadow);
-  color: var(--q-ink);
+    linear-gradient(90deg, color-mix(in srgb, var(--db-sun) 16%, var(--db-paper)) 0 49px, var(--db-cyan) 49px 51px, transparent 51px),
+    repeating-linear-gradient(180deg, transparent 0 46px, color-mix(in srgb, var(--db-cyan) 16%, transparent) 46px 47px);
+  box-shadow: 7px 7px 0 var(--db-shadow);
+  color: var(--db-ink);
   transform: rotate(-0.6deg);
 }
 
-/* Paper holes and the Q tab are inert; native action hit targets stay clear. */
+/* Paper holes and the active tab are inert; native action hit targets stay clear. */
 body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-container::before {
   position: absolute;
   inset-block: 32px 25px;
   inset-inline-start: 10px;
   inline-size: 30px;
-  background: radial-gradient(circle at 15px 15px, var(--q-canvas) 0 5px, var(--q-ink) 6px 7px, transparent 8px) 0 0 / 30px 54px repeat-y;
+  background: radial-gradient(circle at 15px 15px, var(--db-canvas) 0 5px, var(--db-ink) 6px 7px, transparent 8px) 0 0 / 30px 54px repeat-y;
   content: "";
   pointer-events: none;
 }
@@ -1097,13 +1097,13 @@ body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type
   inset-block-start: -17px;
   inset-inline-end: 28px;
   padding: 7px 16px 6px;
-  border: 2px solid var(--q-ink);
-  border-radius: var(--q-radius-detail);
-  background: var(--q-sun);
-  box-shadow: 3px 3px 0 var(--q-shadow);
-  color: var(--q-on-sun);
+  border: 2px solid var(--db-ink);
+  border-radius: var(--db-radius-detail);
+  background: var(--db-sun);
+  box-shadow: 3px 3px 0 var(--db-shadow);
+  color: var(--db-on-sun);
   content: "灵感，落在纸上";
-  font: 700 12px/1 var(--q-font-code);
+  font: 700 12px/1 var(--db-font-code);
   letter-spacing: 0.08em;
   pointer-events: none;
   transform: rotate(4deg);
@@ -1111,22 +1111,22 @@ body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-title {
   margin: 0;
-  color: var(--q-ink);
+  color: var(--db-ink);
   text-align: start;
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-title::before {
   display: block;
   content: "下一页，写点什么";
-  font: 400 clamp(29px, 3vw, 40px)/1.25 var(--q-font-display);
+  font: 400 clamp(29px, 3vw, 40px)/1.25 var(--db-font-display);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-title::after {
   display: block;
   margin-block-start: 9px;
-  color: var(--q-muted);
+  color: var(--db-muted);
   content: "新建笔记，或打开已有文件。";
-  font: 14px/1.5 var(--q-font-prose);
+  font: 14px/1.5 var(--db-font-prose);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action-list {
@@ -1135,7 +1135,7 @@ body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type
   inline-size: 100%;
   margin: 28px 0 0;
   padding: 20px 0 0;
-  border-block-start: 2px dashed var(--q-line);
+  border-block-start: 2px dashed var(--db-line);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action {
@@ -1148,10 +1148,10 @@ body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type
   margin: 0;
   padding: 10px 12px 10px 44px;
   border: 1px solid transparent;
-  border-radius: var(--q-radius-detail);
+  border-radius: var(--db-radius-detail);
   background: transparent;
-  color: var(--q-ink);
-  font: 600 16px/1.4 var(--q-font-prose);
+  color: var(--db-ink);
+  font: 600 16px/1.4 var(--db-font-prose);
   text-align: start;
   white-space: normal;
   box-shadow: none;
@@ -1162,35 +1162,35 @@ body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type
   inset-inline-start: 13px;
   inline-size: 14px;
   block-size: 14px;
-  border: 2px solid var(--q-ink);
+  border: 2px solid var(--db-ink);
   border-radius: 2px;
-  background: var(--q-sun);
-  box-shadow: 2px 2px 0 var(--q-shadow);
+  background: var(--db-sun);
+  box-shadow: 2px 2px 0 var(--db-shadow);
   content: "";
   pointer-events: none;
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action:nth-child(2)::before {
-  background: var(--q-cyan);
+  background: var(--db-cyan);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action.mod-close {
-  color: var(--q-muted);
+  color: var(--db-muted);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action.mod-close::before {
-  background: var(--q-paper);
+  background: var(--db-paper);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action:is(:hover, :focus-visible) {
-  border-color: var(--q-ink);
-  background: var(--q-selected);
-  box-shadow: 3px 3px 0 var(--q-shadow);
-  color: var(--q-ink);
+  border-color: var(--db-ink);
+  background: var(--db-selected);
+  box-shadow: 3px 3px 0 var(--db-shadow);
+  color: var(--db-ink);
 }
 
 body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content[data-type="empty"] .empty-state-action:focus-visible {
-  outline: 2px solid var(--q-focus);
+  outline: 2px solid var(--db-focus);
   outline-offset: 3px;
 }
 

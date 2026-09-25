@@ -6,15 +6,15 @@ import { fileURLToPath } from 'node:url';
 import test from 'node:test';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
-const snippet = readFileSync(join(root, 'snippets/doodle-blocks-q.css'), 'utf8');
-const fontSnippet = readFileSync(join(root, 'snippets/doodle-blocks-q-fonts.css'), 'utf8');
+const snippet = readFileSync(join(root, 'snippets/doodle-blocks.css'), 'utf8');
+const fontSnippet = readFileSync(join(root, 'snippets/doodle-blocks-fonts.css'), 'utf8');
 const sources = readFileSync(join(root, 'snippets/fonts/SOURCES.md'), 'utf8');
 
 test('release is directly installable as CSS snippets without the retired theme package', () => {
-  assert.match(snippet, /\/\* @settings\s+name: Doodle Blocks Q\s+id: doodle-blocks-q\s+settings:/);
+  assert.match(snippet, /\/\* @settings\s+name: Doodle Blocks\s+id: doodle-blocks\s+settings:/);
   assert.ok(!existsSync(join(root, 'package.json')));
   assert.ok(!existsSync(join(root, 'src/manifest.json')));
-  assert.ok(!existsSync(join(root, 'dist/Doodle Blocks Q/manifest.json')));
+  assert.ok(!existsSync(join(root, 'dist/Doodle Blocks/manifest.json')));
   assert.doesNotMatch(snippet, /@import\s|url\(["']?https?:/i);
 });
 

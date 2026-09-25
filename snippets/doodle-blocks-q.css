@@ -169,6 +169,12 @@ body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header.is-active {
   box-shadow: var(--doodle-q-selection-shadow, 2px) var(--doodle-q-selection-shadow, 2px) 0 var(--q-shadow);
 }
 
+/* Obsidian's curved tab feet clash with the complete paper-tab outline. */
+body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header.is-active::before,
+body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header.is-active::after {
+  display: none;
+}
+
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-tab-header.is-active {
   border-block-end: 2px solid var(--q-cyan);
   background-color: var(--q-selected);

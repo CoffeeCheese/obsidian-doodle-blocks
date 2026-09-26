@@ -1009,6 +1009,19 @@ body:not(.is-mobile) .modal-container.mod-confirmation > .modal .modal-title {
   font-weight: 400;
 }
 
+/* Preserve the native button fill and depth; omit the stacked outer frames. */
+body:not(.is-mobile) .modal-container.mod-confirmation .modal-button-container > button {
+  border-color: transparent;
+}
+
+body:not(.is-mobile) .modal-container.mod-confirmation .modal-button-container > button:is(.mod-warning, .mod-destructive) {
+  border-color: transparent;
+}
+
+body:not(.is-mobile) .modal-container.mod-confirmation .modal-button-container > button:focus-visible {
+  outline: none;
+}
+
 body:not(.is-mobile) :is(.menu .menu-item, .prompt .suggestion-item, .suggestion-container .suggestion-item) {
   border-radius: var(--db-radius-detail);
   color: var(--db-ink);

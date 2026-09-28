@@ -70,19 +70,22 @@
 
 ### 交给 Agent 安装
 
-如果你的 Agent 可以访问本仓库和 Obsidian，复制以下指令并替换 Vault 占位符：
+如果你的 Agent 可以访问目标 Obsidian Vault，复制以下指令并替换 Vault 占位符：
 
 <details>
 <summary>展开完整安装指令</summary>
 
 ```text
-请把当前仓库的 Doodle Blocks 完整安装到我的 Obsidian 桌面端 Vault：<Vault 名称或绝对路径>。先确认目标 Vault；若无法唯一确定，向我询问。
+项目地址：https://github.com/CoffeeCheese/obsidian-doodle-blocks
+Release 发布页：https://github.com/CoffeeCheese/obsidian-doodle-blocks/releases/latest
+目标 Obsidian 桌面端 Vault：<Vault 名称或绝对路径>
 
-阅读 README.md 和交付文件后：
-1. 将 Obsidian 设为默认主题；复制并启用 snippets/ 下的 doodle-blocks.css、doodle-blocks-fonts.css、doodle-blocks-homepage.css。
-2. 安装并启用 Style Settings、Homepage 和 Dataview，在 Dataview 中启用 JavaScript 查询。把 homepage/Doodle Blocks 工作台.md 放到 Vault 根目录，并在 Homepage 中设置为启动文件和 Reading view。
-3. 保留 Vault 中其他笔记、片段和插件配置。同名交付文件已有自定义内容时，先比较并备份，再合并修改；不要直接覆盖。核对工作台的可选插件入口，列出缺失的插件。
-4. 在真实 Obsidian 中检查浅色与深色外观、代码块、字体、Style Settings、工作台数据和按钮。报告安装位置、启用状态、改动与验收结果；无法完成的项目说明原因和需要我操作的步骤。
+请将上述项目的 Doodle Blocks 完整安装到目标 Vault。按顺序完成：
+1. 确认目标 Vault；若无法唯一确定，向我询问。有 Git 时可从项目地址获取最新 main 分支；没有 Git 或克隆失败时，从 Release 发布页的 Assets 下载 `doodle-blocks-v*.zip` 并解压。两种方式都无法获取文件时，向我索取本地仓库或发布包的绝对路径。
+2. 以克隆目录或解压目录为项目根目录，阅读其中的 README.md 和交付文件。将 Obsidian 设为默认主题；复制并启用 snippets/ 下的 doodle-blocks.css、doodle-blocks-fonts.css、doodle-blocks-homepage.css。
+3. 安装并启用 Style Settings、Homepage 和 Dataview，在 Dataview 中启用 JavaScript 查询。把 homepage/Doodle Blocks 工作台.md 放到 Vault 根目录，并在 Homepage 中设置为启动文件和 Reading view。
+4. 保留 Vault 中其他笔记、片段和插件配置。同名交付文件已有自定义内容时，先比较并备份，再合并修改；不要直接覆盖。核对工作台的可选插件入口，列出缺失的插件。
+5. 在真实 Obsidian 中检查浅色与深色外观、代码块、字体、Style Settings、工作台数据和按钮。报告安装来源（main 提交或 Release 版本）、安装位置、启用状态、改动与验收结果；无法完成的项目说明原因和需要我操作的步骤。
 ```
 
 </details>

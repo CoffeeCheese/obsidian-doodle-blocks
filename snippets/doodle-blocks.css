@@ -273,7 +273,7 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav
 
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-folder-title {
   min-height: 32px;
-  padding-block: 6px;
+  padding-block: 4px;
 }
 
 /* Space sibling groups; descendant folders never inherit extra parent gaps. */
@@ -373,7 +373,6 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-fol
     linear-gradient(var(--db-paper), var(--db-paper));
   --db-folder-paper-size: 6.2px 2.7px, 100% 9px, 9px 10px;
   --db-folder-paper-position: 7px 13.4px, 0 10.5px, 6.5px 6px;
-  padding-block: 4px;
 }
 
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
@@ -435,7 +434,6 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-fil
 }
 
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".md" i] {
-  --db-file-fill: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%203h9l5%205v13H5z%22%2F%3E%3C%2Fsvg%3E");
   --db-file-lines: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%203h9l5%205v13H5z%22%2F%3E%3Cpath%20d%3D%22M14%203v5h5%22%2F%3E%3Cpath%20d%3D%22M8.5%2012h7M8.5%2016h5%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
   --db-file-accent: linear-gradient(var(--db-sun), var(--db-sun));
   --db-file-accent-size: 4px 4px;
@@ -472,7 +470,6 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-fil
 }
 
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".css" i] {
-  --db-file-fill: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%203h9l5%205v13H5z%22%2F%3E%3C%2Fsvg%3E");
   --db-file-lines: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%203h9l5%205v13H5z%22%2F%3E%3Cpath%20d%3D%22M14%203v5h5%22%2F%3E%3Cpath%20d%3D%22m10%2012-3%203%203%203m4-6%203%203-3%203%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
 }
 

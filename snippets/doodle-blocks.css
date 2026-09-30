@@ -53,7 +53,7 @@ settings:
   -
     id: doodle-blocks-quiet-controls
     title: 减少控件触感
-    description: 移除按钮、表单和文件树的装饰阴影与过渡，取消文件树悬停浮起；系统减少动态偏好始终优先。
+    description: 移除按钮、表单和文件树的装饰阴影，并减少控件过渡；文件树始终使用即时反馈，系统减少动态偏好始终优先。
     type: class-toggle
     default: false
 */
@@ -245,16 +245,14 @@ body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([d
   color: var(--db-ink);
 }
 
-/* File explorer: keep native hit targets still; paint the floating card separately.
+/* File explorer: compact static cards keep native hit targets still.
+   Avoid animating every filename/icon: pointer sweeps should not accumulate transitions.
    Native inline indentation and the collapse arrow remain owned by Obsidian. */
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] {
-  --db-tree-lift: translate(1px, -1px);
   --db-tree-hover-shadow: 2px 2px 0 var(--db-shadow);
   /* Cap vertical paint at the inter-card gap without changing row density. */
   --db-tree-active-shadow: var(--doodle-blocks-selection-shadow, 2px)
     min(var(--doodle-blocks-selection-shadow, 2px), 2px) 0 var(--db-shadow);
-  --db-tree-transition: transform 145ms cubic-bezier(.22, .75, .25, 1),
-    background-color 145ms ease, border-color 145ms ease, box-shadow 145ms ease;
 }
 
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title) {
@@ -290,13 +288,15 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav
   border: 1px solid transparent;
   border-radius: var(--db-radius-detail);
   pointer-events: none;
-  transition: var(--db-tree-transition);
+  /* Immediate feedback avoids per-row transition/compositing work in large vaults. */
+  transition: none;
 }
 
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
   :is(.nav-file-title-content, .nav-folder-title-content, .nav-file-tag) {
   position: relative;
-  transition: var(--db-tree-transition);
+  /* Immediate feedback avoids per-row transition/compositing work in large vaults. */
+  transition: none;
 }
 
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
@@ -304,13 +304,6 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
   border-color: var(--db-ink);
   background-color: var(--db-paper);
   box-shadow: var(--db-tree-hover-shadow);
-  transform: var(--db-tree-lift);
-}
-
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
-  :is(.nav-file-title, .nav-folder-title):is(:hover, :focus-visible, .has-focus) >
-  :is(.nav-file-title-content, .nav-folder-title-content, .nav-file-tag) {
-  transform: var(--db-tree-lift);
 }
 
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title).is-active {
@@ -335,12 +328,11 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
   border-style: dashed;
 }
 
-/* Editable names and native drop feedback take precedence over decorative lift. */
+/* Native rename/drop classes suppress decorative shadows without descendant :has scans. */
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
-  :is(.nav-file-title, .nav-folder-title):is(:has([contenteditable="true"]), .is-being-dragged, .is-drag-over),
+  :is(.nav-file-title, .nav-folder-title):is(.is-being-renamed, .is-being-dragged, .is-drag-over),
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
   :is(.nav-file, .nav-folder):is(.is-being-dragged, .is-being-dragged-over) > :is(.nav-file-title, .nav-folder-title) {
-  --db-tree-lift: none;
   --db-tree-hover-shadow: none;
 }
 
@@ -352,16 +344,8 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
 }
 
 body:not(.is-mobile).doodle-blocks-quiet-controls .workspace-leaf-content[data-type="file-explorer"] {
-  --db-tree-lift: none;
   --db-tree-hover-shadow: none;
   --db-tree-active-shadow: none;
-  --db-tree-transition: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] {
-    --db-tree-transition: none;
-  }
 }
 
 /* Hand-drawn folder: colorable silhouette + ink lines, no injected icon DOM. */
@@ -421,116 +405,6 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-fol
 
 body:not(.is-mobile).doodle-blocks-quiet-controls .workspace-leaf-content[data-type="file-explorer"] .nav-folder-title-content::before {
   filter: none;
-}
-
-/* File types follow native data-path; unknown extensions keep a document icon. */
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title {
-  --db-tree-icon-cyan: color-mix(in srgb, var(--db-cyan) 40%, var(--db-paper));
-  --db-file-fill: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%203h9l5%205v13H5z%22%2F%3E%3C%2Fsvg%3E");
-  --db-file-lines: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%203h9l5%205v13H5z%22%2F%3E%3Cpath%20d%3D%22M14%203v5h5%22%2F%3E%3Cpath%20d%3D%22M9%2012h6M9%2016h6%22%20stroke-dasharray%3D%221%203%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-  --db-file-accent: none;
-  --db-file-accent-size: auto;
-  --db-file-accent-position: 0 0;
-}
-
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".md" i] {
-  --db-file-lines: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%203h9l5%205v13H5z%22%2F%3E%3Cpath%20d%3D%22M14%203v5h5%22%2F%3E%3Cpath%20d%3D%22M8.5%2012h7M8.5%2016h5%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-  --db-file-accent: linear-gradient(var(--db-sun), var(--db-sun));
-  --db-file-accent-size: 4px 4px;
-  --db-file-accent-position: 10.5px 2.25px;
-}
-
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".png" i],
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".jpg" i],
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".jpeg" i],
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".gif" i],
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".webp" i],
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".svg" i] {
-  --db-file-fill: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20x%3D%223%22%20y%3D%224%22%20width%3D%2218%22%20height%3D%2216%22%20rx%3D%222%22%2F%3E%3C%2Fsvg%3E");
-  --db-file-lines: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%224%22%20width%3D%2218%22%20height%3D%2216%22%20rx%3D%222%22%2F%3E%3Ccircle%20cx%3D%2215.5%22%20cy%3D%228.5%22%20r%3D%222%22%2F%3E%3Cpath%20d%3D%22m3%2017%206-6%205%205%203-3%204%204%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-  --db-file-accent: radial-gradient(circle, var(--db-sun) 62%, transparent 66%), linear-gradient(135deg, transparent 30%, var(--db-tree-icon-cyan) 31%);
-  --db-file-accent-size: 3.5px 3.5px, 13.5px 7px;
-  --db-file-accent-position: 9.875px 4.625px, 2.25px 8px;
-}
-
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".pdf" i] {
-  --db-file-fill: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%203h9l5%205v13H5z%22%2F%3E%3Cpath%20d%3D%22M2.5%2011h14v7h-14z%22%2F%3E%3C%2Fsvg%3E");
-  --db-file-lines: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%203h9l5%205v13H5z%22%2F%3E%3Cpath%20d%3D%22M14%203v5h5%22%2F%3E%3Cpath%20d%3D%22M2.5%2011h14v7h-14z%22%2F%3E%3Cpath%20d%3D%22M6%2016v-3h2v1.5H6M10.5%2013v3h1.5v-3zM14%2016v-3h1.5M14%2014.5h1%22%20stroke-width%3D%221%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-  --db-file-accent: linear-gradient(var(--db-sun), var(--db-sun));
-  --db-file-accent-size: 10.5px 5.25px;
-  --db-file-accent-position: 1.875px 8.25px;
-}
-
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".canvas" i] {
-  --db-file-fill: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2215%22%20y%3D%224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%2214%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%2214%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3C%2Fsvg%3E");
-  --db-file-lines: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M9%207h6M7%2010v4M10%2017h4M17%2010v4%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2215%22%20y%3D%224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%2214%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%2214%22%20width%3D%227%22%20height%3D%227%22%20rx%3D%221.5%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-  --db-file-accent: linear-gradient(var(--db-sun), var(--db-sun)), linear-gradient(var(--db-tree-icon-cyan), var(--db-tree-icon-cyan));
-  --db-file-accent-size: 5.25px 5.25px, 4.5px 4.5px;
-  --db-file-accent-position: 2.25px 2.25px, 3px 10.5px;
-}
-
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".css" i] {
-  --db-file-lines: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%203h9l5%205v13H5z%22%2F%3E%3Cpath%20d%3D%22M14%203v5h5%22%2F%3E%3Cpath%20d%3D%22m10%2012-3%203%203%203m4-6%203%203-3%203%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-}
-
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".mp4" i] {
-  --db-file-fill: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20x%3D%223%22%20y%3D%224%22%20width%3D%2218%22%20height%3D%2216%22%20rx%3D%222%22%2F%3E%3C%2Fsvg%3E");
-  --db-file-lines: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%224%22%20width%3D%2218%22%20height%3D%2216%22%20rx%3D%222%22%2F%3E%3Cpath%20d%3D%22m10%208%206%204-6%204z%22%2F%3E%3Cpath%20d%3D%22M6%204v16M18%204v16%22%20stroke-width%3D%221%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-  --db-file-accent: linear-gradient(var(--db-sun), var(--db-sun));
-  --db-file-accent-size: 4.5px 6px;
-  --db-file-accent-position: 7.5px 6px;
-}
-
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".m4a" i],
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".mp3" i],
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".wav" i],
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".ogg" i] {
-  --db-file-fill: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%203h14v18H5z%22%2F%3E%3C%2Fsvg%3E");
-  --db-file-lines: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%203h14v18H5zM9%2015h1V9l6-1v6h-1M10%2012l6-1%22%2F%3E%3Ccircle%20cx%3D%228%22%20cy%3D%2216%22%20r%3D%222%22%2F%3E%3Ccircle%20cx%3D%2214%22%20cy%3D%2215%22%20r%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-  --db-file-accent: radial-gradient(circle, var(--db-sun) 62%, transparent 66%), radial-gradient(circle, var(--db-sun) 62%, transparent 66%);
-  --db-file-accent-size: 3px 3px, 3px 3px;
-  --db-file-accent-position: 4.5px 10.5px, 9px 9.75px;
-}
-
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path$=".zip" i] {
-  --db-file-fill: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%203h14v18H5z%22%2F%3E%3C%2Fsvg%3E");
-  --db-file-lines: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%203h14v18H5zM10%203h4v12h-4zM10%206h4m-4%203h4m-4%203h4m-3%205h2v2h-2z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-  --db-file-accent: linear-gradient(var(--db-sun), var(--db-sun));
-  --db-file-accent-size: 3px 9px;
-  --db-file-accent-position: 7.5px 2.25px;
-}
-
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title-content {
-  min-width: 0;
-  padding-inline-start: 26px;
-  line-height: max(1.3em, 20px);
-}
-
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title-content::before,
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title-content::after {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  inset-inline-start: 1px;
-  top: calc(50% - 9px);
-  pointer-events: none;
-  mask-size: contain;
-  mask-repeat: no-repeat;
-}
-
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title-content::before {
-  background-color: var(--db-paper);
-  background-image: var(--db-file-accent);
-  background-size: var(--db-file-accent-size);
-  background-position: var(--db-file-accent-position);
-  background-repeat: no-repeat;
-  mask-image: var(--db-file-fill);
-}
-
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-file-title-content::after {
-  background-color: var(--db-ink);
-  mask-image: var(--db-file-lines);
 }
 
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type="outline"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="search"]) .tree-item-self:not(.is-active):hover {

@@ -53,7 +53,7 @@ settings:
   -
     id: doodle-blocks-quiet-controls
     title: 减少控件触感
-    description: 移除按钮和表单的装饰阴影与过渡；系统减少动态偏好始终优先。
+    description: 移除按钮、表单和文件树的装饰阴影与过渡，取消文件树悬停浮起；系统减少动态偏好始终优先。
     type: class-toggle
     default: false
 */

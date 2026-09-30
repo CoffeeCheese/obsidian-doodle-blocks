@@ -31,7 +31,7 @@
 2. 下载 [`doodle-blocks.css`](snippets/doodle-blocks.css)，放入目标 Vault 的 `.obsidian/snippets/` 目录。
 3. 在「设置 → 外观 → CSS 样式代码片段」刷新列表，启用 `doodle-blocks`。
 
-完成后即可看到 Doodle Blocks 的工作区、笔记、代码块、新标签页和原生控件。无需 npm 或构建。
+完成后即可看到 Doodle Blocks 的工作区、文件树、笔记、代码块、新标签页和原生控件。无需 npm 或构建。
 
 ### 按功能安装插件
 
@@ -96,7 +96,7 @@ Doodle Blocks 用奶油纸面、墨线边框、黄色活动状态和青色选中
 
 | 部分与文件 | 用途 |
 | --- | --- |
-| **主题样式**<br>[`doodle-blocks.css`](snippets/doodle-blocks.css) | 浅深色工作区、纸签标签、笔记排版、代码块、新标签页与原生控件。可单独使用。 |
+| **主题样式**<br>[`doodle-blocks.css`](snippets/doodle-blocks.css) | 浅深色工作区、纸签标签、手绘文件树、笔记排版、代码块、新标签页与原生控件。可单独使用。 |
 | **手写字体**<br>[`doodle-blocks-fonts.css`](snippets/doodle-blocks-fonts.css) | 离线的中英手写标题字体；不改变正文或代码字体。 |
 | **首页工作台**<br>[工作台笔记](homepage/Doodle%20Blocks%20工作台.md) + [专用样式](snippets/doodle-blocks-homepage.css) | 今日总览、快速入口、待办与提醒、项目进度、知识库概览、最近笔记和本周日记。 |
 
@@ -105,6 +105,8 @@ Doodle Blocks 用奶油纸面、墨线边框、黄色活动状态和青色选中
 ## 使用与兼容
 
 - **适配范围**：Obsidian 桌面端默认主题，支持浅色与深色模式。
+- **文件树**：启用主片段即可获得手绘黄色文件夹、笔记及附件类型图标和紧凑的悬停纸卡，无需图标插件。青色表示当前文件；经过其他文件不会自动打开。附件是否可见仍遵循 Obsidian 的文件类型显示设置。
+- **文件树触感**：在 Style Settings 中调整「选中项阴影」或开启「减少控件触感」。后者取消文件树浮起与装饰阴影，保留静态辨识；系统减少动态偏好会取消过渡。图标配色跟随现有纸面、墨色、黄色和青色设置。
 - **更新与撤销**：替换相应 CSS 文件并刷新代码片段列表；停用片段即可撤销外观。
 - **授权**：项目采用 [MIT 许可证](LICENSE)。内嵌字体的来源与授权见 [SOURCES.md](snippets/fonts/SOURCES.md)。
 

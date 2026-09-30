@@ -236,7 +236,6 @@ body:not(.is-mobile) .workspace-ribbon .side-dock-ribbon-action.is-active {
   box-shadow: var(--doodle-blocks-selection-shadow, 2px) var(--doodle-blocks-selection-shadow, 2px) 0 var(--db-shadow);
 }
 
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title).is-active,
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type="outline"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="search"]) .tree-item-self.is-active {
   border: 1px solid var(--db-ink);
   border-inline-start: 4px solid var(--db-cyan);
@@ -246,12 +245,125 @@ body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([d
   color: var(--db-ink);
 }
 
+/* File explorer: keep native hit targets still; paint the floating card separately.
+   Native inline indentation and the collapse arrow remain owned by Obsidian. */
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] {
+  --db-tree-lift: translate(1px, -1px);
+  --db-tree-hover-shadow: 2px 2px 0 var(--db-shadow);
+  /* Cap vertical paint at the inter-card gap without changing row density. */
+  --db-tree-active-shadow: var(--doodle-blocks-selection-shadow, 2px)
+    min(var(--doodle-blocks-selection-shadow, 2px), 2px) 0 var(--db-shadow);
+  --db-tree-transition: transform 145ms cubic-bezier(.22, .75, .25, 1),
+    background-color 145ms ease, border-color 145ms ease, box-shadow 145ms ease;
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title) {
+  position: relative;
+  isolation: isolate;
+  min-height: 28px;
+  margin-block: 0;
+  margin-inline-end: 4px;
+  padding-block: 4px;
+  border: 0;
+  border-radius: var(--db-radius-detail);
+  background: transparent;
+  box-shadow: none;
+  color: var(--db-ink);
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-folder-title {
+  min-height: 32px;
+  padding-block: 6px;
+}
+
+/* Space sibling groups; descendant folders never inherit extra parent gaps. */
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-folder + .nav-folder {
+  margin-block-start: 6px;
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title)::before {
+  content: "";
+  position: absolute;
+  inset: 2px 0;
+  box-sizing: border-box;
+  z-index: -1;
+  border: 1px solid transparent;
+  border-radius: var(--db-radius-detail);
+  pointer-events: none;
+  transition: var(--db-tree-transition);
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
+  :is(.nav-file-title-content, .nav-folder-title-content, .nav-file-tag) {
+  position: relative;
+  transition: var(--db-tree-transition);
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
+  :is(.nav-file-title, .nav-folder-title):is(:hover, :focus-visible, .has-focus)::before {
+  border-color: var(--db-ink);
+  background-color: var(--db-paper);
+  box-shadow: var(--db-tree-hover-shadow);
+  transform: var(--db-tree-lift);
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
+  :is(.nav-file-title, .nav-folder-title):is(:hover, :focus-visible, .has-focus) >
+  :is(.nav-file-title-content, .nav-folder-title-content, .nav-file-tag) {
+  transform: var(--db-tree-lift);
+}
+
 body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title).is-active {
-  margin-inline: 4px;
   font-weight: 700;
 }
 
-body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title):not(.is-active):hover,
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] :is(.nav-file-title, .nav-folder-title).is-active::before {
+  border-color: var(--db-ink);
+  border-inline-start: 4px solid var(--db-cyan);
+  background-color: var(--db-selected);
+  box-shadow: var(--db-tree-active-shadow);
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] .nav-files-container
+  :is(.nav-file-title, .nav-folder-title):is(:focus-visible, .has-focus, .has-active-menu) {
+  outline: none;
+  box-shadow: none;
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
+  :is(.nav-file-title, .nav-folder-title):is(:focus-visible, .has-focus)::before {
+  border-style: dashed;
+}
+
+/* Editable names and native drop feedback take precedence over decorative lift. */
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
+  :is(.nav-file-title, .nav-folder-title):is(:has([contenteditable="true"]), .is-being-dragged, .is-drag-over),
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
+  :is(.nav-file, .nav-folder):is(.is-being-dragged, .is-being-dragged-over) > :is(.nav-file-title, .nav-folder-title) {
+  --db-tree-lift: none;
+  --db-tree-hover-shadow: none;
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"]
+  :is(.nav-file-title-content, .nav-folder-title-content)[contenteditable="true"] {
+  overflow: visible;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+body:not(.is-mobile).doodle-blocks-quiet-controls .workspace-leaf-content[data-type="file-explorer"] {
+  --db-tree-lift: none;
+  --db-tree-hover-shadow: none;
+  --db-tree-active-shadow: none;
+  --db-tree-transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:not(.is-mobile) .workspace-leaf-content[data-type="file-explorer"] {
+    --db-tree-transition: none;
+  }
+}
+
 body:not(.is-mobile) .workspace-split.mod-sidedock .workspace-leaf-content:is([data-type="outline"], [data-type="backlink"], [data-type="outgoing-link"], [data-type="search"]) .tree-item-self:not(.is-active):hover {
   border-radius: var(--db-radius-detail);
   background-color: var(--db-hover);
